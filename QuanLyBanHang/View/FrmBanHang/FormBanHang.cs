@@ -47,6 +47,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             LoadSize();
             LoadKhachHang();
             loadHDcho();
+            this.CenterToScreen();
         }
 
         private void LoadMauSac()

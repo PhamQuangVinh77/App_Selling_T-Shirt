@@ -20,6 +20,7 @@ namespace QuanLyBanHang.View.FrmDangNhap
         {
             InitializeComponent();
             qLnhanVienServices = new QLnhanVienServices();
+            this.CenterToScreen();
             email = emailDoiMK;
         }
 
@@ -40,6 +41,8 @@ namespace QuanLyBanHang.View.FrmDangNhap
                 qLnhanVienServices.UpdateNhanVien(nv);
                 MessageBox.Show("Đổi mật khẩu thành công!");
                 this.Hide();
+                FormDangNhap frmDangNhap = new FormDangNhap();
+                frmDangNhap.ShowDialog();
             }
         }
 

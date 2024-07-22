@@ -39,7 +39,7 @@ namespace DAL_QuanLy.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Data Source=VINHPQ-LAPTOP\SQLEXPRESS;Initial Catalog=QuanLyCuaHangAoPhong;Integrated Security=True");
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8LST6U5\SQLEXPRESS;Initial Catalog=TSHIRT_SHOP_DATA;Integrated Security=True;Trust Server Certificate=True");
             }
         }
 
@@ -47,8 +47,8 @@ namespace DAL_QuanLy.Context
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly()); //Chạy file Configuraions
 
-            //    //Seeding data - Add data từ file ModelBuilderExtensions vào model sau khi khởi tạo
-            //    modelBuilder.Seed();
+            //Seeding data - Add data từ file ModelBuilderExtensions vào model sau khi khởi tạo
+            modelBuilder.Seed();
 
         }
     }

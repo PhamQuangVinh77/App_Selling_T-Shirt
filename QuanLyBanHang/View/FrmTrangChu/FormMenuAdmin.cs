@@ -138,7 +138,7 @@ namespace QuanLyBanHang.View.FrmTrangChu
 
         private void btn_Thoat_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("bạn có muốn thoát khỏi chương trình không?", "Cảnh báo!", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn thoát khỏi chương trình không?", "Cảnh báo!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 this.Close();

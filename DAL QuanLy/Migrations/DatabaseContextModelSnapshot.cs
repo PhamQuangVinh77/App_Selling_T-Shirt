@@ -57,6 +57,18 @@ namespace DAL_QuanLy.Migrations
                     b.HasKey("IDChucVu");
 
                     b.ToTable("chucVu", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            IDChucVu = 1,
+                            tenCV = "Quản lý"
+                        },
+                        new
+                        {
+                            IDChucVu = 2,
+                            tenCV = "Nhân viên"
+                        });
                 });
 
             modelBuilder.Entity("_1_DAL_QUANLY.Models.hangSX", b =>
@@ -165,6 +177,17 @@ namespace DAL_QuanLy.Migrations
                     b.HasKey("SDT_KH");
 
                     b.ToTable("khachHang", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            SDT_KH = "0000000000",
+                            TenKH = "Khách lẻ",
+                            diaChi = "Hà Nội",
+                            diemTichluy = 0,
+                            gioiTinh = false,
+                            trangThai = true
+                        });
                 });
 
             modelBuilder.Entity("_1_DAL_QUANLY.Models.mauSac", b =>
@@ -246,6 +269,19 @@ namespace DAL_QuanLy.Migrations
                     b.HasIndex("IDChucVu");
 
                     b.ToTable("nhanVien", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            IDNhanVien = 1,
+                            IDChucVu = 1,
+                            SDT = "0902096529",
+                            diaChi = "Hà Nội",
+                            email = "admin@gmail.com",
+                            matKhau = "1",
+                            tenNV = "Admin",
+                            tinhTrang = true
+                        });
                 });
 
             modelBuilder.Entity("_1_DAL_QUANLY.Models.sanPham", b =>

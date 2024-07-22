@@ -23,6 +23,7 @@ namespace QuanLyBanHang.View.FrmDangNhap
         {
             InitializeComponent();
             qLnhanVienServices = new QLnhanVienServices();
+            this.CenterToScreen();
         }
 
         private void btn_Send_Click(object sender, EventArgs e)
@@ -42,7 +43,7 @@ namespace QuanLyBanHang.View.FrmDangNhap
                     otp = random.Next(100000, 1000000);
                     var fromEmail = new MailAddress(qLnhanVienServices.GetNhanVienFromDB().FirstOrDefault(x => x.chucVus.tenCV == "Quản lý").nhanViens.email);
                     var toEmail = new MailAddress(txt_Email.Text);
-                    const string pass = "efsrnwcwpkgjdsnd";
+                    const string pass = "ixnlzhmqsnoyborm";
 
                     var smtp = new SmtpClient
                     {

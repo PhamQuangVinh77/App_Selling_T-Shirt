@@ -30,6 +30,7 @@ namespace QuanLyBanHang.View.FrmDangNhap
 
         private void llForgotpassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.Hide();
             FormQuenMatKhau formQuenMatKhau = new FormQuenMatKhau();
             formQuenMatKhau.ShowDialog();
         }

@@ -265,6 +265,26 @@ namespace DAL_QuanLy.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "chucVu",
+                columns: new[] { "IDChucVu", "tenCV" },
+                values: new object[] { 1, "Quản lý" });
+
+            migrationBuilder.InsertData(
+                table: "chucVu",
+                columns: new[] { "IDChucVu", "tenCV" },
+                values: new object[] { 2, "Nhân viên" });
+
+            migrationBuilder.InsertData(
+                table: "khachHang",
+                columns: new[] { "SDT_KH", "TenKH", "diaChi", "diemTichluy", "gioiTinh", "trangThai" },
+                values: new object[] { "0000000000", "Khách lẻ", "Hà Nội", 0, false, true });
+
+            migrationBuilder.InsertData(
+                table: "nhanVien",
+                columns: new[] { "IDNhanVien", "IDChucVu", "SDT", "diaChi", "email", "matKhau", "tenNV", "tinhTrang" },
+                values: new object[] { 1, 1, "0902096529", "Hà Nội", "admin@gmail.com", "1", "Admin", true });
+
             migrationBuilder.CreateIndex(
                 name: "IX_hoaDon_IDNhanVien",
                 table: "hoaDon",
