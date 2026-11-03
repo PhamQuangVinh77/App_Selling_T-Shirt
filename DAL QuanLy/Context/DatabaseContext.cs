@@ -1,13 +1,7 @@
-﻿using _1_DAL_QUANLY.Configurations;
-using _1_DAL_QUANLY.Extensions;
+﻿using _1_DAL_QUANLY.Extensions;
 using _1_DAL_QUANLY.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL_QuanLy.Context
 {
