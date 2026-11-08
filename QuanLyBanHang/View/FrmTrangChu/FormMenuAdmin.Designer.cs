@@ -48,7 +48,6 @@
             pnl_Home = new Panel();
             button1 = new Button();
             lbl_Home = new Label();
-            btn_X = new Button();
             pnl_ManChinh = new Panel();
             pictureBox2 = new PictureBox();
             pnl_Menu.SuspendLayout();
@@ -294,7 +293,6 @@
             btn_TrangChu.TabIndex = 1;
             btn_TrangChu.Text = "TRANG CHỦ";
             btn_TrangChu.UseVisualStyleBackColor = false;
-            btn_TrangChu.Click += btn_TrangChu_Click;
             // 
             // panel1
             // 
@@ -312,7 +310,6 @@
             pnl_Home.BackColor = Color.FromArgb(224, 224, 224);
             pnl_Home.Controls.Add(button1);
             pnl_Home.Controls.Add(lbl_Home);
-            pnl_Home.Controls.Add(btn_X);
             pnl_Home.Location = new Point(231, 4);
             pnl_Home.Margin = new Padding(4, 3, 4, 3);
             pnl_Home.Name = "pnl_Home";
@@ -342,21 +339,8 @@
             lbl_Home.Name = "lbl_Home";
             lbl_Home.Size = new Size(671, 42);
             lbl_Home.TabIndex = 1;
-            lbl_Home.Text = "Chào Mừng Bạn Đến Với FPOLY  T-SHIRT";
-            // 
-            // btn_X
-            // 
-            btn_X.BackColor = Color.FromArgb(224, 224, 224);
-            btn_X.Font = new Font("Segoe UI Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_X.ForeColor = SystemColors.ActiveCaptionText;
-            btn_X.Location = new Point(1851, 13);
-            btn_X.Margin = new Padding(4, 3, 4, 3);
-            btn_X.Name = "btn_X";
-            btn_X.Size = new Size(50, 37);
-            btn_X.TabIndex = 0;
-            btn_X.Text = "X";
-            btn_X.UseVisualStyleBackColor = false;
-            // 
+            lbl_Home.Text = "Chào Mừng Bạn Đến Với FPOLY T-SHIRT";
+            //
             // pnl_ManChinh
             // 
             pnl_ManChinh.Controls.Add(pictureBox2);
@@ -417,7 +401,6 @@
         private Panel panel1;
         private Panel pnl_Home;
         private Label lbl_Home;
-        private Button btn_X;
         private Panel pnl_ManChinh;
         private PictureBox pictureBox2;
         private Button button1;

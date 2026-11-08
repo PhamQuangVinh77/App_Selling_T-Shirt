@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL_QuanLy.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240720085722_Migrations")]
-    partial class Migrations
+    [Migration("20261104024439_V1")]
+    partial class V1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

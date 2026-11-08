@@ -45,8 +45,8 @@ namespace QuanLyBanHang.View.FrmSanPham
             LoadSize();
             LoadSanPham();
             LoadData();
-            ptb_Anh.Image = Image.FromFile(@".\empty.jpg");
-            imageLink = @".\empty.jpg";
+            ptb_Anh.Image = Image.FromFile(@".\image\empty.jpg");
+            imageLink = @".\image\empty.jpg";
         }
 
         private void LoadSanPham()

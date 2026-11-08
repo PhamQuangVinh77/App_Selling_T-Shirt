@@ -33,7 +33,7 @@ namespace DAL_QuanLy.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8LST6U5\SQLEXPRESS;Initial Catalog=TSHIRT_SHOP_DATA;Integrated Security=True;Trust Server Certificate=True");
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8KJLVH5\SQLEXPRESS;Initial Catalog=TSHIRT_SHOP_DATA;Integrated Security=True;Trust Server Certificate=True");
             }
         }
 

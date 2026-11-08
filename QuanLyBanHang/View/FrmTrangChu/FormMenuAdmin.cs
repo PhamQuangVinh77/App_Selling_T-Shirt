@@ -1,38 +1,32 @@
 ﻿using QuanLyBanHang.View.FrmBanHang;
-using QuanLyBanHang.View.FrmSanPham;
-using QuanLyBanHang.View;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using QuanLyBanHang.View.FrmNhaCungCap;
-using QuanLyBanHang.View.FrmHangSanXuat;
 using QuanLyBanHang.View.FrmChatLieu;
-using QuanLyBanHang.View.FrmMauSac;
-using QuanLyBanHang.View.FrmSize;
+using QuanLyBanHang.View.FrmDangNhap;
+using QuanLyBanHang.View.FrmHangSanXuat;
 using QuanLyBanHang.View.FrmHoaDon;
-using QuanLyBanHang.View.FrmNhanVien;
 using QuanLyBanHang.View.FrmKhachHang;
 using QuanLyBanHang.View.FrmLoaiSP;
+using QuanLyBanHang.View.FrmMauSac;
+using QuanLyBanHang.View.FrmNhaCungCap;
+using QuanLyBanHang.View.FrmNhanVien;
+using QuanLyBanHang.View.FrmSanPham;
+using QuanLyBanHang.View.FrmSize;
 
 namespace QuanLyBanHang.View.FrmTrangChu
 {
     public partial class FormMenuAdmin : Form
     {
+        private FormDangNhap _formDangNhap;
         private Button currentButton;
         private Random random;
         private int tempIndex;
         private Form activeForm;
-        public FormMenuAdmin()
+        public FormMenuAdmin(FormDangNhap formDangNhap)
         {
+            _formDangNhap = formDangNhap;
+            _formDangNhap.Hide();
             InitializeComponent();
             random = new Random();
-            btn_X.Visible = false;
+            button1.Visible = false;
             this.Text = string.Empty;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
@@ -51,7 +45,7 @@ namespace QuanLyBanHang.View.FrmTrangChu
                     pnl_Home.BackColor = color;
                     //ThemeColor.PrimaryColor = color;
                     //ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-                    btn_X.Visible = true;
+                    button1.Visible = true;
                 }
             }
         }
@@ -123,8 +117,7 @@ namespace QuanLyBanHang.View.FrmTrangChu
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (activeForm != null)
-                activeForm.Close();
+            activeForm.Close();
             Reset();
         }
 
@@ -133,7 +126,7 @@ namespace QuanLyBanHang.View.FrmTrangChu
             DisableButton();
             lbl_Home.Text = "Chào mừng bạn đến với FPOLY TSHIRT";
             currentButton = null;
-            btn_X.Visible = false;
+            button1.Visible = false;
         }
 
         private void btn_Thoat_Click(object sender, EventArgs e)
@@ -142,6 +135,7 @@ namespace QuanLyBanHang.View.FrmTrangChu
             if (dialogResult == DialogResult.Yes)
             {
                 this.Close();
+                _formDangNhap.Show();
             }
             else
             {
@@ -201,11 +195,6 @@ namespace QuanLyBanHang.View.FrmTrangChu
         {
             OpenChildForm(new FormKhachHang(), sender);
             lbl_Home.Text = btn_khachHang.Text;
-        }
-
-        private void btn_TrangChu_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

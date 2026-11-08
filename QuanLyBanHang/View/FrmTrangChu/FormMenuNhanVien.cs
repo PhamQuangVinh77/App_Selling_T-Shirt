@@ -1,30 +1,20 @@
 ﻿using QuanLyBanHang.View.FrmBanHang;
-using QuanLyBanHang.View.FrmChatLieu;
-using QuanLyBanHang.View.FrmHangSanXuat;
+using QuanLyBanHang.View.FrmDangNhap;
 using QuanLyBanHang.View.FrmHoaDon;
-using QuanLyBanHang.View.FrmMauSac;
-using QuanLyBanHang.View.FrmNhaCungCap;
-using QuanLyBanHang.View.FrmSize;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyBanHang.View.FrmTrangChu
 {
     public partial class FormMenuNhanVien : Form
     {
+        private FormDangNhap _formDangNhap;
         private Button currentButton;
         private Random random;
         private int tempIndex;
         private Form activeForm;
-        public FormMenuNhanVien()
+        public FormMenuNhanVien(FormDangNhap formDangNhap)
         {
+            _formDangNhap = formDangNhap;
+            _formDangNhap.Hide();
             InitializeComponent();
             random = new Random();
             btn_X.Visible = false;
@@ -96,8 +86,7 @@ namespace QuanLyBanHang.View.FrmTrangChu
 
         private void btn_X_Click(object sender, EventArgs e)
         {
-            if (activeForm != null)
-                activeForm.Close();
+            activeForm.Close();
             Reset();
         }
 
@@ -115,6 +104,7 @@ namespace QuanLyBanHang.View.FrmTrangChu
             if (dialogResult == DialogResult.Yes)
             {
                 this.Close();
+                _formDangNhap.Show();
             }
             else
             {

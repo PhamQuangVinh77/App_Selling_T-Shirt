@@ -50,7 +50,7 @@ namespace QuanLyBanHang.View.FrmDangNhap
                         MessageBox.Show("Đăng nhập với tư cách quản lí");
                         Properties.Settings.Default.email = txt_taiKhoan.Text;
                         Properties.Settings.Default.Save();
-                        FormMenuAdmin frmTrangChu = new FormMenuAdmin();
+                        FormMenuAdmin frmTrangChu = new FormMenuAdmin(this);
                         frmTrangChu.ShowDialog();
                         return;
                     }
@@ -59,7 +59,7 @@ namespace QuanLyBanHang.View.FrmDangNhap
                         MessageBox.Show("Đăng nhập với tư cách nhân viên");
                         Properties.Settings.Default.email = txt_taiKhoan.Text;
                         Properties.Settings.Default.Save();
-                        FormMenuNhanVien frmTrangChuNhanVien = new FormMenuNhanVien();
+                        FormMenuNhanVien frmTrangChuNhanVien = new FormMenuNhanVien(this);
                         frmTrangChuNhanVien.ShowDialog();
                         return;
                     }
