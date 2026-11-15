@@ -10,16 +10,16 @@ namespace _1_DAL_QUANLY.Extensions
         {
             modelBuilder.Entity<chucVu>().HasData
                 (
-                new chucVu() { IDChucVu = 1, tenCV = "Quản lý" },
-                new chucVu() { IDChucVu = 2, tenCV = "Nhân viên" }
+                new chucVu() { IDChucVu = 1, tenCV = "Manager" },
+                new chucVu() { IDChucVu = 2, tenCV = "Staff" }
                 );
             modelBuilder.Entity<nhanVien>().HasData
                 (
-                new nhanVien() { IDNhanVien = 1, tenNV = "Admin", IDChucVu = 1, diaChi = "Hà Nội", SDT = "0902096529", email = "admin@gmail.com", matKhau = "1", tinhTrang = true }
+                new nhanVien() { IDNhanVien = 1, tenNV = "Admin", IDChucVu = 1, diaChi = "", SDT = "0902096529", email = "admin@gmail.com", matKhau = "1", tinhTrang = true }
                 );
             modelBuilder.Entity<khachHang>().HasData
                 (
-                new khachHang() { SDT_KH = "0000000000", TenKH = "Khách lẻ", gioiTinh = false, diaChi = "Hà Nội", trangThai = true, diemTichluy = 0 }
+                new khachHang() { SDT_KH = "0000000000", TenKH = "Guest", gioiTinh = false, diaChi = "", trangThai = true, diemTichluy = 0 }
                 );
         }
     }

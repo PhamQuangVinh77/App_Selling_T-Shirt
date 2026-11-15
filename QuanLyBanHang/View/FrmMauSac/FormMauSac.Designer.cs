@@ -55,7 +55,7 @@
             groupBox3.Size = new Size(881, 295);
             groupBox3.TabIndex = 7;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Dữ liệu";
+            groupBox3.Text = "DETAILS";
             // 
             // dtgv_MauSac
             // 
@@ -84,7 +84,7 @@
             groupBox1.Size = new Size(595, 192);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Màu sắc";
+            groupBox1.Text = "COLORS";
             // 
             // rdb_hetHang
             // 
@@ -95,7 +95,7 @@
             rdb_hetHang.Size = new Size(96, 23);
             rdb_hetHang.TabIndex = 4;
             rdb_hetHang.TabStop = true;
-            rdb_hetHang.Text = "Hết hàng";
+            rdb_hetHang.Text = "Out of Stock";
             rdb_hetHang.UseVisualStyleBackColor = true;
             // 
             // rdb_conHang
@@ -107,7 +107,7 @@
             rdb_conHang.Size = new Size(99, 23);
             rdb_conHang.TabIndex = 3;
             rdb_conHang.TabStop = true;
-            rdb_conHang.Text = "Còn hàng";
+            rdb_conHang.Text = "In Stock";
             rdb_conHang.UseVisualStyleBackColor = true;
             // 
             // txt_TenMauSac
@@ -126,7 +126,7 @@
             label2.Name = "label2";
             label2.Size = new Size(95, 19);
             label2.TabIndex = 1;
-            label2.Text = "Trạng thái :";
+            label2.Text = "Status:";
             // 
             // label1
             // 
@@ -136,7 +136,7 @@
             label1.Name = "label1";
             label1.Size = new Size(108, 19);
             label1.TabIndex = 0;
-            label1.Text = "Tên màu sắc :";
+            label1.Text = "Color:";
             // 
             // groupBox2
             // 
@@ -149,7 +149,7 @@
             groupBox2.Size = new Size(279, 192);
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Chức năng";
+            groupBox2.Text = "ACTIONS";
             // 
             // btn_Sua
             // 
@@ -158,7 +158,7 @@
             btn_Sua.Name = "btn_Sua";
             btn_Sua.Size = new Size(181, 39);
             btn_Sua.TabIndex = 1;
-            btn_Sua.Text = "CẬP NHẬP";
+            btn_Sua.Text = "UPDATE";
             btn_Sua.UseVisualStyleBackColor = true;
             btn_Sua.Click += btn_Sua_Click;
             // 
@@ -169,7 +169,7 @@
             btn_Them.Name = "btn_Them";
             btn_Them.Size = new Size(181, 39);
             btn_Them.TabIndex = 0;
-            btn_Them.Text = "THÊM";
+            btn_Them.Text = "ADD NEW";
             btn_Them.UseVisualStyleBackColor = true;
             btn_Them.Click += btn_Them_Click;
             // 

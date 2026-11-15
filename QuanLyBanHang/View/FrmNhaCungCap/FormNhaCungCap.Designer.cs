@@ -55,7 +55,7 @@
             groupBox3.Size = new Size(881, 295);
             groupBox3.TabIndex = 4;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Dữ liệu";
+            groupBox3.Text = "DETAILS";
             // 
             // dtgv_nhaCC
             // 
@@ -81,7 +81,7 @@
             groupBox2.Size = new Size(279, 192);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Chức năng";
+            groupBox2.Text = "ACTIONS";
             // 
             // btn_Sua
             // 
@@ -90,7 +90,7 @@
             btn_Sua.Name = "btn_Sua";
             btn_Sua.Size = new Size(181, 39);
             btn_Sua.TabIndex = 1;
-            btn_Sua.Text = "CẬP NHẬP";
+            btn_Sua.Text = "UPDATE";
             btn_Sua.UseVisualStyleBackColor = true;
             btn_Sua.Click += btn_Sua_Click;
             // 
@@ -101,7 +101,7 @@
             btn_Them.Name = "btn_Them";
             btn_Them.Size = new Size(181, 39);
             btn_Them.TabIndex = 0;
-            btn_Them.Text = "THÊM";
+            btn_Them.Text = "ADD NEW";
             btn_Them.UseVisualStyleBackColor = true;
             btn_Them.Click += btn_Them_Click;
             // 
@@ -119,7 +119,7 @@
             groupBox1.Size = new Size(595, 192);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Nhà cung cấp";
+            groupBox1.Text = "SUPPLIER";
             // 
             // radioButton2
             // 
@@ -127,10 +127,10 @@
             radioButton2.Location = new Point(396, 96);
             radioButton2.Margin = new Padding(4, 3, 4, 3);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(147, 23);
+            radioButton2.Size = new Size(128, 23);
             radioButton2.TabIndex = 4;
             radioButton2.TabStop = true;
-            radioButton2.Text = "Ngừng cung cấp";
+            radioButton2.Text = "Discontinued";
             radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
@@ -139,10 +139,10 @@
             radioButton1.Location = new Point(226, 96);
             radioButton1.Margin = new Padding(4, 3, 4, 3);
             radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(136, 23);
+            radioButton1.Size = new Size(104, 23);
             radioButton1.TabIndex = 3;
             radioButton1.TabStop = true;
-            radioButton1.Text = "Đang cung cấp";
+            radioButton1.Text = "Supplying";
             radioButton1.UseVisualStyleBackColor = true;
             // 
             // txt_TenNhaCC
@@ -150,7 +150,7 @@
             txt_TenNhaCC.Location = new Point(226, 46);
             txt_TenNhaCC.Margin = new Padding(4, 3, 4, 3);
             txt_TenNhaCC.Name = "txt_TenNhaCC";
-            txt_TenNhaCC.Size = new Size(320, 27);
+            txt_TenNhaCC.Size = new Size(298, 27);
             txt_TenNhaCC.TabIndex = 2;
             // 
             // label2
@@ -159,9 +159,9 @@
             label2.Location = new Point(55, 98);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(95, 19);
+            label2.Size = new Size(60, 19);
             label2.TabIndex = 1;
-            label2.Text = "Trạng thái :";
+            label2.Text = "Status:";
             // 
             // label1
             // 
@@ -169,9 +169,9 @@
             label1.Location = new Point(55, 48);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(144, 19);
+            label1.Size = new Size(79, 19);
             label1.TabIndex = 0;
-            label1.Text = "Tên nhà cung cấp :";
+            label1.Text = "Supplier:";
             // 
             // FormNhaCungCap
             // 

@@ -1,16 +1,6 @@
 ﻿using _1_DAL_QUANLY.Models;
 using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QuanLyBanHang.View.FrmMauSac
 {
@@ -29,15 +19,15 @@ namespace QuanLyBanHang.View.FrmMauSac
         {
             dtgv_MauSac.ColumnCount = 3;
             dtgv_MauSac.Columns[0].Name = "ID";
-            dtgv_MauSac.Columns[1].Name = "Màu sắc";
-            dtgv_MauSac.Columns[2].Name = "Trạng thái";
+            dtgv_MauSac.Columns[1].Name = "Color";
+            dtgv_MauSac.Columns[2].Name = "Status";
             dtgv_MauSac.Rows.Clear();
 
             var listMauSac = qLmauSacServices.GetMauSacFromDB();
             foreach (var item in listMauSac)
             {
                 dtgv_MauSac.Rows.Add(item.IDMauSac, item.tenMau,
-                    item.trangThai == true ? "Còn hàng" : "Hết hàng");
+                    item.trangThai == true ? "In Stock" : "Out of Stock");
             }
         }
 
@@ -52,14 +42,14 @@ namespace QuanLyBanHang.View.FrmMauSac
         {
             if (txt_TenMauSac.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập màu sắc!");
+                MessageBox.Show("Please enter a color!");
             }
             else
             {
                 mauSac _ms = qLmauSacServices.GetMauSacFromDB().FirstOrDefault(p => p.tenMau.ToLower() == txt_TenMauSac.Text.ToLower());
                 if (_ms != null)
                 {
-                    MessageBox.Show("Màu sắc đã tồn tại!");
+                    MessageBox.Show("Color already exists!");
                 }
                 else
                 {
@@ -69,7 +59,7 @@ namespace QuanLyBanHang.View.FrmMauSac
                         trangThai = rdb_conHang.Checked,
                     };
                     qLmauSacServices.addMauSac(mausac);
-                    MessageBox.Show("Thêm màu sắc thành công!");
+                    MessageBox.Show("Added successfully!");
                     resetForm();
                 }
             }
@@ -79,11 +69,11 @@ namespace QuanLyBanHang.View.FrmMauSac
         {
             if (txt_TenMauSac.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập màu sắc!");
+                MessageBox.Show("Please enter a color!");
             }
             else if (ms == null)
             {
-                MessageBox.Show("Vui lòng chọn màu sắc cần sửa!");
+                MessageBox.Show("Please select a color to update!");
             }
             else
             {
@@ -93,12 +83,12 @@ namespace QuanLyBanHang.View.FrmMauSac
                     ms.tenMau = txt_TenMauSac.Text;
                     ms.trangThai = rdb_conHang.Checked;
                     qLmauSacServices.UpdateMauSac(ms);
-                    MessageBox.Show("Sửa thành công!");
+                    MessageBox.Show("Updated successfully!");
                     resetForm();
                 }
                 else
                 {
-                    MessageBox.Show("Màu sắc đã tồn tại!");
+                    MessageBox.Show("Color already exists!");
                 }
             }
         }
@@ -111,7 +101,7 @@ namespace QuanLyBanHang.View.FrmMauSac
             ms = qLmauSacServices.GetMauSacFromDB().
                 FirstOrDefault(x => x.IDMauSac == Convert.ToInt32(row.Cells[0].Value));
             txt_TenMauSac.Text = row.Cells[1].Value.ToString();
-            if (row.Cells[2].Value.ToString() == "Còn hàng")
+            if (row.Cells[2].Value.ToString() == "In Stock")
             {
                 rdb_conHang.Checked = true;
             }

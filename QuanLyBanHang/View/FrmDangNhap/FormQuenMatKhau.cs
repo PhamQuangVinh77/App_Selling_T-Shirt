@@ -32,16 +32,16 @@ namespace QuanLyBanHang.View.FrmDangNhap
             {
                 if (txt_Email.Text == "")
                 {
-                    MessageBox.Show("Hãy nhập tên email để nhận mã OTP!");
+                    MessageBox.Show("Enter your email to receive the OTP.");
                 }
                 else if (qLnhanVienServices.GetNhanVienFromDB().FindIndex(x => x.nhanViens.email == txt_Email.Text) == -1)
                 {
-                    MessageBox.Show("Email không tồn tại trong hệ thống!");
+                    MessageBox.Show("Email does not exist!");
                 }
                 else
                 {
                     otp = random.Next(100000, 1000000);
-                    var fromEmail = new MailAddress(qLnhanVienServices.GetNhanVienFromDB().FirstOrDefault(x => x.chucVus.tenCV == "Quản lý").nhanViens.email);
+                    var fromEmail = new MailAddress(qLnhanVienServices.GetNhanVienFromDB().FirstOrDefault(x => x.chucVus.tenCV == "Manager").nhanViens.email);
                     var toEmail = new MailAddress(txt_Email.Text);
                     const string pass = "ixnlzhmqsnoyborm";
 
@@ -57,14 +57,14 @@ namespace QuanLyBanHang.View.FrmDangNhap
                     };
                     using (var message = new MailMessage(fromEmail, toEmail)
                     {
-                        Subject = "Mã OTP xác nhận",
-                        Body = "Mã OTP của bạn là: " + otp.ToString()
-                        + ", xác nhận để đổi mật khẩu.",
+                        Subject = "OTP Verification",
+                        Body = "Your OTP is: " + otp.ToString()
+                        + ", please verify to change your password.",
                     })
                     {
                         smtp.Send(message);
                     }
-                    MessageBox.Show("OTP đã được gửi qua mail!");
+                    MessageBox.Show("OTP has been sent to your email!");
 
                 }
 
@@ -79,11 +79,11 @@ namespace QuanLyBanHang.View.FrmDangNhap
         {
             if (otp == null)
             {
-                MessageBox.Show("Mã OTP chưa được tạo!");
+                MessageBox.Show("OTP has not been generated!");
             }
             else if (txt_otp.Text == "")
             {
-                MessageBox.Show("Hãy nhập mã OTP!");
+                MessageBox.Show("Please enter the OTP!");
             }
             else
             {
@@ -95,7 +95,7 @@ namespace QuanLyBanHang.View.FrmDangNhap
                 }
                 else
                 {
-                    MessageBox.Show("Mã OTP không chính xác!");
+                    MessageBox.Show("OTP is incorrect!");
                 }
             }
         }

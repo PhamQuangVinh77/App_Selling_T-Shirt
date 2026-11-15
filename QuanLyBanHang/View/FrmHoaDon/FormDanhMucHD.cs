@@ -1,16 +1,7 @@
 ﻿using _1_DAL_QUANLY.Models;
 using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
-using _2_BUS_QUANLY.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyBanHang.View.FrmHoaDon
 {
@@ -23,7 +14,7 @@ namespace QuanLyBanHang.View.FrmHoaDon
         public FormDanhMucHD()
         {
             InitializeComponent();
-            _HDservices = new QLhoaDonServices();;
+            _HDservices = new QLhoaDonServices(); ;
             _hdctServices = new QLhoaDonChiTietServices();
             _lstOrder = _HDservices.GetHoaDonFromDB();
             LoadHD();
@@ -34,7 +25,7 @@ namespace QuanLyBanHang.View.FrmHoaDon
             dtgv_HoaDon.Rows.Clear();
             foreach (var i in _lstOrder)
             {
-                dtgv_HoaDon.Rows.Add(i.IDHoaDon, i.IDNhanVien, i.SDT_KH, i.tongTien, i.ngayBan, i.ghiChu, i.trangThai == true ? "Đã thanh toán" : i.ghiChu == "Đã hủy đơn" ? "Đã hủy đơn" : "Chờ thanh toán...");
+                dtgv_HoaDon.Rows.Add(i.IDHoaDon, i.IDNhanVien, i.SDT_KH, i.tongTien, i.ngayBan, i.ghiChu, i.trangThai == true ? "Payment completed!" : i.ghiChu == "Cancelled" ? "Cancelled" : "Awaiting payment...");
             }
         }
         public void LoadHDCT(int maHoaDon)
@@ -59,7 +50,7 @@ namespace QuanLyBanHang.View.FrmHoaDon
                 txt_TongTien.Text = r.Cells[3].Value.ToString();
                 dtp_ngayBan.Text = r.Cells[4].Value.ToString();
                 txt_ghiChu.Text = r.Cells[5].Value.ToString();
-                if (r.Cells[6].Value.ToString() == "Đã thanh toán")
+                if (r.Cells[6].Value.ToString() == "Payment completed!")
                 {
                     rdb_DaThanhToan.Checked = true;
                 }
@@ -84,18 +75,18 @@ namespace QuanLyBanHang.View.FrmHoaDon
                     {
                         foreach (var i in items)
                         {
-                            dtgv_HoaDon.Rows.Add(i.IDHoaDon, i.IDNhanVien, i.SDT_KH, i.tongTien, i.ngayBan, i.ghiChu, i.trangThai == true ? "Đã thanh toán" : i.ghiChu == "Đã hủy đơn" ? "Đã hủy đơn" : "Chờ thanh toán...");
+                            dtgv_HoaDon.Rows.Add(i.IDHoaDon, i.IDNhanVien, i.SDT_KH, i.tongTien, i.ngayBan, i.ghiChu, i.trangThai == true ? "Payment completed!" : i.ghiChu == "Cancelled" ? "Cancelled" : "Awaiting payment...");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Không tìm thấy mã hóa đơn tương ứng");
+                        MessageBox.Show("No matching invoices found!");
                         LoadHD();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Yêu cầu kiểm tra lại thông tin cần tìm");
+                    MessageBox.Show("Invalid input!");
                     txt_timKiem.Text = "";
                     LoadHD();
                 }
@@ -111,13 +102,13 @@ namespace QuanLyBanHang.View.FrmHoaDon
             var _hoaDon = _HDservices.GetHoaDonFromDB().FirstOrDefault(x => x.IDHoaDon == _idHD);
             if (_hoaDon == null)
             {
-                MessageBox.Show("Hãy chọn hóa đơn cần cập nhật thông tin!");
+                MessageBox.Show("Please select an invoice to update!");
                 return;
             }
             _hoaDon.ghiChu = txt_ghiChu.Text;
             _hoaDon.trangThai = rdb_DaThanhToan.Checked;
             _HDservices.UpdateHoaDon(_hoaDon);
-            MessageBox.Show("Cập nhật thành công");
+            MessageBox.Show("Updated successful");
             LoadHD();
             dtgv_ChiTietHoaDon.Rows.Clear();
         }
@@ -127,11 +118,11 @@ namespace QuanLyBanHang.View.FrmHoaDon
             var _hoaDon = _HDservices.GetHoaDonFromDB().FirstOrDefault(x => x.IDHoaDon == _idHD);
             if (_hoaDon == null)
             {
-                MessageBox.Show("Hãy chọn hóa đơn cần xóa!");
+                MessageBox.Show("Please select an invoice to remove!");
                 return;
             }
             _HDservices.RemoveHoaDon(_hoaDon);
-            MessageBox.Show("Xóa thành công");
+            MessageBox.Show("Removed successfully");
             LoadHD();
             dtgv_ChiTietHoaDon.Rows.Clear();
 

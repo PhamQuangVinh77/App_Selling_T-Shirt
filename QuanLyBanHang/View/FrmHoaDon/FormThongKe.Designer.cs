@@ -89,12 +89,12 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(64, 26);
+            label1.Location = new Point(76, 26);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(179, 25);
+            label1.Size = new Size(149, 25);
             label1.TabIndex = 0;
-            label1.Text = "Tổng số hóa đơn";
+            label1.Text = "Total Invoices";
             // 
             // panel2
             // 
@@ -114,9 +114,9 @@
             label8.AutoSize = true;
             label8.Location = new Point(196, 106);
             label8.Name = "label8";
-            label8.Size = new Size(62, 25);
+            label8.Size = new Size(24, 25);
             label8.TabIndex = 3;
-            label8.Text = "VNĐ";
+            label8.Text = "$";
             // 
             // lbl_doanhthu
             // 
@@ -130,12 +130,12 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(92, 26);
+            label2.Location = new Point(81, 26);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(119, 25);
+            label2.Size = new Size(155, 25);
             label2.TabIndex = 1;
-            label2.Text = "Doanh thu";
+            label2.Text = "Total Revenue";
             // 
             // panel3
             // 
@@ -161,12 +161,12 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(39, 26);
+            label3.Location = new Point(55, 26);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(225, 25);
+            label3.Size = new Size(200, 25);
             label3.TabIndex = 2;
-            label3.Text = "Số HĐ đã thanh toán";
+            label3.Text = "Total Invoices Paid";
             // 
             // panel4
             // 
@@ -192,31 +192,31 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(78, 26);
+            label4.Location = new Point(66, 26);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(160, 25);
+            label4.Size = new Size(176, 25);
             label4.TabIndex = 3;
-            label4.Text = "Số khách hàng";
+            label4.Text = "Total Customers";
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(dtp_thongKeTheoNgay);
-            groupBox1.Location = new Point(13, 200);
+            groupBox1.Location = new Point(28, 200);
             groupBox1.Margin = new Padding(4, 3, 4, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4, 3, 4, 3);
-            groupBox1.Size = new Size(370, 154);
+            groupBox1.Size = new Size(306, 137);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Doanh thu theo ngày";
+            groupBox1.Text = "Daily Revenue";
             // 
             // dtp_thongKeTheoNgay
             // 
-            dtp_thongKeTheoNgay.Location = new Point(62, 72);
+            dtp_thongKeTheoNgay.Location = new Point(8, 63);
             dtp_thongKeTheoNgay.Margin = new Padding(4, 3, 4, 3);
             dtp_thongKeTheoNgay.Name = "dtp_thongKeTheoNgay";
-            dtp_thongKeTheoNgay.Size = new Size(244, 27);
+            dtp_thongKeTheoNgay.Size = new Size(290, 27);
             dtp_thongKeTheoNgay.TabIndex = 0;
             dtp_thongKeTheoNgay.ValueChanged += dtp_thongKeTheoNgay_ValueChanged;
             // 
@@ -224,22 +224,22 @@
             // 
             groupBox4.Controls.Add(btn_xuatEx);
             groupBox4.Controls.Add(dtgv_hanghoa);
-            groupBox4.Location = new Point(13, 359);
+            groupBox4.Location = new Point(28, 343);
             groupBox4.Margin = new Padding(4, 3, 4, 3);
             groupBox4.Name = "groupBox4";
             groupBox4.Padding = new Padding(4, 3, 4, 3);
-            groupBox4.Size = new Size(1445, 386);
+            groupBox4.Size = new Size(1430, 402);
             groupBox4.TabIndex = 4;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Hàng hóa";
+            groupBox4.Text = "DETAILS";
             // 
             // btn_xuatEx
             // 
-            btn_xuatEx.Location = new Point(1254, 19);
+            btn_xuatEx.Location = new Point(1243, 19);
             btn_xuatEx.Name = "btn_xuatEx";
             btn_xuatEx.Size = new Size(183, 44);
             btn_xuatEx.TabIndex = 1;
-            btn_xuatEx.Text = "Xuất Excel";
+            btn_xuatEx.Text = "Export Excel";
             btn_xuatEx.UseVisualStyleBackColor = true;
             btn_xuatEx.Click += btn_xuatEx_Click;
             // 
@@ -252,7 +252,7 @@
             dtgv_hanghoa.Name = "dtgv_hanghoa";
             dtgv_hanghoa.RowHeadersWidth = 51;
             dtgv_hanghoa.RowTemplate.Height = 29;
-            dtgv_hanghoa.Size = new Size(1430, 259);
+            dtgv_hanghoa.Size = new Size(1411, 314);
             dtgv_hanghoa.TabIndex = 0;
             // 
             // groupBox2
@@ -261,67 +261,67 @@
             groupBox2.Controls.Add(cbb_Thang);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label6);
-            groupBox2.Location = new Point(557, 200);
+            groupBox2.Location = new Point(411, 200);
             groupBox2.Margin = new Padding(4, 3, 4, 3);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(4, 3, 4, 3);
-            groupBox2.Size = new Size(370, 154);
+            groupBox2.Size = new Size(306, 137);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Doanh thu theo tháng ";
+            groupBox2.Text = "Monthly Revenue";
             // 
             // cbb_Nam
             // 
             cbb_Nam.FormattingEnabled = true;
-            cbb_Nam.Location = new Point(214, 75);
+            cbb_Nam.Location = new Point(107, 80);
             cbb_Nam.Margin = new Padding(4, 3, 4, 3);
             cbb_Nam.Name = "cbb_Nam";
-            cbb_Nam.Size = new Size(129, 27);
+            cbb_Nam.Size = new Size(173, 27);
             cbb_Nam.TabIndex = 4;
             cbb_Nam.TextChanged += cbb_Nam_TextChanged;
             // 
             // cbb_Thang
             // 
             cbb_Thang.FormattingEnabled = true;
-            cbb_Thang.Location = new Point(31, 75);
+            cbb_Thang.Location = new Point(107, 41);
             cbb_Thang.Margin = new Padding(4, 3, 4, 3);
             cbb_Thang.Name = "cbb_Thang";
-            cbb_Thang.Size = new Size(129, 27);
+            cbb_Thang.Size = new Size(173, 27);
             cbb_Thang.TabIndex = 3;
             cbb_Thang.TextChanged += cbb_Thang_TextChanged;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(214, 44);
+            label5.Location = new Point(19, 83);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(53, 19);
+            label5.Size = new Size(48, 19);
             label5.TabIndex = 1;
-            label5.Text = "Năm :";
+            label5.Text = "Year:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(31, 44);
+            label6.Location = new Point(19, 44);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(68, 19);
+            label6.Size = new Size(64, 19);
             label6.TabIndex = 2;
-            label6.Text = "Tháng : ";
+            label6.Text = "Month:";
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(label7);
             groupBox3.Controls.Add(txt_sdt);
-            groupBox3.Location = new Point(1088, 200);
+            groupBox3.Location = new Point(787, 200);
             groupBox3.Margin = new Padding(4, 3, 4, 3);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(4, 3, 4, 3);
-            groupBox3.Size = new Size(370, 154);
+            groupBox3.Size = new Size(306, 137);
             groupBox3.TabIndex = 3;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Doanh thu theo khách hàng";
+            groupBox3.Text = "Customer Revenue";
             // 
             // label7
             // 
@@ -329,16 +329,16 @@
             label7.Location = new Point(8, 44);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(201, 19);
+            label7.Size = new Size(138, 19);
             label7.TabIndex = 5;
-            label7.Text = "Số điện thoại khách hàng :";
+            label7.Text = "Customer Phone:";
             // 
             // txt_sdt
             // 
-            txt_sdt.Location = new Point(8, 90);
+            txt_sdt.Location = new Point(8, 80);
             txt_sdt.Margin = new Padding(4, 3, 4, 3);
             txt_sdt.Name = "txt_sdt";
-            txt_sdt.Size = new Size(354, 27);
+            txt_sdt.Size = new Size(290, 27);
             txt_sdt.TabIndex = 0;
             txt_sdt.TextChanged += txt_sdt_TextChanged;
             // 

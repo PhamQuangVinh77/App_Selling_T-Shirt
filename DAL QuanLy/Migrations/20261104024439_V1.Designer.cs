@@ -184,7 +184,7 @@ namespace DAL_QuanLy.Migrations
                         new
                         {
                             SDT_KH = "0000000000",
-                            TenKH = "Khách lẻ",
+                            TenKH = "Guest",
                             diaChi = "Hà Nội",
                             diemTichluy = 0,
                             gioiTinh = false,

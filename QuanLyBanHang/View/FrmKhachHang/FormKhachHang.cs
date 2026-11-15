@@ -1,17 +1,7 @@
 ﻿using _1_DAL_QUANLY.Models;
 using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
-using _2_BUS_QUANLY.Services;
 using QuanLyBanHang.Utilities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyBanHang.View.FrmKhachHang
 {
@@ -30,15 +20,15 @@ namespace QuanLyBanHang.View.FrmKhachHang
         private void LoadDuLieu()
         {
             dtgv_khachHang.ColumnCount = 5;
-            dtgv_khachHang.Columns[0].Name = "Số Điện Thoại";
-            dtgv_khachHang.Columns[1].Name = "Tên Khách Hàng";
-            dtgv_khachHang.Columns[2].Name = "Giới Tính";
-            dtgv_khachHang.Columns[3].Name = "Địa Chỉ";
-            dtgv_khachHang.Columns[4].Name = "Điểm tích lũy";
+            dtgv_khachHang.Columns[0].Name = "Phone Number";
+            dtgv_khachHang.Columns[1].Name = "Name";
+            dtgv_khachHang.Columns[2].Name = "Gender";
+            dtgv_khachHang.Columns[3].Name = "Address";
+            dtgv_khachHang.Columns[4].Name = "Loyalty Points";
             dtgv_khachHang.Rows.Clear();
             foreach (var item in _QLkhachHangServices.GetkhachHangFromDB())
             {
-                dtgv_khachHang.Rows.Add(item.SDT_KH, item.TenKH, item.gioiTinh == false ? "Nam" : "Nữ", item.diaChi, item.diemTichluy);
+                dtgv_khachHang.Rows.Add(item.SDT_KH, item.TenKH, item.gioiTinh == false ? "Male" : "Female", item.diaChi, item.diemTichluy);
             }
 
             txt_TenKH.Text = "";
@@ -53,15 +43,15 @@ namespace QuanLyBanHang.View.FrmKhachHang
             khachHang accKH = _QLkhachHangServices.GetkhachHangFromDB().FirstOrDefault(p => p.SDT_KH == txt_Sdt.Text);
             if (txt_Sdt.Text == "" || txt_TenKH.Text == "" || txt_Sdt.Text == "")
             {
-                MessageBox.Show("Không được để trống thông tin");
+                MessageBox.Show("Please enter all required information!");
             }
             else if (accKH != null)
             {
-                MessageBox.Show("Số điện thoại khách hàng đã tồn tại");
+                MessageBox.Show("Phone number already in use!");
             }
             else if (ValidateInput.CheckSDT(txt_Sdt.Text) == false)
             {
-                MessageBox.Show("Sai định dạng SĐT");
+                MessageBox.Show("Invalid phone number format!");
             }
             else
             {
@@ -75,7 +65,7 @@ namespace QuanLyBanHang.View.FrmKhachHang
                     diemTichluy = 0,
                 };
                 _QLkhachHangServices.addkhachHang(addKH);
-                MessageBox.Show("Thêm khách hàng thành công");
+                MessageBox.Show("Added successfully!");
                 LoadDuLieu();
             }
         }
@@ -88,8 +78,8 @@ namespace QuanLyBanHang.View.FrmKhachHang
 
             txt_Sdt.Text = row.Cells[0].Value.ToString();
             txt_TenKH.Text = row.Cells[1].Value.ToString();
-            rdb_Nam.Checked = row.Cells[2].Value.ToString() == "Nam" ? true : false;
-            rdb_Nu.Checked = row.Cells[2].Value.ToString() == "Nữ" ? true : false;
+            rdb_Nam.Checked = row.Cells[2].Value.ToString() == "Male" ? true : false;
+            rdb_Nu.Checked = row.Cells[2].Value.ToString() == "Female" ? true : false;
             txt_diaChi.Text = row.Cells[3].Value.ToString();
         }
 
@@ -97,32 +87,32 @@ namespace QuanLyBanHang.View.FrmKhachHang
         {
             if (txt_Sdt.Text == "" || txt_TenKH.Text == "" || txt_diaChi.Text == "")
             {
-                MessageBox.Show("Không được để trống thông tin");
+                MessageBox.Show("Please enter all required information!");
             }
             else if (ValidateInput.CheckSDT(txt_Sdt.Text) == false)
             {
-                MessageBox.Show("Sai định dạng SĐT");
+                MessageBox.Show("Invalid phone number format!");
             }
             else if (_khachHang == null)
             {
-                MessageBox.Show("Vui lòng chọn khách hàng cần sửa thông tin");
+                MessageBox.Show("Please select a customer to update information!");
             }
             else
             {
                 if (_khachHang.SDT_KH == txt_Sdt.Text
-                   || (_khachHang.SDT_KH != txt_Sdt.Text  && _QLkhachHangServices.GetkhachHangFromDB().FirstOrDefault(x => x.SDT_KH == txt_Sdt.Text) == null))
+                   || (_khachHang.SDT_KH != txt_Sdt.Text && _QLkhachHangServices.GetkhachHangFromDB().FirstOrDefault(x => x.SDT_KH == txt_Sdt.Text) == null))
                 {
                     _khachHang.SDT_KH = txt_Sdt.Text;
                     _khachHang.TenKH = txt_TenKH.Text;
                     _khachHang.diaChi = txt_diaChi.Text;
                     _khachHang.gioiTinh = rdb_Nu.Checked == true ? true : false;
                     _QLkhachHangServices.UpdateKhachHang(_khachHang);
-                    MessageBox.Show("Sửa thành công!");
+                    MessageBox.Show("Updated successfully!");
                     LoadDuLieu();
                 }
                 else
                 {
-                    MessageBox.Show("SDT khách hàng đã tồn tại!");
+                    MessageBox.Show("Phone number already in use!");
                 }
             }
         }

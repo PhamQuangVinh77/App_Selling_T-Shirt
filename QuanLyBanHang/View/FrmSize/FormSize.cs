@@ -1,16 +1,6 @@
 ﻿using _1_DAL_QUANLY.Models;
 using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
-using _2_BUS_QUANLY.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyBanHang.View.FrmSize
 {
@@ -31,7 +21,7 @@ namespace QuanLyBanHang.View.FrmSize
             foreach (var item in _QLsizeServices.GetSizeFromDB())
             {
                 dtgv_Size.Rows.Add(item.IDSize, item.tenSize,
-                    item.trangThai == true ? "Còn hàng" : "Hết hàng");
+                    item.trangThai == true ? "In Stock" : "Out of Stock");
             }
 
             txt_TenSize.Text = "";
@@ -44,11 +34,11 @@ namespace QuanLyBanHang.View.FrmSize
             size accSize = _QLsizeServices.GetSizeFromDB().FirstOrDefault(p => p.tenSize == txt_TenSize.Text);
             if (txt_TenSize.Text == "")
             {
-                MessageBox.Show("Không được để trống thông tin");
+                MessageBox.Show("Please enter the size!");
             }
             else if (accSize != null)
             {
-                MessageBox.Show("Size đã tồn tại");
+                MessageBox.Show("Size already exists!");
             }
             else
             {
@@ -58,7 +48,7 @@ namespace QuanLyBanHang.View.FrmSize
                     trangThai = rdb_conHang.Checked,
                 };
                 _QLsizeServices.addsize(addsize);
-                MessageBox.Show("Thêm Size thành công");
+                MessageBox.Show("Added successfully!");
                 loadData();
             }
         }
@@ -67,11 +57,11 @@ namespace QuanLyBanHang.View.FrmSize
         {
             if (txt_TenSize.Text == "")
             {
-                MessageBox.Show("Không được để trống thông tin");
+                MessageBox.Show("Please enter the size!");
             }
             else if (_size == null)
             {
-                MessageBox.Show("Vui lòng chọn Size");
+                MessageBox.Show("Please select a size to update!");
             }
             else
             {
@@ -80,12 +70,12 @@ namespace QuanLyBanHang.View.FrmSize
                     _size.tenSize = txt_TenSize.Text;
                     _size.trangThai = rdb_conHang.Checked;
                     _QLsizeServices.UpdateSize(_size);
-                    MessageBox.Show("Cập nhật thành công");
+                    MessageBox.Show("Updated successfully!");
                     loadData();
                 }
                 else
                 {
-                    MessageBox.Show("Size đã tồn tại");
+                    MessageBox.Show("Size already exists!");
                 }
             }
         }
@@ -96,8 +86,8 @@ namespace QuanLyBanHang.View.FrmSize
             DataGridViewRow row = dtgv_Size.Rows[e.RowIndex];
             _size = _QLsizeServices.GetSizeFromDB().FirstOrDefault(x => x.IDSize == Convert.ToInt32(row.Cells[0].Value));
             txt_TenSize.Text = row.Cells[1].Value.ToString();
-            rdb_conHang.Checked = row.Cells[2].Value.ToString() == "Còn hàng" ? true : false;
-            rdb_hetHang.Checked = row.Cells[2].Value.ToString() == "Hết hàng" ? true : false;
+            rdb_conHang.Checked = row.Cells[2].Value.ToString() == "In Stock" ? true : false;
+            rdb_hetHang.Checked = row.Cells[2].Value.ToString() == "Out of Stock" ? true : false;
         }
     }
 }

@@ -66,10 +66,10 @@
             groupBox3.Margin = new Padding(4, 3, 4, 3);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(4, 3, 4, 3);
-            groupBox3.Size = new Size(881, 295);
+            groupBox3.Size = new Size(881, 324);
             groupBox3.TabIndex = 4;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Dữ liệu";
+            groupBox3.Text = "DETAILS";
             // 
             // dtgv_LoaiSP
             // 
@@ -81,25 +81,25 @@
             dtgv_LoaiSP.Name = "dtgv_LoaiSP";
             dtgv_LoaiSP.RowHeadersWidth = 51;
             dtgv_LoaiSP.RowTemplate.Height = 29;
-            dtgv_LoaiSP.Size = new Size(866, 254);
+            dtgv_LoaiSP.Size = new Size(866, 285);
             dtgv_LoaiSP.TabIndex = 0;
             dtgv_LoaiSP.CellClick += dtgv_LoaiSP_CellClick;
             // 
             // Column1
             // 
-            Column1.HeaderText = "ID Loại SP";
+            Column1.HeaderText = "ID";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             // 
             // Column2
             // 
-            Column2.HeaderText = "Tên SP";
+            Column2.HeaderText = "Category";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             // 
             // Column3
             // 
-            Column3.HeaderText = "Trạng thái";
+            Column3.HeaderText = "Status";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             // 
@@ -115,7 +115,7 @@
             groupBox2.Size = new Size(279, 192);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Chức năng";
+            groupBox2.Text = "ACTIONS";
             // 
             // btn_Sua
             // 
@@ -124,7 +124,7 @@
             btn_Sua.Name = "btn_Sua";
             btn_Sua.Size = new Size(181, 39);
             btn_Sua.TabIndex = 1;
-            btn_Sua.Text = "CẬP NHẬP";
+            btn_Sua.Text = "UPDATE";
             btn_Sua.UseVisualStyleBackColor = true;
             btn_Sua.Click += btn_Sua_Click;
             // 
@@ -135,7 +135,7 @@
             btn_Them.Name = "btn_Them";
             btn_Them.Size = new Size(181, 39);
             btn_Them.TabIndex = 0;
-            btn_Them.Text = "THÊM";
+            btn_Them.Text = "ADD NEW";
             btn_Them.UseVisualStyleBackColor = true;
             btn_Them.Click += btn_Them_Click;
             // 
@@ -154,7 +154,7 @@
             groupBox1.Size = new Size(595, 192);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Loại sản phẩm";
+            groupBox1.Text = "CATEGORIES";
             // 
             // rdb_hetHang
             // 
@@ -162,10 +162,10 @@
             rdb_hetHang.Location = new Point(365, 98);
             rdb_hetHang.Margin = new Padding(4, 3, 4, 3);
             rdb_hetHang.Name = "rdb_hetHang";
-            rdb_hetHang.Size = new Size(96, 23);
+            rdb_hetHang.Size = new Size(121, 23);
             rdb_hetHang.TabIndex = 4;
             rdb_hetHang.TabStop = true;
-            rdb_hetHang.Text = "Hết hàng";
+            rdb_hetHang.Text = "Out of Stock";
             rdb_hetHang.UseVisualStyleBackColor = true;
             // 
             // rdb_conHang
@@ -174,10 +174,10 @@
             rdb_conHang.Location = new Point(191, 98);
             rdb_conHang.Margin = new Padding(4, 3, 4, 3);
             rdb_conHang.Name = "rdb_conHang";
-            rdb_conHang.Size = new Size(99, 23);
+            rdb_conHang.Size = new Size(90, 23);
             rdb_conHang.TabIndex = 3;
             rdb_conHang.TabStop = true;
-            rdb_conHang.Text = "Còn hàng";
+            rdb_conHang.Text = "In Stock";
             rdb_conHang.UseVisualStyleBackColor = true;
             // 
             // txt_TenLoaiSP
@@ -194,9 +194,9 @@
             label2.Location = new Point(56, 98);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(95, 19);
+            label2.Size = new Size(60, 19);
             label2.TabIndex = 1;
-            label2.Text = "Trạng thái :";
+            label2.Text = "Status:";
             // 
             // label3
             // 
@@ -204,9 +204,9 @@
             label3.Location = new Point(56, 48);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(99, 19);
+            label3.Size = new Size(83, 19);
             label3.TabIndex = 0;
-            label3.Text = "Tên loại SP:";
+            label3.Text = "Category:";
             // 
             // FormLoaiSP
             // 

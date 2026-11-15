@@ -46,6 +46,7 @@
             label2 = new Label();
             label1 = new Label();
             groupBox2 = new GroupBox();
+            btn_xoa = new Button();
             btn_CapNhap = new Button();
             groupBox3 = new GroupBox();
             dtgv_HoaDon = new DataGridView();
@@ -64,7 +65,6 @@
             Column10 = new DataGridViewTextBoxColumn();
             Column11 = new DataGridViewTextBoxColumn();
             Column12 = new DataGridViewTextBoxColumn();
-            btn_xoa = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -98,28 +98,29 @@
             groupBox1.Size = new Size(971, 235);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Danh mục đơn hàng";
+            groupBox1.Text = "INFORMATIONS";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(849, 49);
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(837, 45);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(44, 19);
+            label9.Size = new Size(24, 28);
             label9.TabIndex = 15;
-            label9.Text = "VNĐ";
+            label9.Text = "$";
             // 
             // rdb_ChuaThanhToan
             // 
             rdb_ChuaThanhToan.AutoSize = true;
-            rdb_ChuaThanhToan.Location = new Point(743, 196);
+            rdb_ChuaThanhToan.Location = new Point(691, 196);
             rdb_ChuaThanhToan.Margin = new Padding(4, 3, 4, 3);
             rdb_ChuaThanhToan.Name = "rdb_ChuaThanhToan";
-            rdb_ChuaThanhToan.Size = new Size(150, 23);
+            rdb_ChuaThanhToan.Size = new Size(83, 23);
             rdb_ChuaThanhToan.TabIndex = 14;
             rdb_ChuaThanhToan.TabStop = true;
-            rdb_ChuaThanhToan.Text = "Chưa thanh toán";
+            rdb_ChuaThanhToan.Text = "Unpaid";
             rdb_ChuaThanhToan.UseVisualStyleBackColor = true;
             // 
             // rdb_DaThanhToan
@@ -128,10 +129,10 @@
             rdb_DaThanhToan.Location = new Point(575, 196);
             rdb_DaThanhToan.Margin = new Padding(4, 3, 4, 3);
             rdb_DaThanhToan.Name = "rdb_DaThanhToan";
-            rdb_DaThanhToan.Size = new Size(131, 23);
+            rdb_DaThanhToan.Size = new Size(64, 23);
             rdb_DaThanhToan.TabIndex = 13;
             rdb_DaThanhToan.TabStop = true;
-            rdb_DaThanhToan.Text = "Đã thanh toán";
+            rdb_DaThanhToan.Text = "Paid";
             rdb_DaThanhToan.UseVisualStyleBackColor = true;
             // 
             // dtp_ngayBan
@@ -145,7 +146,7 @@
             // 
             // txt_ghiChu
             // 
-            txt_ghiChu.Location = new Point(575, 149);
+            txt_ghiChu.Location = new Point(575, 144);
             txt_ghiChu.Margin = new Padding(4, 3, 4, 3);
             txt_ghiChu.Name = "txt_ghiChu";
             txt_ghiChu.Size = new Size(259, 27);
@@ -163,7 +164,7 @@
             // txt_SDTKH
             // 
             txt_SDTKH.Enabled = false;
-            txt_SDTKH.Location = new Point(156, 149);
+            txt_SDTKH.Location = new Point(156, 144);
             txt_SDTKH.Margin = new Padding(4, 3, 4, 3);
             txt_SDTKH.Name = "txt_SDTKH";
             txt_SDTKH.Size = new Size(259, 27);
@@ -193,59 +194,59 @@
             label7.Location = new Point(455, 198);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(95, 19);
+            label7.Size = new Size(60, 19);
             label7.TabIndex = 6;
-            label7.Text = "Trạng thái :";
+            label7.Text = "Status:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(455, 155);
+            label6.Location = new Point(455, 147);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(78, 19);
+            label6.Size = new Size(57, 19);
             label6.TabIndex = 5;
-            label6.Text = "Ghi chú :";
+            label6.Text = "Notes:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(455, 100);
+            label5.Location = new Point(455, 101);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(86, 19);
+            label5.Size = new Size(84, 19);
             label5.TabIndex = 4;
-            label5.Text = "Ngày bán :";
+            label5.Text = "Sale Date:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(455, 49);
+            label4.Location = new Point(455, 50);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(89, 19);
+            label4.Size = new Size(113, 19);
             label4.TabIndex = 3;
-            label4.Text = "Tổng tiền :";
+            label4.Text = "Total Amount:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(8, 152);
+            label3.Location = new Point(8, 147);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(79, 19);
+            label3.Size = new Size(138, 19);
             label3.TabIndex = 2;
-            label3.Text = "SDT KH :";
+            label3.Text = "Customer Phone:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(8, 100);
+            label2.Location = new Point(8, 101);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(117, 19);
+            label2.Size = new Size(110, 19);
             label2.TabIndex = 1;
-            label2.Text = "Mã nhân viên :";
+            label2.Text = "Employee ID:";
             // 
             // label1
             // 
@@ -253,9 +254,9 @@
             label1.Location = new Point(8, 49);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(104, 19);
+            label1.Size = new Size(111, 19);
             label1.TabIndex = 0;
-            label1.Text = "Mã hóa đơn :";
+            label1.Text = "Invoice Code:";
             // 
             // groupBox2
             // 
@@ -268,7 +269,18 @@
             groupBox2.Size = new Size(312, 231);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Chức năng";
+            groupBox2.Text = "ACTIONS";
+            // 
+            // btn_xoa
+            // 
+            btn_xoa.Location = new Point(63, 138);
+            btn_xoa.Margin = new Padding(4, 3, 4, 3);
+            btn_xoa.Name = "btn_xoa";
+            btn_xoa.Size = new Size(186, 45);
+            btn_xoa.TabIndex = 2;
+            btn_xoa.Text = "REMOVE";
+            btn_xoa.UseVisualStyleBackColor = true;
+            btn_xoa.Click += btn_xoa_Click;
             // 
             // btn_CapNhap
             // 
@@ -277,7 +289,7 @@
             btn_CapNhap.Name = "btn_CapNhap";
             btn_CapNhap.Size = new Size(186, 45);
             btn_CapNhap.TabIndex = 1;
-            btn_CapNhap.Text = "CẬP NHẬP";
+            btn_CapNhap.Text = "UPDATE";
             btn_CapNhap.UseVisualStyleBackColor = true;
             btn_CapNhap.Click += btn_CapNhap_Click;
             // 
@@ -293,81 +305,81 @@
             groupBox3.Size = new Size(1314, 246);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Hóa đơn";
+            groupBox3.Text = "INVOICES";
             // 
             // dtgv_HoaDon
             // 
             dtgv_HoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgv_HoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgv_HoaDon.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
-            dtgv_HoaDon.Location = new Point(8, 48);
+            dtgv_HoaDon.Location = new Point(8, 65);
             dtgv_HoaDon.Margin = new Padding(4, 3, 4, 3);
             dtgv_HoaDon.Name = "dtgv_HoaDon";
             dtgv_HoaDon.RowHeadersWidth = 51;
             dtgv_HoaDon.RowTemplate.Height = 29;
-            dtgv_HoaDon.Size = new Size(1299, 180);
+            dtgv_HoaDon.Size = new Size(1299, 163);
             dtgv_HoaDon.TabIndex = 17;
             dtgv_HoaDon.CellClick += dtgv_HoaDon_CellClick;
             // 
             // Column1
             // 
-            Column1.HeaderText = "Mã HD";
+            Column1.HeaderText = "Invoice Code";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             // 
             // Column2
             // 
-            Column2.HeaderText = "Mã NV";
+            Column2.HeaderText = "Employee ID";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             // 
             // Column3
             // 
-            Column3.HeaderText = "SDT KH";
+            Column3.HeaderText = "Customer Phone";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             // 
             // Column4
             // 
-            Column4.HeaderText = "Tổng tiền";
+            Column4.HeaderText = "Total Amount";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
             // 
             // Column5
             // 
-            Column5.HeaderText = "Ngày bán";
+            Column5.HeaderText = "Sale Date";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
             // 
             // Column6
             // 
-            Column6.HeaderText = "Ghi chú";
+            Column6.HeaderText = "Notes";
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
             // 
             // Column7
             // 
-            Column7.HeaderText = "Trạng thái";
+            Column7.HeaderText = "Status";
             Column7.MinimumWidth = 6;
             Column7.Name = "Column7";
             // 
             // btn_TimKiem
             // 
-            btn_TimKiem.Location = new Point(1189, 16);
+            btn_TimKiem.Location = new Point(1189, 26);
             btn_TimKiem.Margin = new Padding(4, 3, 4, 3);
             btn_TimKiem.Name = "btn_TimKiem";
             btn_TimKiem.Size = new Size(118, 28);
             btn_TimKiem.TabIndex = 16;
-            btn_TimKiem.Text = "Tìm kiếm";
+            btn_TimKiem.Text = "Search";
             btn_TimKiem.UseVisualStyleBackColor = true;
             btn_TimKiem.Click += btn_TimKiem_Click;
             // 
             // txt_timKiem
             // 
-            txt_timKiem.Location = new Point(921, 16);
+            txt_timKiem.Location = new Point(922, 26);
             txt_timKiem.Margin = new Padding(4, 3, 4, 3);
             txt_timKiem.Name = "txt_timKiem";
-            txt_timKiem.PlaceholderText = "Tìm kiếm ở đây ...";
+            txt_timKiem.PlaceholderText = "Searching...";
             txt_timKiem.Size = new Size(259, 27);
             txt_timKiem.TabIndex = 15;
             // 
@@ -381,7 +393,7 @@
             groupBox4.Size = new Size(1314, 196);
             groupBox4.TabIndex = 3;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Chi tiết hóa đơn";
+            groupBox4.Text = "DETAILS";
             // 
             // dtgv_ChiTietHoaDon
             // 
@@ -398,38 +410,27 @@
             // 
             // Column9
             // 
-            Column9.HeaderText = "Mã SP";
+            Column9.HeaderText = "Product Code";
             Column9.MinimumWidth = 6;
             Column9.Name = "Column9";
             // 
             // Column10
             // 
-            Column10.HeaderText = "Tên SP";
+            Column10.HeaderText = "Product Name";
             Column10.MinimumWidth = 6;
             Column10.Name = "Column10";
             // 
             // Column11
             // 
-            Column11.HeaderText = "Số lượng";
+            Column11.HeaderText = "Quantity";
             Column11.MinimumWidth = 6;
             Column11.Name = "Column11";
             // 
             // Column12
             // 
-            Column12.HeaderText = "Đơn giá";
+            Column12.HeaderText = "Unit Price";
             Column12.MinimumWidth = 6;
             Column12.Name = "Column12";
-            // 
-            // btn_xoa
-            // 
-            btn_xoa.Location = new Point(63, 138);
-            btn_xoa.Margin = new Padding(4, 3, 4, 3);
-            btn_xoa.Name = "btn_xoa";
-            btn_xoa.Size = new Size(186, 45);
-            btn_xoa.TabIndex = 2;
-            btn_xoa.Text = "XÓA";
-            btn_xoa.UseVisualStyleBackColor = true;
-            btn_xoa.Click += btn_xoa_Click;
             // 
             // FormDanhMucHD
             // 

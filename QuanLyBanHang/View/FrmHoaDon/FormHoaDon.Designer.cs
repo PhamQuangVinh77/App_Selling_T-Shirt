@@ -63,7 +63,7 @@
             groupBox1.Size = new Size(1341, 318);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Hóa đơn";
+            groupBox1.Text = "INVOICE";
             // 
             // dtgv_HoaDon
             // 
@@ -81,43 +81,43 @@
             // 
             // Column1
             // 
-            Column1.HeaderText = "Mã hóa đơn";
+            Column1.HeaderText = "Invoice Code";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             // 
             // Column2
             // 
-            Column2.HeaderText = "Mã nhân viên";
+            Column2.HeaderText = "Employee ID";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             // 
             // Column3
             // 
-            Column3.HeaderText = "Sdt khách hàng";
+            Column3.HeaderText = "Customer Phone";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             // 
             // Column4
             // 
-            Column4.HeaderText = "Tổng tiền";
+            Column4.HeaderText = "Total Amount";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
             // 
             // Column5
             // 
-            Column5.HeaderText = "Ngày bán ";
+            Column5.HeaderText = "Sale Date";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
             // 
             // Column6
             // 
-            Column6.HeaderText = "Ghi chú";
+            Column6.HeaderText = "Notes";
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
             // 
             // Column7
             // 
-            Column7.HeaderText = "Trạng thái";
+            Column7.HeaderText = "Status";
             Column7.MinimumWidth = 6;
             Column7.Name = "Column7";
             // 
@@ -126,7 +126,7 @@
             txt_TimKiem.Location = new Point(918, 16);
             txt_TimKiem.Margin = new Padding(4, 3, 4, 3);
             txt_TimKiem.Name = "txt_TimKiem";
-            txt_TimKiem.PlaceholderText = "Tìm kiếm ở đây ...";
+            txt_TimKiem.PlaceholderText = "Searching...";
             txt_TimKiem.Size = new Size(290, 27);
             txt_TimKiem.TabIndex = 1;
             // 
@@ -137,7 +137,7 @@
             btn_TimKiem.Name = "btn_TimKiem";
             btn_TimKiem.Size = new Size(118, 28);
             btn_TimKiem.TabIndex = 0;
-            btn_TimKiem.Text = "Tìm kiếm";
+            btn_TimKiem.Text = "Search";
             btn_TimKiem.UseVisualStyleBackColor = true;
             btn_TimKiem.Click += btn_TimKiem_Click;
             // 
@@ -151,7 +151,7 @@
             groupBox2.Size = new Size(1341, 333);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Chi tiết hóa đơn";
+            groupBox2.Text = "DETAILS";
             // 
             // dtgv_CTHD
             // 
@@ -168,25 +168,25 @@
             // 
             // Column9
             // 
-            Column9.HeaderText = "Mã sản phẩm";
+            Column9.HeaderText = "Product Code";
             Column9.MinimumWidth = 6;
             Column9.Name = "Column9";
             // 
             // Column10
             // 
-            Column10.HeaderText = "Tên sản phẩm";
+            Column10.HeaderText = "Product Name";
             Column10.MinimumWidth = 6;
             Column10.Name = "Column10";
             // 
             // Column11
             // 
-            Column11.HeaderText = "Số lượng";
+            Column11.HeaderText = "Quantity";
             Column11.MinimumWidth = 6;
             Column11.Name = "Column11";
             // 
             // Column12
             // 
-            Column12.HeaderText = "Đơn giá";
+            Column12.HeaderText = "Unit Price";
             Column12.MinimumWidth = 6;
             Column12.Name = "Column12";
             // 

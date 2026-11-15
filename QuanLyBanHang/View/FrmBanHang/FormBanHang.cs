@@ -1,9 +1,7 @@
 ﻿using _1_DAL_QUANLY.Models;
 using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
-using _2_BUS_QUANLY.Services;
 using _2_BUS_QUANLY.ViewModel;
-using OfficeOpenXml;
 using QuanLyBanHang.Utilities;
 using System.Data;
 
@@ -53,7 +51,7 @@ namespace QuanLyBanHang.View.FrmBanHang
         private void LoadMauSac()
         {
             cbb_mauSac.Items.Clear();
-            cbb_mauSac.Items.Add("Tất cả");
+            cbb_mauSac.Items.Add("All");
             var ms = _qlMauSac.GetMauSacFromDB().Where(x => x.trangThai == true);
             foreach (var item in ms)
             {
@@ -65,7 +63,7 @@ namespace QuanLyBanHang.View.FrmBanHang
         private void LoadHangSX()
         {
             cbb_hangSX.Items.Clear();
-            cbb_hangSX.Items.Add("Tất cả");
+            cbb_hangSX.Items.Add("All");
             var hsx = _qlhangSX.GetHangSXFromDB().Where(x => x.trangThai == true);
             foreach (var item in hsx)
             {
@@ -77,7 +75,7 @@ namespace QuanLyBanHang.View.FrmBanHang
         private void LoadSize()
         {
             cbb_size.Items.Clear();
-            cbb_size.Items.Add("Tất cả");
+            cbb_size.Items.Add("All");
             var sz = _qlsize.GetSizeFromDB().Where(x => x.trangThai == true);
             foreach (var item in sz)
             {
@@ -91,13 +89,13 @@ namespace QuanLyBanHang.View.FrmBanHang
             dtgv_DSSP.ColumnCount = 8;
             dtgv_DSSP.Columns[0].Name = "ID";
             dtgv_DSSP.Columns[0].Visible = false;
-            dtgv_DSSP.Columns[1].Name = "Mã SP";
-            dtgv_DSSP.Columns[2].Name = "Tên SP";
-            dtgv_DSSP.Columns[3].Name = "Hãng SX";
-            dtgv_DSSP.Columns[4].Name = "Màu sắc";
+            dtgv_DSSP.Columns[1].Name = "Product Code";
+            dtgv_DSSP.Columns[2].Name = "Product Name";
+            dtgv_DSSP.Columns[3].Name = "Manufacturer";
+            dtgv_DSSP.Columns[4].Name = "Color";
             dtgv_DSSP.Columns[5].Name = "Size";
-            dtgv_DSSP.Columns[6].Name = "Giá bán";
-            dtgv_DSSP.Columns[7].Name = "SL tồn";
+            dtgv_DSSP.Columns[6].Name = "Price";
+            dtgv_DSSP.Columns[7].Name = "Available Quantity";
             dtgv_DSSP.Rows.Clear();
 
             List<ViewHienThi> lstView = _qlSanPhamCT.getViewSPCT().Where(p => p.SanPhamChiTiets.trangThai == true).ToList();
@@ -118,7 +116,8 @@ namespace QuanLyBanHang.View.FrmBanHang
                 }
 
 
-            };
+            }
+            ;
         }
 
         private void LoadKhachHang()
@@ -201,7 +200,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             var spct = _qlSanPhamCT.getViewSPCT().FirstOrDefault(x => x.SanPhamChiTiets.IDSanPhamChiTiet == ID);
             if (spct.SanPhamChiTiets.soLuong == 0)
             {
-                MessageBox.Show("Sản phẩm tạm thời hết hàng!");
+                MessageBox.Show("Product is currently out of stock!");
                 return;
             }
             var checkInGioHang = gioHang.FirstOrDefault(x => x.ID == spct.SanPhamChiTiets.IDSanPhamChiTiet);
@@ -221,7 +220,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             {
                 if (checkInGioHang.soLuong == spct.SanPhamChiTiets.soLuong)
                 {
-                    MessageBox.Show("Bạn đã mua hết số lượng hàng trong kho!");
+                    MessageBox.Show("You have reached the maximum available quantity in stock!");
                 }
                 else
                 {
@@ -235,10 +234,10 @@ namespace QuanLyBanHang.View.FrmBanHang
             dtgv_gioHang.ColumnCount = 5;
             dtgv_gioHang.Columns[0].Name = "ID";
             dtgv_gioHang.Columns[0].Visible = false;
-            dtgv_gioHang.Columns[1].Name = "Mã SP";
-            dtgv_gioHang.Columns[2].Name = "Tên SP";
-            dtgv_gioHang.Columns[3].Name = "Số lượng";
-            dtgv_gioHang.Columns[4].Name = "Đơn giá";
+            dtgv_gioHang.Columns[1].Name = "Product Code";
+            dtgv_gioHang.Columns[2].Name = "Product Name";
+            dtgv_gioHang.Columns[3].Name = "Quantity";
+            dtgv_gioHang.Columns[4].Name = "Unit Price";
 
             dtgv_gioHang.Rows.Clear();
             foreach (var item in gioHang)
@@ -264,12 +263,12 @@ namespace QuanLyBanHang.View.FrmBanHang
                 }
                 else
                 {
-                    MessageBox.Show("Hãy chọn sản phẩm trong giỏ hàng cần xóa!");
+                    MessageBox.Show("Please select a product in the cart to remove!");
                 }
             }
             else
             {
-                MessageBox.Show("Chưa có sản phẩm nào trong giỏ hàng!");
+                MessageBox.Show("Your cart is empty!");
             }
         }
         private void btn_XoaGH_Click_1(object sender, EventArgs e)
@@ -281,7 +280,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             }
             else
             {
-                MessageBox.Show("Chưa có sản phẩm nào trong giỏ hàng!");
+                MessageBox.Show("Your cart is empty!");
             }
         }
         private void cbb_KhachHang_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -307,13 +306,13 @@ namespace QuanLyBanHang.View.FrmBanHang
         {
             if (txt_SDT.Text == "" || cbb_KhachHang.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập đủ thông tin khách hàng!");
+                MessageBox.Show("Please enter customer information!");
                 return;
             }
 
             if (ValidateInput.CheckSDT(txt_SDT.Text) == false)
             {
-                MessageBox.Show("Sai định dạng SĐT!");
+                MessageBox.Show("Invalid phone number!");
                 return;
             }
 
@@ -322,7 +321,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             {
                 if (txt_SDT.Text == item.SDT_KH)
                 {
-                    MessageBox.Show("SĐT đã được đăng ký! Vui lòng sử dụng SĐT khác!");
+                    MessageBox.Show("Phone number already exists! Please enter a different number!");
                     return;
                 }
             }
@@ -335,7 +334,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             kh.trangThai = true;
             kh.diemTichluy = 0;
             _qlKhachHang.addkhachHang(kh);
-            MessageBox.Show("Thêm khách hàng mới thành công!");
+            MessageBox.Show("Customer added successfully!");
 
             txt_SDT.Text = "";
             cbb_KhachHang.Text = "";
@@ -348,13 +347,13 @@ namespace QuanLyBanHang.View.FrmBanHang
         {
             if (cbb_KhachHang.Text == "")
             {
-                MessageBox.Show("Hãy chọn khách hàng!");
+                MessageBox.Show("Please enter customer information!");
                 return;
             }
             if (gioHang.Any())
             {
                 // Xem trong danh sách đơn hàng chờ đã có đơn nào của khách hàng hiện tại hay chưa
-                var existHD = _qlhoaDon.GetHoaDonFromDB().Where(x => x.trangThai == false).Where(x => x.ghiChu == "Chờ thanh toán...").FirstOrDefault(x => x.SDT_KH == txt_SDT.Text);
+                var existHD = _qlhoaDon.GetHoaDonFromDB().Where(x => x.trangThai == false).Where(x => x.ghiChu == "Awaiting payment...").FirstOrDefault(x => x.SDT_KH == txt_SDT.Text);
                 if (existHD != null) // Thực hiện gộp đơn nếu đã có
                 {
                     foreach (var item in gioHang)
@@ -382,7 +381,7 @@ namespace QuanLyBanHang.View.FrmBanHang
                             _qlhoaDon.UpdateHoaDon(existHD);
                         }
                     }
-                    MessageBox.Show("Đã gộp với hóa đơn chờ có sẵn!");
+                    MessageBox.Show("Invoice merged with existing pending invoice!");
                 }
                 else // Tạo đơn mới nếu chưa có
                 {
@@ -394,7 +393,7 @@ namespace QuanLyBanHang.View.FrmBanHang
                         // IDNhanVien sẽ là ID của tài khoản đang đăng nhập hiện tại
                         SDT_KH = txt_SDT.Text,
                         ngayBan = DateTime.Now,
-                        ghiChu = "Chờ thanh toán...",
+                        ghiChu = "Awaiting payment...",
                         trangThai = false,
                     };
                     _qlhoaDon.addHoaDon(hoaDon);
@@ -413,7 +412,7 @@ namespace QuanLyBanHang.View.FrmBanHang
                     }
                     hoaDon.tongTien = money;
                     _qlhoaDon.UpdateHoaDon(hoaDon);
-                    MessageBox.Show("Tạo hóa đơn thành công!");
+                    MessageBox.Show("Invoice created successfully!");
                 }
 
                 //// Trừ đi trong kho số lượng sp đã được mua
@@ -434,7 +433,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             }
             else
             {
-                MessageBox.Show("Chưa có sản phẩm nào trong giỏ hàng!");
+                MessageBox.Show("Your cart is empty!");
             }
         }
         public void ClearForm()
@@ -458,16 +457,16 @@ namespace QuanLyBanHang.View.FrmBanHang
         public void loadHDcho()
         {
             dtgv_HoadonCho.ColumnCount = 5;
-            dtgv_HoadonCho.Columns[0].Name = "ID hóa đơn";
+            dtgv_HoadonCho.Columns[0].Name = "Invoice Code";
             dtgv_HoadonCho.Columns[0].Visible = false;
-            dtgv_HoadonCho.Columns[1].Name = "SĐT khách hàng";
-            dtgv_HoadonCho.Columns[2].Name = "Tên khách hàng";
-            dtgv_HoadonCho.Columns[3].Name = "ID nhân viên";
+            dtgv_HoadonCho.Columns[1].Name = "Customer Phone";
+            dtgv_HoadonCho.Columns[2].Name = "Customer Name";
+            dtgv_HoadonCho.Columns[3].Name = "Employee ID";
             dtgv_HoadonCho.Columns[3].Visible = false;
-            dtgv_HoadonCho.Columns[4].Name = "Thời gian tạo";
+            dtgv_HoadonCho.Columns[4].Name = "Creation Time";
 
             dtgv_HoadonCho.Rows.Clear();
-            var hdCho = _qlhoaDon.getViewhoaDon().Where(x => x.hoaDons.trangThai == false).Where(x => x.hoaDons.ghiChu == "Chờ thanh toán...");
+            var hdCho = _qlhoaDon.getViewhoaDon().Where(x => x.hoaDons.trangThai == false).Where(x => x.hoaDons.ghiChu == "Awaiting payment...");
             foreach (var item in hdCho)
             {
                 dtgv_HoadonCho.Rows.Add(item.hoaDons.IDHoaDon, item.hoaDons.SDT_KH, item.khachHangs.TenKH, item.nhanViens.IDNhanVien, item.hoaDons.ngayBan);
@@ -491,7 +490,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             txt_TongTien.Text = tongTien.ToString();
             txt_khachDua.Text = "0";
             txt_giamGia.Text = "0";
-            txt_GhiChu.Text = "Đã thanh toán";
+            txt_GhiChu.Text = "Payment completed!";
         }
 
         private void btn_huyDon_Click(object sender, EventArgs e)
@@ -499,11 +498,11 @@ namespace QuanLyBanHang.View.FrmBanHang
             var donHangCho = _qlhoaDon.GetHoaDonFromDB().FirstOrDefault(x => x.IDHoaDon == IdinDonHangCho);
             if (donHangCho == null)
             {
-                MessageBox.Show("Hãy chọn đơn hàng cần hủy!");
+                MessageBox.Show("Please select an order to cancel!");
             }
             else
             {
-                donHangCho.ghiChu = "Đã hủy đơn";
+                donHangCho.ghiChu = "Cancelled";
                 _qlhoaDon.UpdateHoaDon(donHangCho);
 
                 // Trả lại số lượng các sp trong đơn bị hủy về kho
@@ -512,10 +511,10 @@ namespace QuanLyBanHang.View.FrmBanHang
                 {
                     var sp = _qlSanPhamCT.GetSanPhamCTFromDB().FirstOrDefault(x => x.IDSanPhamChiTiet == item.IDSanPham);
                     sp.soLuong += item.Soluong;
-                    if(sp.trangThai == false) sp.trangThai = true;
+                    if (sp.trangThai == false) sp.trangThai = true;
                     _qlSanPhamCT.UpdateSanPham(sp);
                 }
-                MessageBox.Show("Hủy đơn hàng thành công!");
+                MessageBox.Show("Order cancelled successfully!");
                 LoadSanPham();
                 loadHDcho();
                 ClearForm();
@@ -534,14 +533,14 @@ namespace QuanLyBanHang.View.FrmBanHang
             {
                 if (!char.IsNumber(item))
                 {
-                    MessageBox.Show("Nhập lỗi! Chỉ được phép nhập số!");
+                    MessageBox.Show("Error! Only numbers are allowed!");
                     txt_giamGia.Text = "0";
                     return;
                 }
             }
             if (Convert.ToInt32(txt_giamGia.Text) > _qlKhachHang.GetkhachHangFromDB().FirstOrDefault(x => x.SDT_KH == HoaDon.SDT_KH).diemTichluy)
             {
-                MessageBox.Show("Không đủ điểm tích lũy để sử dụng thêm!");
+                MessageBox.Show("Insufficient reward points!");
                 txt_giamGia.Text = _qlKhachHang.GetkhachHangFromDB().FirstOrDefault(x => x.SDT_KH == HoaDon.SDT_KH).diemTichluy.ToString();
             }
             float tongTien = 0;
@@ -582,7 +581,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             {
                 if (!char.IsNumber(item))
                 {
-                    MessageBox.Show("Nhập lỗi! Chỉ được phép nhập số!");
+                    MessageBox.Show("Error! Only numbers are allowed!");
                     txt_khachDua.Text = "";
                     return;
                 }
@@ -601,17 +600,17 @@ namespace QuanLyBanHang.View.FrmBanHang
         {
             if (HoaDon == null)
             {
-                MessageBox.Show("Hãy chọn hóa đơn để thanh toán!");
+                MessageBox.Show("Please select an invoice to checkout!");
             }
             else if (txt_TienThua.Text == "")
             {
-                MessageBox.Show("Khách chưa trả đủ tiền!");
+                MessageBox.Show("Customer has not paid enough!");
             }
             else
             {
                 // Trừ số điểm tích lũy đã dùng + điểm tích lũy cộng thêm
                 var kh = _qlKhachHang.GetkhachHangFromDB().FirstOrDefault(x => x.SDT_KH == txt_SDT.Text);
-                if (kh.TenKH != "Khách lẻ")
+                if (kh.TenKH != "Guest")
                 {
                     var diemDaDung = Convert.ToInt32(txt_giamGia.Text);
                     var listHDCT = _qlhoaDonChiTiet.GetHoaDonChiTietFromDB().Where(x => x.IDHoaDon == HoaDon.IDHoaDon);
@@ -637,7 +636,7 @@ namespace QuanLyBanHang.View.FrmBanHang
                 loadHDcho();
                 ClearForm();
                 HoaDon = null;
-                MessageBox.Show($"Thanh toán thành công!");
+                MessageBox.Show($"Payment completed!");
                 LoadSanPham();
                 InHoaDon();
             }
@@ -646,9 +645,10 @@ namespace QuanLyBanHang.View.FrmBanHang
         {
             if (cbb_KhachHang.Text == "")
             {
-                MessageBox.Show("Hãy chọn khách hàng!");
+                MessageBox.Show("Please enter customer information!");
                 return;
-            };
+            }
+            ;
             float tongTien = 0;
             foreach (var item in gioHang)
             {
@@ -663,7 +663,7 @@ namespace QuanLyBanHang.View.FrmBanHang
                     SDT_KH = txt_SDT.Text,
                     ngayBan = DateTime.Now,
                     tongTien = tongTien,
-                    ghiChu = "Chờ thanh toán...",
+                    ghiChu = "Awaiting payment...",
                     trangThai = false,
                 };
                 _qlhoaDon.addHoaDon(hoaDon);
@@ -683,7 +683,7 @@ namespace QuanLyBanHang.View.FrmBanHang
                 txt_MaHD.Text = hoaDon.IDHoaDon.ToString();
                 txt_TongTien.Text = tongTien.ToString();
                 txt_khachDua.Text = "0";
-                txt_GhiChu.Text = "Đã thanh toán";
+                txt_GhiChu.Text = "Payment completed!";
                 txt_giamGia.Text = "0";
 
                 // Trừ đi số lượng sản phẩm đã mua
@@ -704,7 +704,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             }
             else
             {
-                MessageBox.Show("Chưa có sản phẩm nào trong hóa đơn!");
+                MessageBox.Show("No items added to invoice yet!");
             }
         }
 
@@ -720,54 +720,101 @@ namespace QuanLyBanHang.View.FrmBanHang
             var kh = _qlKhachHang.GetkhachHangFromDB().FirstOrDefault(c => c.SDT_KH == hd.SDT_KH);
             var nv = _qLnhanVien.GetNhanVienFromDB().FirstOrDefault(c => c.nhanViens.IDNhanVien == hd.IDNhanVien);
 
-            //lấy chiều rộng của giấy
+            // Lấy chiều rộng của trang giấy
             var w = pdhd.DefaultPageSettings.PaperSize.Width;
-            //
-            e.Graphics.DrawString("FPOLY TSHIRT", new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(100, 20));
+            int margin = 40; // Lề trái/phải an toàn
+            int y = 30;
 
-            e.Graphics.DrawString(String.Format("Mã Hóa Đơn : {0}", hd.IDHoaDon), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, 20));
-            e.Graphics.DrawString(String.Format(" {0}", DateTime.Now.ToString()), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, 45));
-
-            //
+            // Khởi tạo Font và Pen dùng chung để tiết kiệm tài nguyên
+            Font fontTitle = new Font("Times New Roman", 16, FontStyle.Bold);
+            Font fontHeader = new Font("Times New Roman", 12, FontStyle.Bold);
+            Font fontContent = new Font("Times New Roman", 12, FontStyle.Regular);
+            Font fontBold = new Font("Times New Roman", 12, FontStyle.Bold);
             Pen pn = new Pen(Color.Black, 1);
 
-            var y = 70;
-            Point p1 = new Point(10, y);
-            Point p2 = new Point(w - 10, y);
-            e.Graphics.DrawLine(pn, p1, p2);
-            y += 10;
-            e.Graphics.DrawString(String.Format("HÓA ĐƠN BÁN HÀNG"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 - 100, y));
-            y += 50;
-            e.Graphics.DrawString(String.Format("Tên Khách Hàng: {0}", kh.TenKH), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(10, y));
-            e.Graphics.DrawString(String.Format("SĐT: {0}", kh.SDT_KH), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(10, y + 30));
-            y += 70;
-            e.Graphics.DrawString(String.Format("STT"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(10, y));
-            e.Graphics.DrawString(String.Format("Tên Sản Phẩm"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(100, y));
-            e.Graphics.DrawString(String.Format("Số Lượng"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2, y));
-            e.Graphics.DrawString(String.Format("Đơn Giá"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 100, y));
-            e.Graphics.DrawString(String.Format("Thành Tiền"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, y));
-            /////
-            ///
-            int stt = 1;
-            y += 20;
+            // --- 1. PHẦN HEADER (TIÊU ĐỀ & THÔNG TIN HÓA ĐƠN) ---
+            e.Graphics.DrawString("FPOLY TSHIRT", fontTitle, Brushes.Black, new Point(margin, y));
 
-            foreach (var x in _qlhoaDonChiTiet.GetHoaDonChiTietFromDB().Where(c => c.IDHoaDon == oID))
+            // Số hóa đơn và Ngày giờ căn lề phải
+            string invoiceNum = $"Invoice: #{hd.IDHoaDon}";
+            string dateStr = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            SizeF sizeInvoice = e.Graphics.MeasureString(invoiceNum, fontBold);
+            SizeF sizeDate = e.Graphics.MeasureString(dateStr, fontContent);
+
+            e.Graphics.DrawString(invoiceNum, fontBold, Brushes.Black, new Point(w - margin - (int)sizeInvoice.Width, y));
+            e.Graphics.DrawString(dateStr, fontContent, Brushes.Black, new Point(w - margin - (int)sizeDate.Width, y + 25));
+
+            y += 60;
+            // Đường kẻ ngang phân cách header
+            e.Graphics.DrawLine(pn, new Point(margin, y), new Point(w - margin, y));
+
+            // --- 2. TIÊU ĐỀ HÓA ĐƠN & KHÁCH HÀNG ---
+            y += 20;
+            string title = "SALES INVOICE";
+            SizeF sizeTitle = e.Graphics.MeasureString(title, fontTitle);
+            e.Graphics.DrawString(title, fontTitle, Brushes.Black, new Point((w - (int)sizeTitle.Width) / 2, y));
+
+            y += 40;
+            e.Graphics.DrawString($"Customer Name: {kh.TenKH}", fontContent, Brushes.Black, new Point(margin, y));
+            e.Graphics.DrawString($"Phone Number: {kh.SDT_KH}", fontContent, Brushes.Black, new Point(margin, y + 25));
+
+            y += 60;
+            // Đường kẻ trước bảng sản phẩm
+            e.Graphics.DrawLine(pn, new Point(margin, y), new Point(w - margin, y));
+
+            // --- 3. TIÊU ĐỀ BẢNG SẢN PHẨM ---
+            y += 10;
+            int colStt = margin;
+            int colName = margin + 40;
+            int colQty = w - 290;
+            int colPrice = w - 200;
+            int colTotal = w - 90;
+
+            e.Graphics.DrawString("No.", fontHeader, Brushes.Black, new Point(colStt, y));
+            e.Graphics.DrawString("Product Name", fontHeader, Brushes.Black, new Point(colName, y));
+            e.Graphics.DrawString("Qty", fontHeader, Brushes.Black, new Point(colQty, y));
+            e.Graphics.DrawString("Price", fontHeader, Brushes.Black, new Point(colPrice, y));
+            e.Graphics.DrawString("Total", fontHeader, Brushes.Black, new Point(colTotal, y));
+
+            y += 25;
+            e.Graphics.DrawLine(new Pen(Color.Gray, 1), new Point(margin, y), new Point(w - margin, y));
+
+            // --- 4. DANH SÁCH CHI TIẾT SẢN PHẨM ---
+            int stt = 1;
+            y += 10;
+            var listChiTiet = _qlhoaDonChiTiet.GetHoaDonChiTietFromDB().Where(c => c.IDHoaDon == oID).ToList();
+
+            foreach (var x in listChiTiet)
             {
-                var a = _qlSanPhamCT.GetSanPhamCTFromDB().FirstOrDefault(p => p.IDSanPhamChiTiet == x.IDSanPham).TenSP;
+                var sp = _qlSanPhamCT.GetSanPhamCTFromDB().FirstOrDefault(p => p.IDSanPhamChiTiet == x.IDSanPham);
+                string productName = sp != null ? sp.TenSP : string.Empty;
                 var thanhtien = x.Soluong * x.donGia;
-                e.Graphics.DrawString(String.Format("{0}", stt++), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(10, y));
-                e.Graphics.DrawString(String.Format("{0}", a), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(100, y));
-                e.Graphics.DrawString(String.Format("{0}", x.Soluong), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2, y));
-                e.Graphics.DrawString(String.Format("{0}", x.donGia), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 100, y));
-                e.Graphics.DrawString(String.Format("{0}", thanhtien), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 200, y));
-                y += 20;
+
+                e.Graphics.DrawString(stt.ToString(), fontContent, Brushes.Black, new Point(colStt, y));
+
+                if (productName.Length > 20) productName = productName.Substring(0, 17) + "...";
+                e.Graphics.DrawString(productName, fontContent, Brushes.Black, new Point(colName, y));
+
+                e.Graphics.DrawString(x.Soluong.ToString(), fontContent, Brushes.Black, new Point(colQty, y));
+                e.Graphics.DrawString(x.donGia.ToString("N0"), fontContent, Brushes.Black, new Point(colPrice, y));
+                e.Graphics.DrawString(thanhtien.ToString("N0"), fontContent, Brushes.Black, new Point(colTotal, y));
+
+                y += 25;
             }
+
+            // --- 5. TỔNG KẾT & CHÂN TRANG ---
+            y += 10;
+            e.Graphics.DrawLine(pn, new Point(margin, y), new Point(w - margin, y));
+
             y += 20;
-            e.Graphics.DrawLine(pn, p1, p2);
-            y += 20;
-            e.Graphics.DrawString(String.Format("TỔNG TIỀN: {0} VNĐ", hd.tongTien), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 + 100, y));
-            y += 100;
-            e.Graphics.DrawString(String.Format("CẢM ƠN QUÝ KHÁCH!"), new System.Drawing.Font("Times New Roman", 15, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(w / 2 - 100, y));
+            string totalText = $"Total Price: {hd.tongTien:N0} $";
+            SizeF sizeTotal = e.Graphics.MeasureString(totalText, fontBold);
+            e.Graphics.DrawString(totalText, fontBold, Brushes.Black, new Point(w - margin - (int)sizeTotal.Width, y));
+
+            y += 50;
+            string thankYou = "THANK YOU FOR YOUR BUSINESS!";
+            SizeF sizeThanks = e.Graphics.MeasureString(thankYou, fontHeader);
+            e.Graphics.DrawString(thankYou, fontHeader, Brushes.Black, new Point((w - (int)sizeThanks.Width) / 2, y));
         }
     }
 }

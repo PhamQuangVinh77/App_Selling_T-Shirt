@@ -1,15 +1,6 @@
 ﻿using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
 using QuanLyBanHang.View.FrmTrangChu;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyBanHang.View.FrmDangNhap
 {
@@ -39,7 +30,7 @@ namespace QuanLyBanHang.View.FrmDangNhap
             var acc = _sv.GetNhanVienFromDB().ToList();
             if (txt_taiKhoan.Text.Trim() == "" || txt_matKhau.Text.Trim() == "")
             {
-                MessageBox.Show("Vui lòng nhập thông tin tài khoản, mật khẩu");
+                MessageBox.Show("Please enter both username and password!");
             }
             else
             {
@@ -47,7 +38,7 @@ namespace QuanLyBanHang.View.FrmDangNhap
                 {
                     if (txt_taiKhoan.Text == acc[i].nhanViens.email && txt_matKhau.Text == acc[i].nhanViens.matKhau && acc[i].nhanViens.IDChucVu == 1)
                     {
-                        MessageBox.Show("Đăng nhập với tư cách quản lí");
+                        MessageBox.Show("Login as administrator");
                         Properties.Settings.Default.email = txt_taiKhoan.Text;
                         Properties.Settings.Default.Save();
                         FormMenuAdmin frmTrangChu = new FormMenuAdmin(this);
@@ -56,7 +47,7 @@ namespace QuanLyBanHang.View.FrmDangNhap
                     }
                     else if (txt_taiKhoan.Text == acc[i].nhanViens.email && txt_matKhau.Text == acc[i].nhanViens.matKhau && acc[i].nhanViens.IDChucVu == 2)
                     {
-                        MessageBox.Show("Đăng nhập với tư cách nhân viên");
+                        MessageBox.Show("Login as staff");
                         Properties.Settings.Default.email = txt_taiKhoan.Text;
                         Properties.Settings.Default.Save();
                         FormMenuNhanVien frmTrangChuNhanVien = new FormMenuNhanVien(this);
@@ -64,9 +55,8 @@ namespace QuanLyBanHang.View.FrmDangNhap
                         return;
                     }
                 }
-                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác");
+                MessageBox.Show("Username or password is incorrect!");
             }
         }
-
     }
 }

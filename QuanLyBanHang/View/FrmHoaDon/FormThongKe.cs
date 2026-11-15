@@ -1,17 +1,7 @@
 ﻿using _1_DAL_QUANLY.Models;
 using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
-using _2_BUS_QUANLY.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using OfficeOpenXml;
 
 namespace QuanLyBanHang.View.FrmHoaDon
 {
@@ -32,11 +22,11 @@ namespace QuanLyBanHang.View.FrmHoaDon
         private void loadData()
         {
             dtgv_hanghoa.ColumnCount = 5;
-            dtgv_hanghoa.Columns[0].Name = "Mã hóa đơn";
-            dtgv_hanghoa.Columns[1].Name = "Tên khách hàng";
-            dtgv_hanghoa.Columns[2].Name = "Tổng tiền";
-            dtgv_hanghoa.Columns[3].Name = "Ngày tạo";
-            dtgv_hanghoa.Columns[4].Name = "Trạng thái";
+            dtgv_hanghoa.Columns[0].Name = "Invoice Code";
+            dtgv_hanghoa.Columns[1].Name = "Customer Name";
+            dtgv_hanghoa.Columns[2].Name = "Total Amount";
+            dtgv_hanghoa.Columns[3].Name = "Sale Date";
+            dtgv_hanghoa.Columns[4].Name = "Status";
             dtgv_hanghoa.Rows.Clear();
 
             int tongSoHD = 0;
@@ -52,7 +42,7 @@ namespace QuanLyBanHang.View.FrmHoaDon
                     _customer.GetkhachHangFromDB().FirstOrDefault(x => x.SDT_KH == item.SDT_KH).TenKH,
                     item.tongTien,
                     item.ngayBan,
-                    item.trangThai == true ? "Đã thanh toán" : item.ghiChu == "Đã hủy đơn" ? "Đã hủy đơn" : "Chờ thanh toán...");
+                    item.trangThai == true ? "Payment completed!" : item.ghiChu == "Cancelled" ? "Cancelled" : "Awaiting payment...");
                 tongSoHD++;
                 if (item.trangThai == true)
                 {
@@ -133,7 +123,7 @@ namespace QuanLyBanHang.View.FrmHoaDon
             Microsoft.Office.Interop.Excel.Workbook workbook = excel.Workbooks.Add(Type.Missing);
 
             Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.ActiveSheet;
-            worksheet.Name = "Thong ke";
+            worksheet.Name = "Reports";
 
             for (int i = 0; i < dtgv_hanghoa.Columns.Count; i++)
             {

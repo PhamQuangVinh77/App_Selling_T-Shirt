@@ -62,6 +62,7 @@
             btn_CapNhap = new Button();
             btn_Them = new Button();
             groupBox4 = new GroupBox();
+            label13 = new Label();
             txt_timKiem = new TextBox();
             dtgv_SPCT = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -118,7 +119,7 @@
             groupBox1.Size = new Size(880, 341);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Thông tin sản phẩm";
+            groupBox1.Text = "DETAILS";
             // 
             // rdb_hetHang
             // 
@@ -126,10 +127,10 @@
             rdb_hetHang.Location = new Point(308, 264);
             rdb_hetHang.Margin = new Padding(4, 3, 4, 3);
             rdb_hetHang.Name = "rdb_hetHang";
-            rdb_hetHang.Size = new Size(96, 23);
+            rdb_hetHang.Size = new Size(119, 23);
             rdb_hetHang.TabIndex = 24;
             rdb_hetHang.TabStop = true;
-            rdb_hetHang.Text = "Hết hàng";
+            rdb_hetHang.Text = "Out of stock";
             rdb_hetHang.UseVisualStyleBackColor = true;
             // 
             // rdb_conHang
@@ -138,10 +139,10 @@
             rdb_conHang.Location = new Point(184, 261);
             rdb_conHang.Margin = new Padding(4, 3, 4, 3);
             rdb_conHang.Name = "rdb_conHang";
-            rdb_conHang.Size = new Size(99, 23);
+            rdb_conHang.Size = new Size(88, 23);
             rdb_conHang.TabIndex = 23;
             rdb_conHang.TabStop = true;
-            rdb_conHang.Text = "Còn hàng";
+            rdb_conHang.Text = "In stock";
             rdb_conHang.UseVisualStyleBackColor = true;
             // 
             // cbb_Size
@@ -245,9 +246,9 @@
             label7.Location = new Point(469, 264);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(48, 19);
+            label7.Size = new Size(44, 19);
             label7.TabIndex = 11;
-            label7.Text = "Size :";
+            label7.Text = "Size:";
             // 
             // label8
             // 
@@ -255,9 +256,9 @@
             label8.Location = new Point(469, 218);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(79, 19);
+            label8.Size = new Size(59, 19);
             label8.TabIndex = 10;
-            label8.Text = "Màu sắc :";
+            label8.Text = "Color:";
             // 
             // label9
             // 
@@ -265,9 +266,9 @@
             label9.Location = new Point(469, 174);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(87, 19);
+            label9.Size = new Size(81, 19);
             label9.TabIndex = 9;
-            label9.Text = "Chất liệu :";
+            label9.Text = "Material:";
             // 
             // label10
             // 
@@ -275,9 +276,9 @@
             label10.Location = new Point(469, 135);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(121, 19);
+            label10.Size = new Size(117, 19);
             label10.TabIndex = 8;
-            label10.Text = "Hãng sản xuất :";
+            label10.Text = "Manufacturer:";
             // 
             // label11
             // 
@@ -285,9 +286,9 @@
             label11.Location = new Point(469, 95);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(116, 19);
+            label11.Size = new Size(79, 19);
             label11.TabIndex = 7;
-            label11.Text = "Nhà cung cấp :";
+            label11.Text = "Supplier:";
             // 
             // label12
             // 
@@ -295,9 +296,9 @@
             label12.Location = new Point(469, 55);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
-            label12.Size = new Size(118, 19);
+            label12.Size = new Size(83, 19);
             label12.TabIndex = 6;
-            label12.Text = "Tên sản phẩm :";
+            label12.Text = "Category:";
             // 
             // label6
             // 
@@ -305,9 +306,9 @@
             label6.Location = new Point(29, 264);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(95, 19);
+            label6.Size = new Size(60, 19);
             label6.TabIndex = 5;
-            label6.Text = "Trạng thái :";
+            label6.Text = "Status:";
             // 
             // label5
             // 
@@ -315,9 +316,9 @@
             label5.Location = new Point(29, 218);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(84, 19);
+            label5.Size = new Size(80, 19);
             label5.TabIndex = 4;
-            label5.Text = "Số lượng :";
+            label5.Text = "Quantity:";
             // 
             // label4
             // 
@@ -325,9 +326,9 @@
             label4.Location = new Point(29, 174);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(77, 19);
+            label4.Size = new Size(113, 19);
             label4.TabIndex = 3;
-            label4.Text = "Giá bán :";
+            label4.Text = "Selling Price:";
             // 
             // label3
             // 
@@ -335,9 +336,9 @@
             label3.Location = new Point(29, 135);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(86, 19);
+            label3.Size = new Size(112, 19);
             label3.TabIndex = 2;
-            label3.Text = "Giá nhập :";
+            label3.Text = "Import Price:";
             // 
             // label2
             // 
@@ -345,9 +346,9 @@
             label2.Location = new Point(29, 95);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(126, 19);
+            label2.Size = new Size(57, 19);
             label2.TabIndex = 1;
-            label2.Text = "Tên SP chi tiết :";
+            label2.Text = "Name:";
             // 
             // label1
             // 
@@ -355,9 +356,9 @@
             label1.Location = new Point(29, 55);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(115, 19);
+            label1.Size = new Size(117, 19);
             label1.TabIndex = 0;
-            label1.Text = "Mã sản phẩm :";
+            label1.Text = "Product Code:";
             // 
             // groupBox2
             // 
@@ -370,7 +371,7 @@
             groupBox2.Size = new Size(279, 341);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Hình ảnh ";
+            groupBox2.Text = "Image";
             // 
             // btn_chonAnh
             // 
@@ -379,7 +380,7 @@
             btn_chonAnh.Name = "btn_chonAnh";
             btn_chonAnh.Size = new Size(221, 36);
             btn_chonAnh.TabIndex = 1;
-            btn_chonAnh.Text = "Chọn ảnh từ thiết bị ...";
+            btn_chonAnh.Text = "Select image from device...";
             btn_chonAnh.UseVisualStyleBackColor = true;
             btn_chonAnh.Click += btn_chonAnh_Click;
             // 
@@ -405,7 +406,7 @@
             groupBox3.Size = new Size(256, 341);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Chức năng";
+            groupBox3.Text = "ACTIONS";
             // 
             // btn_xuatEX
             // 
@@ -414,7 +415,7 @@
             btn_xuatEX.Name = "btn_xuatEX";
             btn_xuatEX.Size = new Size(185, 43);
             btn_xuatEX.TabIndex = 2;
-            btn_xuatEX.Text = "XUẤT EXCEL";
+            btn_xuatEX.Text = "EXPORT EXCEL";
             btn_xuatEX.UseVisualStyleBackColor = true;
             btn_xuatEX.Click += btn_xuatEX_Click;
             // 
@@ -425,7 +426,7 @@
             btn_CapNhap.Name = "btn_CapNhap";
             btn_CapNhap.Size = new Size(185, 43);
             btn_CapNhap.TabIndex = 1;
-            btn_CapNhap.Text = "CẬP NHẬP";
+            btn_CapNhap.Text = "UPDATE";
             btn_CapNhap.UseVisualStyleBackColor = true;
             btn_CapNhap.Click += btn_CapNhap_Click;
             // 
@@ -436,12 +437,13 @@
             btn_Them.Name = "btn_Them";
             btn_Them.Size = new Size(185, 43);
             btn_Them.TabIndex = 0;
-            btn_Them.Text = "THÊM";
+            btn_Them.Text = "ADD NEW";
             btn_Them.UseVisualStyleBackColor = true;
             btn_Them.Click += btn_Them_Click;
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(label13);
             groupBox4.Controls.Add(txt_timKiem);
             groupBox4.Controls.Add(dtgv_SPCT);
             groupBox4.Location = new Point(15, 358);
@@ -451,12 +453,23 @@
             groupBox4.Size = new Size(1515, 373);
             groupBox4.TabIndex = 3;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Dữ liệu";
+            groupBox4.Text = "INFORMATIONS";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(1168, 30);
+            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(65, 19);
+            label13.TabIndex = 12;
+            label13.Text = "Search:";
             // 
             // txt_timKiem
             // 
             txt_timKiem.Location = new Point(1238, 26);
             txt_timKiem.Name = "txt_timKiem";
+            txt_timKiem.PlaceholderText = "Searching...";
             txt_timKiem.Size = new Size(269, 27);
             txt_timKiem.TabIndex = 1;
             txt_timKiem.TextChanged += txt_timKiem_TextChanged;
@@ -484,55 +497,55 @@
             // 
             // Column2
             // 
-            Column2.HeaderText = "Mã SP";
+            Column2.HeaderText = "Code";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             // 
             // Column3
             // 
-            Column3.HeaderText = "Tên SP";
+            Column3.HeaderText = "Name";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             // 
             // Column4
             // 
-            Column4.HeaderText = "Giá nhập";
+            Column4.HeaderText = "Import Price";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
             // 
             // Column5
             // 
-            Column5.HeaderText = "Giá bán";
+            Column5.HeaderText = "Selling Price";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
             // 
             // Column6
             // 
-            Column6.HeaderText = "Số lượng";
+            Column6.HeaderText = "Quantity";
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
             // 
             // Column7
             // 
-            Column7.HeaderText = "Nhà CC";
+            Column7.HeaderText = "Supplier";
             Column7.MinimumWidth = 6;
             Column7.Name = "Column7";
             // 
             // Column8
             // 
-            Column8.HeaderText = "Hãng SX";
+            Column8.HeaderText = "Manufacturer";
             Column8.MinimumWidth = 6;
             Column8.Name = "Column8";
             // 
             // Column9
             // 
-            Column9.HeaderText = "Chất liệu";
+            Column9.HeaderText = "Material";
             Column9.MinimumWidth = 6;
             Column9.Name = "Column9";
             // 
             // Column10
             // 
-            Column10.HeaderText = "Màu sắc";
+            Column10.HeaderText = "Color";
             Column10.MinimumWidth = 6;
             Column10.Name = "Column10";
             // 
@@ -544,7 +557,7 @@
             // 
             // Column12
             // 
-            Column12.HeaderText = "Trạng thái";
+            Column12.HeaderText = "Status";
             Column12.MinimumWidth = 6;
             Column12.Name = "Column12";
             // 
@@ -552,7 +565,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 743);
+            ClientSize = new Size(1546, 743);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
@@ -622,5 +635,6 @@
         private DataGridViewTextBoxColumn Column10;
         private DataGridViewTextBoxColumn Column11;
         private DataGridViewTextBoxColumn Column12;
+        private Label label13;
     }
 }

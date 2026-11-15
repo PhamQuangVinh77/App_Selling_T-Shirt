@@ -1,16 +1,6 @@
 ﻿using _1_DAL_QUANLY.Models;
-using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
 using _2_BUS_QUANLY.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyBanHang.View.FrmChatLieu
 {
@@ -27,16 +17,16 @@ namespace QuanLyBanHang.View.FrmChatLieu
         private void LoadData()
         {
             dtgv_ChatLieu.ColumnCount = 3;
-            dtgv_ChatLieu.Columns[0].Name = "ID Chất liệu";
-            dtgv_ChatLieu.Columns[1].Name = "Tên chất liệu";
-            dtgv_ChatLieu.Columns[2].Name = "Trạng thái";
+            dtgv_ChatLieu.Columns[0].Name = "ID";
+            dtgv_ChatLieu.Columns[1].Name = "Material";
+            dtgv_ChatLieu.Columns[2].Name = "Status";
             dtgv_ChatLieu.Rows.Clear();
 
             var listChatLieu = qLchatLieuServices.GetChatLieuFromDB();
             foreach (var item in listChatLieu)
             {
                 dtgv_ChatLieu.Rows.Add(item.IDchatLieu, item.tenChatLieu,
-                    item.trangThai == true ? "Còn hàng" : "Hết hàng");
+                    item.trangThai == true ? "In Stock" : "Out of Stock");
             }
         }
         private void resetForm()
@@ -52,14 +42,14 @@ namespace QuanLyBanHang.View.FrmChatLieu
         {
             if (txt_TenChatLieu.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập tên chất liệu!");
+                MessageBox.Show("Please enter the material!");
             }
             else
             {
                 chatLieu cl = qLchatLieuServices.GetChatLieuFromDB().FirstOrDefault(x => x.tenChatLieu.ToLower() == txt_TenChatLieu.Text.ToLower());
-                if(cl != null)
+                if (cl != null)
                 {
-                    MessageBox.Show("Chất liệu đã tồn tại!");
+                    MessageBox.Show("Material already exists!");
                 }
                 else
                 {
@@ -69,7 +59,7 @@ namespace QuanLyBanHang.View.FrmChatLieu
                         trangThai = rdb_conHang.Checked,
                     };
                     qLchatLieuServices.addChatLieu(c);
-                    MessageBox.Show("Thêm thành công!");
+                    MessageBox.Show("Added successfully!");
                     resetForm();
                 }
             }
@@ -79,11 +69,11 @@ namespace QuanLyBanHang.View.FrmChatLieu
         {
             if (txt_TenChatLieu.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập chất liệu!");
+                MessageBox.Show("Please enter the material!");
             }
             else if (chatLieu == null)
             {
-                MessageBox.Show("Vui lòng chọn chất liệu cần sửa!");
+                MessageBox.Show("Please select the material to edit!");
             }
             else
             {
@@ -93,12 +83,12 @@ namespace QuanLyBanHang.View.FrmChatLieu
                     chatLieu.tenChatLieu = txt_TenChatLieu.Text;
                     chatLieu.trangThai = rdb_conHang.Checked;
                     qLchatLieuServices.UpdateChatLieu(chatLieu);
-                    MessageBox.Show("Sửa thành công!");
+                    MessageBox.Show("Updated successfully!");
                     resetForm();
                 }
                 else
                 {
-                    MessageBox.Show("Chất liệu đã tồn tại!");
+                    MessageBox.Show("Material already exists!");
                 }
             }
         }
@@ -111,7 +101,7 @@ namespace QuanLyBanHang.View.FrmChatLieu
             chatLieu = qLchatLieuServices.GetChatLieuFromDB().
                 FirstOrDefault(x => x.IDchatLieu == Convert.ToInt32(row.Cells[0].Value));
             txt_TenChatLieu.Text = row.Cells[1].Value.ToString();
-            if (row.Cells[2].Value.ToString() == "Còn hàng")
+            if (row.Cells[2].Value.ToString() == "In Stock")
             {
                 rdb_conHang.Checked = true;
             }

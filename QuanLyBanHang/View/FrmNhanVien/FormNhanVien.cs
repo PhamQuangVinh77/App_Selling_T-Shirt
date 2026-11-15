@@ -2,15 +2,6 @@
 using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
 using _2_BUS_QUANLY.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyBanHang.View.FrmNhanVien
 {
@@ -41,14 +32,14 @@ namespace QuanLyBanHang.View.FrmNhanVien
         private void LoadData()
         {
             dtgv_NhanVien.ColumnCount = 8;
-            dtgv_NhanVien.Columns[0].Name = "Id";
-            dtgv_NhanVien.Columns[1].Name = "Tên NV";
-            dtgv_NhanVien.Columns[2].Name = "Địa chỉ";
-            dtgv_NhanVien.Columns[3].Name = "SĐT";
+            dtgv_NhanVien.Columns[0].Name = "ID";
+            dtgv_NhanVien.Columns[1].Name = "Name";
+            dtgv_NhanVien.Columns[2].Name = "Address";
+            dtgv_NhanVien.Columns[3].Name = "Phone";
             dtgv_NhanVien.Columns[4].Name = "Email";
-            dtgv_NhanVien.Columns[5].Name = "Mật khẩu";
-            dtgv_NhanVien.Columns[6].Name = "Chức vụ";
-            dtgv_NhanVien.Columns[7].Name = "Trạng thái";
+            dtgv_NhanVien.Columns[5].Name = "Password";
+            dtgv_NhanVien.Columns[6].Name = "Position";
+            dtgv_NhanVien.Columns[7].Name = "Status";
             dtgv_NhanVien.Rows.Clear();
 
             var listViewNV = qLnhanVienServices.GetNhanVienFromDB();
@@ -62,7 +53,7 @@ namespace QuanLyBanHang.View.FrmNhanVien
                     item.nhanViens.email,
                     item.nhanViens.matKhau,
                     item.chucVus.tenCV,
-                    item.nhanViens.tinhTrang == true ? "Hoạt động" : "Không hoạt động"
+                    item.nhanViens.tinhTrang == true ? "Active" : "Inactive"
                     );
             }
         }
@@ -83,7 +74,7 @@ namespace QuanLyBanHang.View.FrmNhanVien
         {
             if (txt_tenNV.Text == "" || txt_diaChi.Text == "" || txt_SDT.Text == "" || txt_Email.Text == "" || txt_MatKhau.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên!");
+                MessageBox.Show("Please complete all information!");
             }
             else
             {
@@ -101,7 +92,7 @@ namespace QuanLyBanHang.View.FrmNhanVien
                     }
                 };
                 qLnhanVienServices.addNhanVien(nv);
-                MessageBox.Show("Thêm nhân viên thành công!");
+                MessageBox.Show("Added successfully!");
                 ResetForm();
             }
         }
@@ -111,11 +102,11 @@ namespace QuanLyBanHang.View.FrmNhanVien
             if (txt_tenNV.Text == "" || txt_diaChi.Text == "" || txt_SDT.Text == "" ||
                txt_Email.Text == "" || txt_MatKhau.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên!");
+                MessageBox.Show("Please complete all information!");
             }
             else if (viewNV == null)
             {
-                MessageBox.Show("Vui lòng chọn nhân viên cần sửa thông tin!");
+                MessageBox.Show("Please select the staff to update!");
             }
             else
             {
@@ -127,7 +118,7 @@ namespace QuanLyBanHang.View.FrmNhanVien
                 viewNV.nhanViens.IDChucVu = cbb_ChucVu.SelectedIndex + 1;
                 viewNV.nhanViens.tinhTrang = rdb_HD.Checked;
                 qLnhanVienServices.UpdateNhanVien(viewNV);
-                MessageBox.Show("Sửa thành công!");
+                MessageBox.Show("Updated successfully!");
                 ResetForm();
 
             }
@@ -146,7 +137,7 @@ namespace QuanLyBanHang.View.FrmNhanVien
             txt_Email.Text = r.Cells[4].Value.ToString();
             txt_MatKhau.Text = r.Cells[5].Value.ToString();
             cbb_ChucVu.SelectedIndex = cbb_ChucVu.FindStringExact(r.Cells[6].Value.ToString());
-            if (r.Cells[7].Value.ToString() == "Hoạt động")
+            if (r.Cells[7].Value.ToString() == "Active")
             {
                 rdb_HD.Checked = true;
             }

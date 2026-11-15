@@ -27,16 +27,16 @@ namespace QuanLyBanHang.View.FrmNhaCungCap
         public void LoadData()
         {
             dtgv_nhaCC.ColumnCount = 3;
-            dtgv_nhaCC.Columns[0].Name = "ID Nhà cung cấp";
-            dtgv_nhaCC.Columns[1].Name = "Tên nhà cung cấp";
-            dtgv_nhaCC.Columns[2].Name = "Trạng thái";
+            dtgv_nhaCC.Columns[0].Name = "ID";
+            dtgv_nhaCC.Columns[1].Name = "Supplier";
+            dtgv_nhaCC.Columns[2].Name = "Status";
             dtgv_nhaCC.Rows.Clear();
 
             var listNCC = qLnhaCungCapServices.GetNhaCungCapFromDB();
             foreach (var item in listNCC)
             {
                 dtgv_nhaCC.Rows.Add(item.IDNhaCungCap, item.tenNhaCungCap,
-                    item.trangThai == true ? "Đang cung cấp" : "Ngừng cung cấp");
+                    item.trangThai == true ? "Supplying" : "Discontinued");
             }
         }
 
@@ -51,14 +51,14 @@ namespace QuanLyBanHang.View.FrmNhaCungCap
         {
             if (txt_TenNhaCC.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập tên nhà cung cấp!");
+                MessageBox.Show("Please enter the supplier!");
             }
             else
             {
                 nhaCungCap nhaCC = qLnhaCungCapServices.GetNhaCungCapFromDB().FirstOrDefault(x => x.tenNhaCungCap.ToLower() == txt_TenNhaCC.Text.ToLower());
                 if (nhaCC != null)
                 {
-                    MessageBox.Show("Hãng SX đã tồn tại!");
+                    MessageBox.Show("Supplier already exists!");
                 }
                 else
                 {
@@ -68,7 +68,7 @@ namespace QuanLyBanHang.View.FrmNhaCungCap
                         trangThai = radioButton1.Checked,
                     };
                     qLnhaCungCapServices.addNhaCungCap(ncc);
-                    MessageBox.Show("Thêm nhà cung cấp thành công!");
+                    MessageBox.Show("Added successfully!");
                     resetForm();
                 }
             }
@@ -78,11 +78,11 @@ namespace QuanLyBanHang.View.FrmNhaCungCap
         {
             if (txt_TenNhaCC.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập tên nhà cung cấp!");
+                MessageBox.Show("Please enter the supplier!");
             }
             else if (nhaCC == null)
             {
-                MessageBox.Show("Vui lòng chọn tên nhà cung cấp cần sửa!");
+                MessageBox.Show("Please select the supplier to update!");
             }
             else
             {
@@ -92,12 +92,12 @@ namespace QuanLyBanHang.View.FrmNhaCungCap
                     nhaCC.tenNhaCungCap = txt_TenNhaCC.Text;
                     nhaCC.trangThai = radioButton1.Checked;
                     qLnhaCungCapServices.UpdatesNhaCungCap(nhaCC);
-                    MessageBox.Show("Sửa thành công!");
+                    MessageBox.Show("Updated successfully!");
                     resetForm();
                 }
                 else
                 {
-                    MessageBox.Show("Tên nhà cung cấp đã tồn tại!");
+                    MessageBox.Show("Supplier already exists!");
                 }
             }
         }
@@ -110,7 +110,7 @@ namespace QuanLyBanHang.View.FrmNhaCungCap
             nhaCC = qLnhaCungCapServices.GetNhaCungCapFromDB().
                 FirstOrDefault(x => x.IDNhaCungCap == Convert.ToInt32(row.Cells[0].Value));
             txt_TenNhaCC.Text = row.Cells[1].Value.ToString();
-            if (row.Cells[2].Value.ToString() == "Đang cung cấp")
+            if (row.Cells[2].Value.ToString() == "Supplying")
             {
                 radioButton1.Checked = true;
             }

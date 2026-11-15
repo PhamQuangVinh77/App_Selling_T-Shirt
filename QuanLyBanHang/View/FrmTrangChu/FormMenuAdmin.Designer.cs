@@ -93,8 +93,8 @@
             btn_loaiSP.Padding = new Padding(0, 0, 9, 0);
             btn_loaiSP.Size = new Size(199, 40);
             btn_loaiSP.TabIndex = 5;
-            btn_loaiSP.Text = "LOẠI SẢN PHẨM";
-            btn_loaiSP.TextAlign = ContentAlignment.MiddleRight;
+            btn_loaiSP.Text = "     CATEGORY";
+            btn_loaiSP.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_loaiSP.UseVisualStyleBackColor = true;
             btn_loaiSP.Click += btn_loaiSP_Click;
             // 
@@ -108,7 +108,8 @@
             btn_khachHang.Name = "btn_khachHang";
             btn_khachHang.Size = new Size(199, 40);
             btn_khachHang.TabIndex = 13;
-            btn_khachHang.Text = "KHÁCH HÀNG";
+            btn_khachHang.Text = "     CUSTOMER";
+            btn_khachHang.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_khachHang.UseVisualStyleBackColor = true;
             btn_khachHang.Click += btn_khachHang_Click;
             // 
@@ -133,7 +134,8 @@
             btn_DanhMucHD.Name = "btn_DanhMucHD";
             btn_DanhMucHD.Size = new Size(199, 40);
             btn_DanhMucHD.TabIndex = 11;
-            btn_DanhMucHD.Text = "DM HÓA ĐƠN";
+            btn_DanhMucHD.Text = "     INVOICE";
+            btn_DanhMucHD.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_DanhMucHD.UseVisualStyleBackColor = true;
             btn_DanhMucHD.Click += btn_DanhMucHD_Click;
             // 
@@ -147,7 +149,8 @@
             btn_Thoat.Name = "btn_Thoat";
             btn_Thoat.Size = new Size(199, 40);
             btn_Thoat.TabIndex = 2;
-            btn_Thoat.Text = "THOÁT";
+            btn_Thoat.Text = "     LOG OUT";
+            btn_Thoat.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_Thoat.UseVisualStyleBackColor = true;
             btn_Thoat.Click += btn_Thoat_Click;
             // 
@@ -161,7 +164,8 @@
             btn_ThongKe.Name = "btn_ThongKe";
             btn_ThongKe.Size = new Size(199, 40);
             btn_ThongKe.TabIndex = 2;
-            btn_ThongKe.Text = "THỐNG KÊ";
+            btn_ThongKe.Text = "       REVENUE";
+            btn_ThongKe.TextImageRelation = TextImageRelation.ImageBeforeText;  
             btn_ThongKe.UseVisualStyleBackColor = true;
             btn_ThongKe.Click += btn_ThongKe_Click;
             // 
@@ -175,7 +179,8 @@
             btn_NhanVien.Name = "btn_NhanVien";
             btn_NhanVien.Size = new Size(199, 40);
             btn_NhanVien.TabIndex = 2;
-            btn_NhanVien.Text = "NHÂN VIÊN";
+            btn_NhanVien.Text = "     STAFF";
+            btn_NhanVien.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_NhanVien.UseVisualStyleBackColor = true;
             btn_NhanVien.Click += btn_NhanVien_Click;
             // 
@@ -189,7 +194,8 @@
             btn_Size.Name = "btn_Size";
             btn_Size.Size = new Size(199, 40);
             btn_Size.TabIndex = 8;
-            btn_Size.Text = "SIZE";
+            btn_Size.Text = "     SIZE";
+            btn_Size.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_Size.UseVisualStyleBackColor = true;
             btn_Size.Click += btn_Size_Click;
             // 
@@ -203,7 +209,8 @@
             btn_MauSac.Name = "btn_MauSac";
             btn_MauSac.Size = new Size(199, 40);
             btn_MauSac.TabIndex = 7;
-            btn_MauSac.Text = "MÀU SẮC";
+            btn_MauSac.Text = "     COLOR";
+            btn_MauSac.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_MauSac.UseVisualStyleBackColor = true;
             btn_MauSac.Click += btn_MauSac_Click;
             // 
@@ -217,7 +224,8 @@
             btn_ChatLieu.Name = "btn_ChatLieu";
             btn_ChatLieu.Size = new Size(199, 40);
             btn_ChatLieu.TabIndex = 6;
-            btn_ChatLieu.Text = "CHẤT LIỆU";
+            btn_ChatLieu.Text = "     MATERIAL";
+            btn_ChatLieu.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_ChatLieu.UseVisualStyleBackColor = true;
             btn_ChatLieu.Click += btn_ChatLieu_Click;
             // 
@@ -231,8 +239,8 @@
             btn_HangSanXuat.Name = "btn_HangSanXuat";
             btn_HangSanXuat.Size = new Size(199, 40);
             btn_HangSanXuat.TabIndex = 6;
-            btn_HangSanXuat.Text = "HÃNG SẢN XUẤT";
-            btn_HangSanXuat.TextAlign = ContentAlignment.MiddleRight;
+            btn_HangSanXuat.Text = "MANUFACTURER";
+            btn_HangSanXuat.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_HangSanXuat.UseVisualStyleBackColor = true;
             btn_HangSanXuat.Click += btn_HangSanXuat_Click;
             // 
@@ -247,8 +255,8 @@
             btn_NhaCungCap.Padding = new Padding(0, 0, 9, 0);
             btn_NhaCungCap.Size = new Size(199, 40);
             btn_NhaCungCap.TabIndex = 4;
-            btn_NhaCungCap.Text = "NHÀ CUNG CẤP";
-            btn_NhaCungCap.TextAlign = ContentAlignment.MiddleRight;
+            btn_NhaCungCap.Text = "     SUPPLIER";
+            btn_NhaCungCap.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_NhaCungCap.UseVisualStyleBackColor = true;
             btn_NhaCungCap.Click += btn_NhaCungCap_Click;
             // 
@@ -262,7 +270,8 @@
             btn_SanPham.Name = "btn_SanPham";
             btn_SanPham.Size = new Size(199, 40);
             btn_SanPham.TabIndex = 3;
-            btn_SanPham.Text = "SẢN PHẨM";
+            btn_SanPham.Text = "     PRODUCT";
+            btn_SanPham.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_SanPham.UseVisualStyleBackColor = true;
             btn_SanPham.Click += btn_SanPham_Click;
             // 
@@ -276,7 +285,8 @@
             btn_BanHang.Name = "btn_BanHang";
             btn_BanHang.Size = new Size(199, 40);
             btn_BanHang.TabIndex = 2;
-            btn_BanHang.Text = "BÁN HÀNG";
+            btn_BanHang.Text = "      SALES";
+            btn_BanHang.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_BanHang.UseVisualStyleBackColor = true;
             btn_BanHang.Click += btn_BanHang_Click;
             // 
@@ -291,7 +301,8 @@
             btn_TrangChu.Name = "btn_TrangChu";
             btn_TrangChu.Size = new Size(199, 40);
             btn_TrangChu.TabIndex = 1;
-            btn_TrangChu.Text = "TRANG CHỦ";
+            btn_TrangChu.Text = "      HOME";
+            btn_TrangChu.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_TrangChu.UseVisualStyleBackColor = false;
             // 
             // panel1
@@ -337,10 +348,9 @@
             lbl_Home.Location = new Point(491, 16);
             lbl_Home.Margin = new Padding(4, 0, 4, 0);
             lbl_Home.Name = "lbl_Home";
-            lbl_Home.Size = new Size(671, 42);
+            lbl_Home.Size = new Size(662, 42);
             lbl_Home.TabIndex = 1;
-            lbl_Home.Text = "Chào Mừng Bạn Đến Với FPOLY T-SHIRT";
-            //
+            // 
             // pnl_ManChinh
             // 
             pnl_ManChinh.Controls.Add(pictureBox2);

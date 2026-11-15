@@ -1,17 +1,6 @@
-﻿using _1_DAL_QUANLY.IRepositories;
-using _1_DAL_QUANLY.Models;
+﻿using _1_DAL_QUANLY.Models;
 using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyBanHang.View.FrmLoaiSP
 {
@@ -33,7 +22,7 @@ namespace QuanLyBanHang.View.FrmLoaiSP
             foreach (var item in _sanPhamServices.GetsanPhamFromDB())
             {
                 dtgv_LoaiSP.Rows.Add(item.IDsanPham, item.tenSanPham,
-                    item.trangThai == true ? "Còn hàng" : "Hết hàng");
+                    item.trangThai == true ? "In Stock" : "Out of Stock");
             }
 
             txt_TenLoaiSP.Text = "";
@@ -46,11 +35,11 @@ namespace QuanLyBanHang.View.FrmLoaiSP
             var existLoaiSP = _sanPhamServices.GetsanPhamFromDB().FirstOrDefault(p => p.tenSanPham == txt_TenLoaiSP.Text);
             if (txt_TenLoaiSP.Text == "")
             {
-                MessageBox.Show("Không được để trống thông tin");
+                MessageBox.Show("Please enter a category!");
             }
             else if (existLoaiSP != null)
             {
-                MessageBox.Show("Loại SP đã tồn tại");
+                MessageBox.Show("Category already exists!");
             }
             else
             {
@@ -60,7 +49,7 @@ namespace QuanLyBanHang.View.FrmLoaiSP
                     trangThai = rdb_conHang.Checked,
                 };
                 _sanPhamServices.addsanPham(sp);
-                MessageBox.Show("Thêm loại SP thành công");
+                MessageBox.Show("Added successfully!");
                 LoadData();
             }
         }
@@ -69,11 +58,11 @@ namespace QuanLyBanHang.View.FrmLoaiSP
         {
             if (txt_TenLoaiSP.Text == "")
             {
-                MessageBox.Show("Không được để trống thông tin");
+                MessageBox.Show("Please enter a category!");
             }
             else if (_sp == null)
             {
-                MessageBox.Show("Vui lòng chọn loại sản phẩm");
+                MessageBox.Show("Please select a category to update!");
             }
             else
             {
@@ -82,12 +71,12 @@ namespace QuanLyBanHang.View.FrmLoaiSP
                     _sp.tenSanPham = txt_TenLoaiSP.Text;
                     _sp.trangThai = rdb_conHang.Checked;
                     _sanPhamServices.UpdatesanPham(_sp);
-                    MessageBox.Show("Cập nhật thành công");
+                    MessageBox.Show("Updated successfully!");
                     LoadData();
                 }
                 else
                 {
-                    MessageBox.Show("Loại sản phầm này đã tồn tại");
+                    MessageBox.Show("Category already exists!");
                 }
             }
         }
@@ -98,7 +87,7 @@ namespace QuanLyBanHang.View.FrmLoaiSP
             DataGridViewRow row = dtgv_LoaiSP.Rows[e.RowIndex];
             _sp = _sanPhamServices.GetsanPhamFromDB().FirstOrDefault(x => x.IDsanPham == Convert.ToInt32(row.Cells[0].Value));
             txt_TenLoaiSP.Text = row.Cells[1].Value.ToString();
-            if(row.Cells[2].Value.ToString() == "Còn hàng")
+            if (row.Cells[2].Value.ToString() == "Còn hàng")
             {
                 rdb_conHang.Checked = true;
             }

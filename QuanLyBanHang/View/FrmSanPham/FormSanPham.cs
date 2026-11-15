@@ -3,16 +3,7 @@ using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
 using _2_BUS_QUANLY.Services;
 using _2_BUS_QUANLY.ViewModel;
-using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyBanHang.View.FrmSanPham
 {
@@ -128,7 +119,7 @@ namespace QuanLyBanHang.View.FrmSanPham
                     item.chatLieus.tenChatLieu,
                     item.mauSacs.tenMau,
                     item.sizes.tenSize,
-                    item.SanPhamChiTiets.trangThai == true ? "Còn hàng" : "Hết hàng"
+                    item.SanPhamChiTiets.trangThai == true ? "In Stock" : "Out of Stock"
                     );
             }
         }
@@ -148,15 +139,15 @@ namespace QuanLyBanHang.View.FrmSanPham
             cbb_Size.SelectedIndex = 0;
             rdb_conHang.Checked = false;
             rdb_hetHang.Checked = false;
-            ptb_Anh.Image = Image.FromFile(@".\empty.jpg");
-            imageLink = @".\empty.jpg";
+            ptb_Anh.Image = Image.FromFile(@".\image\empty.jpg");
+            imageLink = @".\image\empty.jpg";
         }
 
         private void btn_chonAnh_Click(object sender, EventArgs e)
         {
             // Tạo đối tượng OpenFileDialog
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Chọn ảnh";
+            openFileDialog.Title = "Select Image";
             openFileDialog.Filter = "Tất cả các file (*.*)|*.*|Ảnh (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif";
             openFileDialog.FilterIndex = 2;
 
@@ -176,7 +167,7 @@ namespace QuanLyBanHang.View.FrmSanPham
         {
             if (txt_tenSPCT.Text == "" || txt_giaNhap.Text == "" || txt_giaBan.Text == "" || txt_soLuong.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                MessageBox.Show("Please complete all information!");
             }
             else
             {
@@ -206,7 +197,7 @@ namespace QuanLyBanHang.View.FrmSanPham
                     spct.maSP += spct.IDSanPhamChiTiet.ToString();
                 }
                 _qlsanPhamChiTietServices.UpdateSanPham(spct);
-                MessageBox.Show("Thêm thành công!");
+                MessageBox.Show("Added successfully!");
                 ResetForm();
             }
         }
@@ -215,11 +206,11 @@ namespace QuanLyBanHang.View.FrmSanPham
         {
             if (txt_tenSPCT.Text == "" || txt_giaNhap.Text == "" || txt_giaBan.Text == "" || txt_soLuong.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                MessageBox.Show("Please complete all information!");
             }
             else if (_sanphamCT == null)
             {
-                MessageBox.Show("Vui lòng chọn sản phẩm cần sửa thông tin!");
+                MessageBox.Show("Please select the product to update!");
             }
             else
             {
@@ -227,7 +218,7 @@ namespace QuanLyBanHang.View.FrmSanPham
                 _sanphamCT.giaNhap = Convert.ToInt32(txt_giaNhap.Text);
                 _sanphamCT.giaBan = Convert.ToInt32(txt_giaBan.Text);
                 _sanphamCT.soLuong = Convert.ToInt32(txt_soLuong.Text);
-                if(txt_soLuong.Text == "0")
+                if (txt_soLuong.Text == "0")
                 {
                     _sanphamCT.trangThai = false;
                 }
@@ -243,7 +234,7 @@ namespace QuanLyBanHang.View.FrmSanPham
                 _sanphamCT.IDSize = _qlsizeServices.GetSizeFromDB().FirstOrDefault(x => x.tenSize == cbb_Size.Text).IDSize;
                 _sanphamCT.linkAnh = imageLink;
                 _qlsanPhamChiTietServices.UpdateSanPham(_sanphamCT);
-                MessageBox.Show("Sửa thành công!");
+                MessageBox.Show("Updated successfully!");
                 ResetForm();
             }
         }
@@ -282,7 +273,7 @@ namespace QuanLyBanHang.View.FrmSanPham
                 }
 
 
-                if (r.Cells[11].Value.ToString() == "Còn hàng")
+                if (r.Cells[11].Value.ToString() == "In Stock")
                 {
                     rdb_conHang.Checked = true;
                 }
@@ -318,7 +309,7 @@ namespace QuanLyBanHang.View.FrmSanPham
                         item.chatLieus.tenChatLieu,
                         item.mauSacs.tenMau,
                         item.sizes.tenSize,
-                        item.SanPhamChiTiets.trangThai == true ? "Còn hàng" : "Hết hàng"
+                        item.SanPhamChiTiets.trangThai == true ? "In Stock" : "Out of Stock"
                         );
                 }
             }
@@ -330,7 +321,7 @@ namespace QuanLyBanHang.View.FrmSanPham
             Microsoft.Office.Interop.Excel.Workbook workbook = excel.Workbooks.Add(Type.Missing);
 
             Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.ActiveSheet;
-            worksheet.Name = "DS sản phẩm";
+            worksheet.Name = "Product List";
 
             for (int i = 0; i < dtgv_SPCT.Columns.Count; i++)
             {
@@ -352,6 +343,5 @@ namespace QuanLyBanHang.View.FrmSanPham
             }
             excel.Quit();
         }
-
     }
 }

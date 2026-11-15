@@ -278,7 +278,7 @@ namespace DAL_QuanLy.Migrations
             migrationBuilder.InsertData(
                 table: "khachHang",
                 columns: new[] { "SDT_KH", "TenKH", "diaChi", "diemTichluy", "gioiTinh", "trangThai" },
-                values: new object[] { "0000000000", "Khách lẻ", "Hà Nội", 0, false, true });
+                values: new object[] { "0000000000", "Guest", "Hà Nội", 0, false, true });
 
             migrationBuilder.InsertData(
                 table: "nhanVien",

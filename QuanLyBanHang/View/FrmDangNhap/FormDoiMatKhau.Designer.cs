@@ -62,7 +62,7 @@
             this.btn_Thoat.Name = "btn_Thoat";
             this.btn_Thoat.Size = new System.Drawing.Size(181, 37);
             this.btn_Thoat.TabIndex = 28;
-            this.btn_Thoat.Text = "Thoát";
+            this.btn_Thoat.Text = "Cancel";
             this.btn_Thoat.UseVisualStyleBackColor = true;
             this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
             // 
@@ -94,7 +94,7 @@
             this.btn_doiMatKhau.Name = "btn_doiMatKhau";
             this.btn_doiMatKhau.Size = new System.Drawing.Size(181, 37);
             this.btn_doiMatKhau.TabIndex = 22;
-            this.btn_doiMatKhau.Text = "Đổi mật khẩu ";
+            this.btn_doiMatKhau.Text = "Change Password";
             this.btn_doiMatKhau.UseVisualStyleBackColor = true;
             this.btn_doiMatKhau.Click += new System.EventHandler(this.btn_doiMatKhau_Click);
             // 
@@ -107,7 +107,7 @@
             this.cb_hienMatKhau.Name = "cb_hienMatKhau";
             this.cb_hienMatKhau.Size = new System.Drawing.Size(140, 24);
             this.cb_hienMatKhau.TabIndex = 21;
-            this.cb_hienMatKhau.Text = "Hiện mật khẩu ";
+            this.cb_hienMatKhau.Text = "Show Password";
             this.cb_hienMatKhau.UseVisualStyleBackColor = true;
             this.cb_hienMatKhau.CheckedChanged += new System.EventHandler(this.cb_hienMatKhau_CheckedChanged);
             // 
@@ -120,7 +120,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(181, 19);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Xác nhận lại mật khẩu :";
+            this.label4.Text = "Confirm New Password:";
             // 
             // label3
             // 
@@ -131,7 +131,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 19);
             this.label3.TabIndex = 19;
-            this.label3.Text = "Mật khẩu mới : ";
+            this.label3.Text = "New Password: ";
             // 
             // FormDoiMatKhau
             // 

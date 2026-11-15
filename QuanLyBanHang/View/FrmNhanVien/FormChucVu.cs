@@ -1,15 +1,6 @@
 ﻿using _1_DAL_QUANLY.Models;
 using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyBanHang.View.FrmNhanVien
 {
@@ -27,8 +18,8 @@ namespace QuanLyBanHang.View.FrmNhanVien
         {
             dtg_show.Rows.Clear();
             dtg_show.ColumnCount = 2;
-            dtg_show.Columns[0].Name = "Mã chức vụ";
-            dtg_show.Columns[1].Name = "Tên chức vụ";
+            dtg_show.Columns[0].Name = "ID";
+            dtg_show.Columns[1].Name = "Position";
             foreach (var item in qLchucVuServices.GetchucVuFromDB())
             {
                 dtg_show.Rows.Add(item.IDChucVu, item.tenCV);
@@ -38,16 +29,11 @@ namespace QuanLyBanHang.View.FrmNhanVien
         private void btn_Them_Click(object sender, EventArgs e)
         {
             //chucVu accchucvu = qLchucVuServices.GetchucVuFromDB().FirstOrDefault(p => p.maChucVu == tb_macv.Text);
-            DialogResult dialogResult = MessageBox.Show("bạn có muốn thêm không ?", "Cảnh báo", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Do you want to add this position?", "Warning", MessageBoxButtons.YesNo);
             if (tb_tencv.Text == "")
             {
-                MessageBox.Show("vui lòng nhập đầy đủ thông tin");
+                MessageBox.Show("Please enter the position!");
             }
-            //else if (accchucvu != null)
-            //{
-            //    MessageBox.Show("Mã chức vụ đã tồn tại");
-            //    tb_macv.Text = "";
-            //}
             else if (dialogResult == DialogResult.Yes)
             {
                 chucVu chucVu = new chucVu();
@@ -59,14 +45,14 @@ namespace QuanLyBanHang.View.FrmNhanVien
             }
             else
             {
-                MessageBox.Show("bạn đã hủy thêm");
+
             }
         }
         private void btn_Sua_Click(object sender, EventArgs e)
         {
             if (_chucVu == null)
             {
-                MessageBox.Show("Vui lòng chọn chức vụ");
+                MessageBox.Show("Please select a position to update!");
             }
             else
             {
@@ -74,13 +60,13 @@ namespace QuanLyBanHang.View.FrmNhanVien
                 {
                     _chucVu.tenCV = tb_tencv.Text;
                     qLchucVuServices.UpdateChucVu(_chucVu);
-                    MessageBox.Show("Cập nhật thành công");
+                    MessageBox.Show("Updated successful");
                     load();
                     tb_tencv.Text = "";
                 }
                 else
                 {
-                    MessageBox.Show("Tên chức vụ đã tồn tại");
+                    MessageBox.Show("Position already exists");
                 }
             }
         }

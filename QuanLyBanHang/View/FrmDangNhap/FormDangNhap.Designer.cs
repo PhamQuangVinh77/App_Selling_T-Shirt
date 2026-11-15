@@ -60,28 +60,29 @@
             label2.AutoSize = true;
             label2.Location = new Point(23, 153);
             label2.Name = "label2";
-            label2.Size = new Size(129, 23);
+            label2.Size = new Size(127, 23);
             label2.TabIndex = 9;
-            label2.Text = "MẬT KHẨU :";
+            label2.Text = "PASSWORD:";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(23, 104);
             label1.Name = "label1";
-            label1.Size = new Size(139, 23);
+            label1.Size = new Size(133, 23);
             label1.TabIndex = 8;
-            label1.Text = "TÀI KHOẢN : ";
+            label1.Text = "USERNAME: ";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 22.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(148, 26);
+            label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.FromArgb(0, 122, 204);
+            label3.Location = new Point(200, 25);
             label3.Name = "label3";
-            label3.Size = new Size(305, 42);
+            label3.Size = new Size(190, 54);
             label3.TabIndex = 4;
-            label3.Text = "LOGIN SYSTEM";
+            label3.Text = "L O G I N";
             // 
             // btn_dangNhap
             // 
@@ -93,8 +94,7 @@
             btn_dangNhap.Name = "btn_dangNhap";
             btn_dangNhap.Size = new Size(170, 49);
             btn_dangNhap.TabIndex = 5;
-            btn_dangNhap.Text = "ĐĂNG NHẬP";
-            btn_dangNhap.TextAlign = ContentAlignment.MiddleRight;
+            btn_dangNhap.Text = "      LOGIN";
             btn_dangNhap.UseVisualStyleBackColor = false;
             btn_dangNhap.Click += btn_dangNhap_Click;
             // 
@@ -105,10 +105,10 @@
             llForgotpassword.LinkColor = Color.FromArgb(128, 128, 255);
             llForgotpassword.Location = new Point(350, 186);
             llForgotpassword.Name = "llForgotpassword";
-            llForgotpassword.Size = new Size(142, 22);
+            llForgotpassword.Size = new Size(158, 22);
             llForgotpassword.TabIndex = 7;
             llForgotpassword.TabStop = true;
-            llForgotpassword.Text = "Quên mật khẩu?";
+            llForgotpassword.Text = "Forgot Password?";
             llForgotpassword.LinkClicked += llForgotpassword_LinkClicked;
             // 
             // txt_taiKhoan
@@ -123,7 +123,7 @@
             txt_matKhau.Location = new Point(168, 150);
             txt_matKhau.Name = "txt_matKhau";
             txt_matKhau.PasswordChar = '*';
-            txt_matKhau.Size = new Size(324, 30);
+            txt_matKhau.Size = new Size(325, 30);
             txt_matKhau.TabIndex = 3;
             // 
             // FormDangNhap

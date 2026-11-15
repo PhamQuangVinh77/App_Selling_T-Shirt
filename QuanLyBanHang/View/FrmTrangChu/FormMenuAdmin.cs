@@ -124,14 +124,14 @@ namespace QuanLyBanHang.View.FrmTrangChu
         private void Reset()
         {
             DisableButton();
-            lbl_Home.Text = "Chào mừng bạn đến với FPOLY TSHIRT";
+            lbl_Home.Text = "Hello, [Name]! Wishing you a productive day.";
             currentButton = null;
             button1.Visible = false;
         }
 
         private void btn_Thoat_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn thoát khỏi chương trình không?", "Cảnh báo!", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to log out?", "Warning!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 this.Close();
@@ -139,7 +139,7 @@ namespace QuanLyBanHang.View.FrmTrangChu
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy đăng xuất");
+                
             }
         }
 

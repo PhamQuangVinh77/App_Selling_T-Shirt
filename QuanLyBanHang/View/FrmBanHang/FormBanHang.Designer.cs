@@ -102,7 +102,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             groupBox1.Size = new Size(953, 375);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Danh sách sản phẩm ";
+            groupBox1.Text = "PRODUCTS";
             // 
             // txt_TimKiem
             // 
@@ -110,6 +110,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             txt_TimKiem.Name = "txt_TimKiem";
             txt_TimKiem.Size = new Size(201, 27);
             txt_TimKiem.TabIndex = 8;
+            txt_TimKiem.PlaceholderText = "Searching...";
             txt_TimKiem.TextChanged += txt_TimKiem_TextChanged_1;
             // 
             // cbb_hangSX
@@ -142,38 +143,38 @@ namespace QuanLyBanHang.View.FrmBanHang
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(647, 41);
+            label4.Location = new Point(665, 42);
             label4.Name = "label4";
-            label4.Size = new Size(94, 19);
+            label4.Size = new Size(69, 19);
             label4.TabIndex = 4;
-            label4.Text = "Tìm kiếm : ";
+            label4.Text = "Search: ";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 41);
+            label3.Location = new Point(15, 42);
             label3.Name = "label3";
             label3.Size = new Size(121, 19);
             label3.TabIndex = 3;
-            label3.Text = "Hãng sản xuất :";
+            label3.Text = "Manufacturer: ";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(260, 41);
+            label2.Location = new Point(279, 42);
             label2.Name = "label2";
-            label2.Size = new Size(79, 19);
+            label2.Size = new Size(63, 19);
             label2.TabIndex = 2;
-            label2.Text = "Màu sắc :";
+            label2.Text = "Color: ";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(468, 41);
+            label1.Location = new Point(475, 42);
             label1.Name = "label1";
-            label1.Size = new Size(52, 19);
+            label1.Size = new Size(48, 19);
             label1.TabIndex = 1;
-            label1.Text = "Size : ";
+            label1.Text = "Size: ";
             // 
             // dtgv_DSSP
             // 
@@ -200,7 +201,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             groupBox2.Size = new Size(542, 305);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Giỏ hàng";
+            groupBox2.Text = "CART";
             // 
             // btn_thanhtoanngay
             // 
@@ -208,7 +209,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             btn_thanhtoanngay.Name = "btn_thanhtoanngay";
             btn_thanhtoanngay.Size = new Size(144, 34);
             btn_thanhtoanngay.TabIndex = 4;
-            btn_thanhtoanngay.Text = "Thanh toán ngay";
+            btn_thanhtoanngay.Text = "Checkout Now";
             btn_thanhtoanngay.UseVisualStyleBackColor = true;
             btn_thanhtoanngay.Click += btn_thanhtoanngay_Click;
             // 
@@ -218,7 +219,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             btn_TaoHD.Name = "btn_TaoHD";
             btn_TaoHD.Size = new Size(122, 34);
             btn_TaoHD.TabIndex = 3;
-            btn_TaoHD.Text = "Tạo đơn hàng";
+            btn_TaoHD.Text = "Create Order";
             btn_TaoHD.UseVisualStyleBackColor = true;
             btn_TaoHD.Click += btn_TaoHD_Click_1;
             // 
@@ -228,7 +229,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             btn_XoaGH.Name = "btn_XoaGH";
             btn_XoaGH.Size = new Size(116, 34);
             btn_XoaGH.TabIndex = 2;
-            btn_XoaGH.Text = "Xóa giỏ hàng";
+            btn_XoaGH.Text = "Clear Cart";
             btn_XoaGH.UseVisualStyleBackColor = true;
             btn_XoaGH.Click += btn_XoaGH_Click_1;
             // 
@@ -238,7 +239,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             btn_XoaSP.Name = "btn_XoaSP";
             btn_XoaSP.Size = new Size(122, 34);
             btn_XoaSP.TabIndex = 1;
-            btn_XoaSP.Text = "Xóa sản phẩm";
+            btn_XoaSP.Text = "Remove";
             btn_XoaSP.UseVisualStyleBackColor = true;
             btn_XoaSP.Click += btn_XoaSP_Click_1;
             // 
@@ -272,7 +273,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             groupBox3.Size = new Size(402, 305);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Thêm nhanh khách hàng";
+            groupBox3.Text = "CUSTOMER";
             // 
             // cbb_KhachHang
             // 
@@ -287,12 +288,12 @@ namespace QuanLyBanHang.View.FrmBanHang
             // rdb_nu
             // 
             rdb_nu.AutoSize = true;
-            rdb_nu.Location = new Point(259, 124);
+            rdb_nu.Location = new Point(162, 157);
             rdb_nu.Name = "rdb_nu";
-            rdb_nu.Size = new Size(52, 23);
+            rdb_nu.Size = new Size(85, 23);
             rdb_nu.TabIndex = 9;
             rdb_nu.TabStop = true;
-            rdb_nu.Text = "Nữ";
+            rdb_nu.Text = "Female";
             rdb_nu.UseVisualStyleBackColor = true;
             // 
             // rdb_nam
@@ -300,16 +301,16 @@ namespace QuanLyBanHang.View.FrmBanHang
             rdb_nam.AutoSize = true;
             rdb_nam.Location = new Point(162, 124);
             rdb_nam.Name = "rdb_nam";
-            rdb_nam.Size = new Size(64, 23);
+            rdb_nam.Size = new Size(68, 23);
             rdb_nam.TabIndex = 8;
             rdb_nam.TabStop = true;
-            rdb_nam.Text = "Nam";
+            rdb_nam.Text = "Male";
             rdb_nam.UseVisualStyleBackColor = true;
             // 
             // lbl_diemTichLuy
             // 
             lbl_diemTichLuy.AutoSize = true;
-            lbl_diemTichLuy.Location = new Point(162, 171);
+            lbl_diemTichLuy.Location = new Point(162, 201);
             lbl_diemTichLuy.Name = "lbl_diemTichLuy";
             lbl_diemTichLuy.Size = new Size(21, 19);
             lbl_diemTichLuy.TabIndex = 8;
@@ -317,14 +318,11 @@ namespace QuanLyBanHang.View.FrmBanHang
             // 
             // btn_ThemKH
             // 
-            btn_ThemKH.Image = Properties.Resources.icons8_add_new_32;
-            btn_ThemKH.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_ThemKH.Location = new Point(96, 240);
+            btn_ThemKH.Location = new Point(85, 249);
             btn_ThemKH.Name = "btn_ThemKH";
-            btn_ThemKH.Size = new Size(231, 49);
+            btn_ThemKH.Size = new Size(231, 40);
             btn_ThemKH.TabIndex = 6;
-            btn_ThemKH.Text = "Thêm nhanh khách hàng";
-            btn_ThemKH.TextAlign = ContentAlignment.MiddleRight;
+            btn_ThemKH.Text = "Quick Add Customer";
             btn_ThemKH.UseVisualStyleBackColor = true;
             btn_ThemKH.Click += btn_ThemKH_Click_1;
             // 
@@ -340,36 +338,36 @@ namespace QuanLyBanHang.View.FrmBanHang
             label14.AutoSize = true;
             label14.Location = new Point(18, 126);
             label14.Name = "label14";
-            label14.Size = new Size(84, 19);
+            label14.Size = new Size(71, 19);
             label14.TabIndex = 3;
-            label14.Text = "Giới tính:";
+            label14.Text = "Gender:";
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(18, 171);
+            label13.Location = new Point(18, 201);
             label13.Name = "label13";
-            label13.Size = new Size(119, 19);
+            label13.Size = new Size(123, 19);
             label13.TabIndex = 2;
-            label13.Text = "Điểm tích lũy :";
+            label13.Text = "Loyalty Points:";
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Location = new Point(18, 80);
             label12.Name = "label12";
-            label12.Size = new Size(115, 19);
+            label12.Size = new Size(125, 19);
             label12.TabIndex = 1;
-            label12.Text = "Số điện thoại :";
+            label12.Text = "Phone Number:";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(14, 36);
+            label11.Location = new Point(18, 38);
             label11.Name = "label11";
-            label11.Size = new Size(132, 19);
+            label11.Size = new Size(134, 19);
             label11.TabIndex = 0;
-            label11.Text = "Tên khách hàng :";
+            label11.Text = "Customer Name:";
             // 
             // groupBox4
             // 
@@ -381,16 +379,23 @@ namespace QuanLyBanHang.View.FrmBanHang
             groupBox4.Size = new Size(329, 305);
             groupBox4.TabIndex = 3;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Đơn hàng chờ";
+            groupBox4.Text = "PENDING ORDERS";
             // 
             // btn_huyDon
             // 
-            btn_huyDon.Location = new Point(103, 255);
+            btn_huyDon.BackColor = Color.FromArgb(220, 53, 69);
+            btn_huyDon.Cursor = Cursors.Hand;
+            btn_huyDon.FlatAppearance.BorderSize = 0;
+            btn_huyDon.FlatAppearance.MouseDownBackColor = Color.FromArgb(165, 28, 41);
+            btn_huyDon.FlatAppearance.MouseOverBackColor = Color.FromArgb(200, 35, 51);
+            btn_huyDon.FlatStyle = FlatStyle.Flat;
+            btn_huyDon.ForeColor = Color.White;
+            btn_huyDon.Location = new Point(79, 249);
             btn_huyDon.Name = "btn_huyDon";
-            btn_huyDon.Size = new Size(132, 34);
+            btn_huyDon.Size = new Size(182, 40);
             btn_huyDon.TabIndex = 5;
-            btn_huyDon.Text = "Hủy đơn";
-            btn_huyDon.UseVisualStyleBackColor = true;
+            btn_huyDon.Text = "CANCEL ORDER";
+            btn_huyDon.UseVisualStyleBackColor = false;
             btn_huyDon.Click += btn_huyDon_Click;
             // 
             // dtgv_HoadonCho
@@ -426,121 +431,126 @@ namespace QuanLyBanHang.View.FrmBanHang
             groupBox5.Size = new Size(329, 375);
             groupBox5.TabIndex = 4;
             groupBox5.TabStop = false;
-            groupBox5.Text = "Thanh toán";
+            groupBox5.Text = "PAYMENT";
             // 
             // btnThanhToan
             // 
-            btnThanhToan.Image = Properties.Resources.icons8_cash_in_hand_32;
-            btnThanhToan.ImageAlign = ContentAlignment.MiddleLeft;
-            btnThanhToan.Location = new Point(70, 319);
+            btnThanhToan.BackColor = Color.FromArgb(40, 167, 69);
+            btnThanhToan.Cursor = Cursors.Hand;
+            btnThanhToan.FlatAppearance.BorderSize = 0;
+            btnThanhToan.FlatAppearance.MouseDownBackColor = Color.FromArgb(27, 111, 46);
+            btnThanhToan.FlatAppearance.MouseOverBackColor = Color.FromArgb(33, 136, 56);
+            btnThanhToan.FlatStyle = FlatStyle.Flat;
+            btnThanhToan.ForeColor = Color.White;
+            btnThanhToan.Location = new Point(79, 319);
             btnThanhToan.Name = "btnThanhToan";
-            btnThanhToan.Size = new Size(192, 40);
+            btnThanhToan.Size = new Size(182, 40);
             btnThanhToan.TabIndex = 15;
-            btnThanhToan.Text = "Thanh toán";
-            btnThanhToan.UseVisualStyleBackColor = true;
+            btnThanhToan.Text = "PAY NOW";
+            btnThanhToan.UseVisualStyleBackColor = false;
             btnThanhToan.Click += btnThanhToan_Click_1;
             // 
             // txt_GhiChu
             // 
-            txt_GhiChu.Location = new Point(115, 248);
+            txt_GhiChu.Location = new Point(126, 248);
             txt_GhiChu.Multiline = true;
             txt_GhiChu.Name = "txt_GhiChu";
-            txt_GhiChu.Size = new Size(193, 57);
+            txt_GhiChu.Size = new Size(182, 57);
             txt_GhiChu.TabIndex = 11;
             // 
             // txt_TienThua
             // 
             txt_TienThua.Enabled = false;
-            txt_TienThua.Location = new Point(115, 202);
+            txt_TienThua.Location = new Point(126, 202);
             txt_TienThua.Name = "txt_TienThua";
-            txt_TienThua.Size = new Size(193, 27);
+            txt_TienThua.Size = new Size(182, 27);
             txt_TienThua.TabIndex = 10;
             // 
             // txt_TongTien
             // 
             txt_TongTien.Enabled = false;
-            txt_TongTien.Location = new Point(115, 158);
+            txt_TongTien.Location = new Point(126, 158);
             txt_TongTien.Name = "txt_TongTien";
-            txt_TongTien.Size = new Size(193, 27);
+            txt_TongTien.Size = new Size(182, 27);
             txt_TongTien.TabIndex = 9;
             // 
             // txt_khachDua
             // 
-            txt_khachDua.Location = new Point(115, 75);
+            txt_khachDua.Location = new Point(126, 75);
             txt_khachDua.Name = "txt_khachDua";
-            txt_khachDua.Size = new Size(193, 27);
+            txt_khachDua.Size = new Size(182, 27);
             txt_khachDua.TabIndex = 8;
             txt_khachDua.TextChanged += txt_khachDua_TextChanged_1;
             // 
             // txt_giamGia
             // 
-            txt_giamGia.Location = new Point(115, 115);
+            txt_giamGia.Location = new Point(126, 115);
             txt_giamGia.Name = "txt_giamGia";
-            txt_giamGia.Size = new Size(193, 27);
+            txt_giamGia.Size = new Size(182, 27);
             txt_giamGia.TabIndex = 7;
             txt_giamGia.TextChanged += txt_giamGia_TextChanged_1;
             // 
             // txt_MaHD
             // 
             txt_MaHD.Enabled = false;
-            txt_MaHD.Location = new Point(115, 30);
+            txt_MaHD.Location = new Point(126, 30);
             txt_MaHD.Name = "txt_MaHD";
-            txt_MaHD.Size = new Size(193, 27);
+            txt_MaHD.Size = new Size(182, 27);
             txt_MaHD.TabIndex = 6;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(9, 251);
+            label10.Location = new Point(9, 252);
             label10.Name = "label10";
-            label10.Size = new Size(78, 19);
+            label10.Size = new Size(57, 19);
             label10.TabIndex = 5;
-            label10.Text = "Ghi chú :";
+            label10.Text = "Notes:";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(9, 205);
+            label9.Location = new Point(9, 206);
             label9.Name = "label9";
-            label9.Size = new Size(89, 19);
+            label9.Size = new Size(103, 19);
             label9.TabIndex = 4;
-            label9.Text = "Tiền thừa :";
+            label9.Text = "Change Due:";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(9, 161);
+            label8.Location = new Point(9, 162);
             label8.Name = "label8";
-            label8.Size = new Size(89, 19);
+            label8.Size = new Size(52, 19);
             label8.TabIndex = 3;
-            label8.Text = "Tổng tiền :";
+            label8.Text = "Total:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(9, 78);
+            label7.Location = new Point(9, 79);
             label7.Name = "label7";
-            label7.Size = new Size(96, 19);
+            label7.Size = new Size(111, 19);
             label7.TabIndex = 2;
-            label7.Text = "Khách đưa :";
+            label7.Text = "Amount Paid:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(9, 118);
+            label6.Location = new Point(9, 119);
             label6.Name = "label6";
-            label6.Size = new Size(88, 19);
+            label6.Size = new Size(81, 19);
             label6.TabIndex = 1;
-            label6.Text = "Giảm giá :";
+            label6.Text = "Discount:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(9, 33);
+            label5.Location = new Point(9, 34);
             label5.Name = "label5";
-            label5.Size = new Size(104, 19);
+            label5.Size = new Size(111, 19);
             label5.TabIndex = 0;
-            label5.Text = "Mã hóa đơn :";
+            label5.Text = "Invoice Code:";
             // 
             // ppdhd
             // 
@@ -560,7 +570,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1323, 732);
+            ClientSize = new Size(1323, 717);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);

@@ -1,16 +1,7 @@
 ﻿using _1_DAL_QUANLY.Models;
 using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
-using _2_BUS_QUANLY.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyBanHang.View.FrmHoaDon
 {
@@ -34,7 +25,7 @@ namespace QuanLyBanHang.View.FrmHoaDon
             dtgv_HoaDon.Rows.Clear();
             foreach (var i in _lstOrder)
             {
-                dtgv_HoaDon.Rows.Add(i.IDHoaDon, i.IDNhanVien, i.SDT_KH, i.tongTien, i.ngayBan, i.ghiChu, i.trangThai == true ? "Đã thanh toán" : i.ghiChu == "Đã hủy đơn" ? "Đã hủy đơn" : "Chờ thanh toán...");
+                dtgv_HoaDon.Rows.Add(i.IDHoaDon, i.IDNhanVien, i.SDT_KH, i.tongTien, i.ngayBan, i.ghiChu, i.trangThai == true ? "Payment completed!" : i.ghiChu == "Cancelled" ? "Cancelled" : "Awaiting payment...");
             }
         }
         public void LoadHDCT(int maHoaDon)
@@ -70,18 +61,18 @@ namespace QuanLyBanHang.View.FrmHoaDon
                     {
                         foreach (var i in items)
                         {
-                            dtgv_HoaDon.Rows.Add(i.IDHoaDon, i.IDNhanVien, i.SDT_KH, i.tongTien, i.ngayBan, i.ghiChu, i.trangThai == true ? "Đã thanh toán" : i.ghiChu == "Đã hủy đơn" ? "Đã hủy đơn" : "Chờ thanh toán...");
+                            dtgv_HoaDon.Rows.Add(i.IDHoaDon, i.IDNhanVien, i.SDT_KH, i.tongTien, i.ngayBan, i.ghiChu, i.trangThai == true ? "Payment completed!" : i.ghiChu == "Cancelled" ? "Cancelled" : "Awaiting payment...");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Không tìm thấy mã hóa đơn tương ứng");
+                        MessageBox.Show("No matching invoices found!");
                         LoadHD();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Yêu cầu kiểm tra lại thông tin cần tìm");
+                    MessageBox.Show("Invalid input!");
                     txt_TimKiem.Text = "";
                     LoadHD();
                 }
