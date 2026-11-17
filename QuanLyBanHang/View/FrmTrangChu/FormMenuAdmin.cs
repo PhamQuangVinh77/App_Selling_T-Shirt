@@ -1,4 +1,6 @@
-﻿using QuanLyBanHang.View.FrmBanHang;
+﻿using _2.BUS.Services;
+using _2_BUS_QUANLY.IServices;
+using QuanLyBanHang.View.FrmBanHang;
 using QuanLyBanHang.View.FrmChatLieu;
 using QuanLyBanHang.View.FrmDangNhap;
 using QuanLyBanHang.View.FrmHangSanXuat;
@@ -20,8 +22,10 @@ namespace QuanLyBanHang.View.FrmTrangChu
         private Random random;
         private int tempIndex;
         private Form activeForm;
+        private IQLnhanVienServices _qLnhanVien;
         public FormMenuAdmin(FormDangNhap formDangNhap)
         {
+            _qLnhanVien = new QLnhanVienServices();
             _formDangNhap = formDangNhap;
             _formDangNhap.Hide();
             InitializeComponent();
@@ -29,6 +33,8 @@ namespace QuanLyBanHang.View.FrmTrangChu
             button1.Visible = false;
             this.Text = string.Empty;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            Reset();
+
         }
         private void ActivateButton(object btnSender)
         {
@@ -124,7 +130,9 @@ namespace QuanLyBanHang.View.FrmTrangChu
         private void Reset()
         {
             DisableButton();
-            lbl_Home.Text = "Hello, [Name]! Wishing you a productive day.";
+            string staffName = _qLnhanVien.GetNhanVienFromDB().
+                    FirstOrDefault(x => x.nhanViens.email == Properties.Settings.Default.email).nhanViens.tenNV;
+            lbl_Home.Text = $"Hello, {staffName}! Wishing you a productive day.";
             currentButton = null;
             button1.Visible = false;
         }
@@ -139,7 +147,7 @@ namespace QuanLyBanHang.View.FrmTrangChu
             }
             else
             {
-                
+
             }
         }
 

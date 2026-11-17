@@ -108,9 +108,9 @@ namespace QuanLyBanHang.View.FrmBanHang
             // 
             txt_TimKiem.Location = new Point(737, 38);
             txt_TimKiem.Name = "txt_TimKiem";
+            txt_TimKiem.PlaceholderText = "Searching...";
             txt_TimKiem.Size = new Size(201, 27);
             txt_TimKiem.TabIndex = 8;
-            txt_TimKiem.PlaceholderText = "Searching...";
             txt_TimKiem.TextChanged += txt_TimKiem_TextChanged_1;
             // 
             // cbb_hangSX

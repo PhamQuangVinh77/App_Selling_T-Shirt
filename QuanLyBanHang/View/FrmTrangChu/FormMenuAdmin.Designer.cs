@@ -87,7 +87,7 @@
             btn_loaiSP.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btn_loaiSP.Image = Properties.Resources.icons8_product_32;
             btn_loaiSP.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_loaiSP.Location = new Point(8, 281);
+            btn_loaiSP.Location = new Point(9, 281);
             btn_loaiSP.Margin = new Padding(4, 3, 4, 3);
             btn_loaiSP.Name = "btn_loaiSP";
             btn_loaiSP.Padding = new Padding(0, 0, 9, 0);
@@ -103,7 +103,7 @@
             btn_khachHang.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btn_khachHang.Image = Properties.Resources.icons8_user_ninja_32;
             btn_khachHang.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_khachHang.Location = new Point(8, 603);
+            btn_khachHang.Location = new Point(9, 603);
             btn_khachHang.Margin = new Padding(4, 3, 4, 3);
             btn_khachHang.Name = "btn_khachHang";
             btn_khachHang.Size = new Size(199, 40);
@@ -116,7 +116,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.pngtree_logo_on_selling_t_shirts_png_image_4357278;
-            pictureBox1.Location = new Point(8, 3);
+            pictureBox1.Location = new Point(9, 9);
             pictureBox1.Margin = new Padding(4, 3, 4, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(199, 126);
@@ -129,7 +129,7 @@
             btn_DanhMucHD.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btn_DanhMucHD.Image = Properties.Resources.icons8_paid_bill_321;
             btn_DanhMucHD.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_DanhMucHD.Location = new Point(8, 557);
+            btn_DanhMucHD.Location = new Point(9, 557);
             btn_DanhMucHD.Margin = new Padding(4, 3, 4, 3);
             btn_DanhMucHD.Name = "btn_DanhMucHD";
             btn_DanhMucHD.Size = new Size(199, 40);
@@ -144,7 +144,7 @@
             btn_Thoat.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btn_Thoat.Image = Properties.Resources.icons8_logout_32;
             btn_Thoat.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_Thoat.Location = new Point(8, 787);
+            btn_Thoat.Location = new Point(9, 781);
             btn_Thoat.Margin = new Padding(4, 3, 4, 3);
             btn_Thoat.Name = "btn_Thoat";
             btn_Thoat.Size = new Size(199, 40);
@@ -157,15 +157,15 @@
             // btn_ThongKe
             // 
             btn_ThongKe.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_ThongKe.Image = Properties.Resources.icons8_create_24;
+            btn_ThongKe.Image = Properties.Resources.icons8_health_graph_32;
             btn_ThongKe.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_ThongKe.Location = new Point(8, 695);
+            btn_ThongKe.Location = new Point(9, 695);
             btn_ThongKe.Margin = new Padding(4, 3, 4, 3);
             btn_ThongKe.Name = "btn_ThongKe";
             btn_ThongKe.Size = new Size(199, 40);
             btn_ThongKe.TabIndex = 2;
-            btn_ThongKe.Text = "       REVENUE";
-            btn_ThongKe.TextImageRelation = TextImageRelation.ImageBeforeText;  
+            btn_ThongKe.Text = "     REVENUE";
+            btn_ThongKe.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_ThongKe.UseVisualStyleBackColor = true;
             btn_ThongKe.Click += btn_ThongKe_Click;
             // 
@@ -174,7 +174,7 @@
             btn_NhanVien.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btn_NhanVien.Image = Properties.Resources.icons8_staff_32;
             btn_NhanVien.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_NhanVien.Location = new Point(8, 649);
+            btn_NhanVien.Location = new Point(9, 649);
             btn_NhanVien.Margin = new Padding(4, 3, 4, 3);
             btn_NhanVien.Name = "btn_NhanVien";
             btn_NhanVien.Size = new Size(199, 40);
@@ -187,9 +187,9 @@
             // btn_Size
             // 
             btn_Size.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Size.Image = Properties.Resources.icons8_cloth_32;
+            btn_Size.Image = Properties.Resources.icons8_expand_32;
             btn_Size.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_Size.Location = new Point(8, 511);
+            btn_Size.Location = new Point(9, 511);
             btn_Size.Margin = new Padding(4, 3, 4, 3);
             btn_Size.Name = "btn_Size";
             btn_Size.Size = new Size(199, 40);
@@ -204,7 +204,7 @@
             btn_MauSac.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btn_MauSac.Image = Properties.Resources.icons8_paint_palette_32;
             btn_MauSac.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_MauSac.Location = new Point(8, 465);
+            btn_MauSac.Location = new Point(9, 465);
             btn_MauSac.Margin = new Padding(4, 3, 4, 3);
             btn_MauSac.Name = "btn_MauSac";
             btn_MauSac.Size = new Size(199, 40);
@@ -217,9 +217,9 @@
             // btn_ChatLieu
             // 
             btn_ChatLieu.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_ChatLieu.Image = Properties.Resources.icons8_health_graph_32;
+            btn_ChatLieu.Image = Properties.Resources.icons8_cloth_32;
             btn_ChatLieu.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_ChatLieu.Location = new Point(8, 419);
+            btn_ChatLieu.Location = new Point(9, 419);
             btn_ChatLieu.Margin = new Padding(4, 3, 4, 3);
             btn_ChatLieu.Name = "btn_ChatLieu";
             btn_ChatLieu.Size = new Size(199, 40);
@@ -232,14 +232,14 @@
             // btn_HangSanXuat
             // 
             btn_HangSanXuat.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_HangSanXuat.Image = Properties.Resources.icons8_expand_32;
+            btn_HangSanXuat.Image = Properties.Resources.icons8_create_24;
             btn_HangSanXuat.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_HangSanXuat.Location = new Point(8, 373);
+            btn_HangSanXuat.Location = new Point(9, 373);
             btn_HangSanXuat.Margin = new Padding(4, 3, 4, 3);
             btn_HangSanXuat.Name = "btn_HangSanXuat";
             btn_HangSanXuat.Size = new Size(199, 40);
             btn_HangSanXuat.TabIndex = 6;
-            btn_HangSanXuat.Text = "MANUFACTURER";
+            btn_HangSanXuat.Text = " MANUFACTURER";
             btn_HangSanXuat.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_HangSanXuat.UseVisualStyleBackColor = true;
             btn_HangSanXuat.Click += btn_HangSanXuat_Click;
@@ -249,7 +249,7 @@
             btn_NhaCungCap.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btn_NhaCungCap.Image = Properties.Resources.icons8_supplier_32;
             btn_NhaCungCap.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_NhaCungCap.Location = new Point(8, 327);
+            btn_NhaCungCap.Location = new Point(9, 327);
             btn_NhaCungCap.Margin = new Padding(4, 3, 4, 3);
             btn_NhaCungCap.Name = "btn_NhaCungCap";
             btn_NhaCungCap.Padding = new Padding(0, 0, 9, 0);
@@ -263,14 +263,14 @@
             // btn_SanPham
             // 
             btn_SanPham.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_SanPham.Image = Properties.Resources.icons8_product_32;
+            btn_SanPham.Image = Properties.Resources.icons8_add_shopping_cart_30;
             btn_SanPham.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_SanPham.Location = new Point(8, 235);
+            btn_SanPham.Location = new Point(9, 235);
             btn_SanPham.Margin = new Padding(4, 3, 4, 3);
             btn_SanPham.Name = "btn_SanPham";
             btn_SanPham.Size = new Size(199, 40);
             btn_SanPham.TabIndex = 3;
-            btn_SanPham.Text = "     PRODUCT";
+            btn_SanPham.Text = "      PRODUCT";
             btn_SanPham.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_SanPham.UseVisualStyleBackColor = true;
             btn_SanPham.Click += btn_SanPham_Click;
@@ -278,9 +278,9 @@
             // btn_BanHang
             // 
             btn_BanHang.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_BanHang.Image = Properties.Resources.icons8_add_shopping_cart_30;
+            btn_BanHang.Image = Properties.Resources.icons8_cash_in_hand_32;
             btn_BanHang.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_BanHang.Location = new Point(8, 189);
+            btn_BanHang.Location = new Point(9, 189);
             btn_BanHang.Margin = new Padding(4, 3, 4, 3);
             btn_BanHang.Name = "btn_BanHang";
             btn_BanHang.Size = new Size(199, 40);
@@ -296,7 +296,7 @@
             btn_TrangChu.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btn_TrangChu.Image = Properties.Resources.icons8_home_page_32;
             btn_TrangChu.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_TrangChu.Location = new Point(8, 143);
+            btn_TrangChu.Location = new Point(9, 143);
             btn_TrangChu.Margin = new Padding(4, 3, 4, 3);
             btn_TrangChu.Name = "btn_TrangChu";
             btn_TrangChu.Size = new Size(199, 40);
@@ -332,7 +332,7 @@
             button1.BackColor = Color.FromArgb(224, 224, 224);
             button1.Font = new Font("Segoe UI Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(1564, 11);
+            button1.Location = new Point(1581, 16);
             button1.Name = "button1";
             button1.Size = new Size(40, 39);
             button1.TabIndex = 2;
@@ -348,7 +348,7 @@
             lbl_Home.Location = new Point(491, 16);
             lbl_Home.Margin = new Padding(4, 0, 4, 0);
             lbl_Home.Name = "lbl_Home";
-            lbl_Home.Size = new Size(662, 42);
+            lbl_Home.Size = new Size(0, 42);
             lbl_Home.TabIndex = 1;
             // 
             // pnl_ManChinh

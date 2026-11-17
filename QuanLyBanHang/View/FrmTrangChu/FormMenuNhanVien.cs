@@ -1,4 +1,6 @@
-﻿using QuanLyBanHang.View.FrmBanHang;
+﻿using _2.BUS.Services;
+using _2_BUS_QUANLY.IServices;
+using QuanLyBanHang.View.FrmBanHang;
 using QuanLyBanHang.View.FrmDangNhap;
 using QuanLyBanHang.View.FrmHoaDon;
 
@@ -11,8 +13,10 @@ namespace QuanLyBanHang.View.FrmTrangChu
         private Random random;
         private int tempIndex;
         private Form activeForm;
+        private IQLnhanVienServices _qLnhanVien;
         public FormMenuNhanVien(FormDangNhap formDangNhap)
         {
+            _qLnhanVien = new QLnhanVienServices();
             _formDangNhap = formDangNhap;
             _formDangNhap.Hide();
             InitializeComponent();
@@ -20,6 +24,7 @@ namespace QuanLyBanHang.View.FrmTrangChu
             btn_X.Visible = false;
             this.Text = string.Empty;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            Reset();
         }
         private void ActivateButton(object btnSender)
         {
@@ -93,14 +98,16 @@ namespace QuanLyBanHang.View.FrmTrangChu
         private void Reset()
         {
             DisableButton();
-            lbl_Home.Text = "Chào mừng bạn đến với FPOLY TSHIRT";
+            string staffName = _qLnhanVien.GetNhanVienFromDB().
+                    FirstOrDefault(x => x.nhanViens.email == Properties.Settings.Default.email).nhanViens.tenNV;
+            lbl_Home.Text = $"Hello, {staffName}! Wishing you a productive day.";
             currentButton = null;
             btn_X.Visible = false;
         }
 
         private void btn_Thoat_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn thoát khỏi chương trình không?", "Cảnh báo!", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to log out?", "Warning!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 this.Close();
@@ -108,7 +115,7 @@ namespace QuanLyBanHang.View.FrmTrangChu
             }
             else
             {
-                MessageBox.Show("Bạn đã hủy đăng xuất!");
+
             }
         }
 
