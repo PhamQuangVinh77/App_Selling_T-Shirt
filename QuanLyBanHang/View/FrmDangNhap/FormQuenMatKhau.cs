@@ -1,16 +1,7 @@
 ﻿using _2.BUS.Services;
 using _2_BUS_QUANLY.IServices;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyBanHang.View.FrmDangNhap
 {
@@ -30,20 +21,22 @@ namespace QuanLyBanHang.View.FrmDangNhap
         {
             try
             {
+                var listNhanVien = qLnhanVienServices.GetNhanVienFromDB();
+
                 if (txt_Email.Text == "")
                 {
                     MessageBox.Show("Enter your email to receive the OTP.");
                 }
-                else if (qLnhanVienServices.GetNhanVienFromDB().FindIndex(x => x.nhanViens.email == txt_Email.Text) == -1)
+                else if (listNhanVien.FindIndex(x => x.nhanViens.email == txt_Email.Text) == -1)
                 {
                     MessageBox.Show("Email does not exist!");
                 }
                 else
                 {
                     otp = random.Next(100000, 1000000);
-                    var fromEmail = new MailAddress(qLnhanVienServices.GetNhanVienFromDB().FirstOrDefault(x => x.chucVus.tenCV == "Manager").nhanViens.email);
+                    var fromEmail = new MailAddress(listNhanVien.FirstOrDefault(x => x.chucVus.tenCV == "Manager").nhanViens.email);
                     var toEmail = new MailAddress(txt_Email.Text);
-                    const string pass = "ixnlzhmqsnoyborm";
+                    const string pass = "ovyjzjadxgfskvsd";
 
                     var smtp = new SmtpClient
                     {
@@ -55,17 +48,22 @@ namespace QuanLyBanHang.View.FrmDangNhap
                         Credentials = new NetworkCredential(fromEmail.Address, pass),
                         Timeout = 200000,
                     };
+
+                    string staffName = listNhanVien.FirstOrDefault(x => x.nhanViens.email == txt_Email.Text).nhanViens.tenNV;
                     using (var message = new MailMessage(fromEmail, toEmail)
                     {
-                        Subject = "OTP Verification",
-                        Body = "Your OTP is: " + otp.ToString()
-                        + ", please verify to change your password.",
+                        Subject = "OTP Verification - Password Reset",
+                        Body = $"Hi {staffName},\n\n" +
+                               $"Your OTP code to reset your password is: {otp}\n" +
+                               $"Please enter this code within 5 minutes to complete the verification.\n\n" +
+                               $"If you didn't request this, you can ignore this message.\n\n" +
+                               $"Have a great day,\n" +
+                               $"Manager"
                     })
                     {
                         smtp.Send(message);
                     }
                     MessageBox.Show("OTP has been sent to your email!");
-
                 }
 
             }
@@ -89,15 +87,22 @@ namespace QuanLyBanHang.View.FrmDangNhap
             {
                 if (txt_otp.Text == otp.ToString())
                 {
+                    this.Close();
                     FormDoiMatKhau frm = new FormDoiMatKhau(txt_Email.Text);
                     frm.Show();
-                    this.Hide();
                 }
                 else
                 {
                     MessageBox.Show("OTP is incorrect!");
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormDangNhap frm = new FormDangNhap();
+            frm.Show();
         }
     }
 }

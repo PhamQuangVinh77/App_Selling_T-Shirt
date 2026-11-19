@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button1 = new Button();
             btn_submit = new Button();
             txt_otp = new TextBox();
             label3 = new Label();
@@ -41,6 +42,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(btn_submit);
             panel1.Controls.Add(txt_otp);
             panel1.Controls.Add(label3);
@@ -49,19 +51,31 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(txt_Email);
             panel1.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            panel1.Location = new Point(156, 37);
+            panel1.Location = new Point(45, 38);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(701, 249);
             panel1.TabIndex = 6;
             // 
+            // button1
+            // 
+            button1.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(321, 184);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(181, 37);
+            button1.TabIndex = 8;
+            button1.Text = "Cancel";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // btn_submit
             // 
-            btn_submit.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_submit.Location = new Point(241, 173);
+            btn_submit.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_submit.Location = new Point(116, 184);
             btn_submit.Margin = new Padding(4, 3, 4, 3);
             btn_submit.Name = "btn_submit";
-            btn_submit.Size = new Size(170, 43);
+            btn_submit.Size = new Size(181, 37);
             btn_submit.TabIndex = 7;
             btn_submit.Text = "Confirm";
             btn_submit.UseVisualStyleBackColor = true;
@@ -135,12 +149,12 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 428);
+            ClientSize = new Size(790, 326);
             Controls.Add(panel1);
             Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(4, 3, 4, 3);
             Name = "FormQuenMatKhau";
-            Text = "FormQuenMatKhau";
+            Text = "Forgot Password";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -157,5 +171,6 @@
         private Button btn_Send;
         private Label label2;
         private TextBox txt_Email;
+        private Button button1;
     }
 }

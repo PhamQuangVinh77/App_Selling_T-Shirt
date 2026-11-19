@@ -28,124 +28,124 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_Thoat = new System.Windows.Forms.Button();
-            this.txt_xacNhanMatKhau = new System.Windows.Forms.TextBox();
-            this.txt_matKhauMoi = new System.Windows.Forms.TextBox();
-            this.btn_doiMatKhau = new System.Windows.Forms.Button();
-            this.cb_hienMatKhau = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            btn_Thoat = new Button();
+            txt_xacNhanMatKhau = new TextBox();
+            txt_matKhauMoi = new TextBox();
+            btn_doiMatKhau = new Button();
+            cb_hienMatKhau = new CheckBox();
+            label4 = new Label();
+            label3 = new Label();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btn_Thoat);
-            this.panel1.Controls.Add(this.txt_xacNhanMatKhau);
-            this.panel1.Controls.Add(this.txt_matKhauMoi);
-            this.panel1.Controls.Add(this.btn_doiMatKhau);
-            this.panel1.Controls.Add(this.cb_hienMatKhau);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(70, 60);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(861, 308);
-            this.panel1.TabIndex = 1;
+            panel1.Controls.Add(btn_Thoat);
+            panel1.Controls.Add(txt_xacNhanMatKhau);
+            panel1.Controls.Add(txt_matKhauMoi);
+            panel1.Controls.Add(btn_doiMatKhau);
+            panel1.Controls.Add(cb_hienMatKhau);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label3);
+            panel1.Location = new Point(64, 42);
+            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(690, 302);
+            panel1.TabIndex = 1;
             // 
             // btn_Thoat
             // 
-            this.btn_Thoat.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Thoat.Location = new System.Drawing.Point(439, 223);
-            this.btn_Thoat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btn_Thoat.Name = "btn_Thoat";
-            this.btn_Thoat.Size = new System.Drawing.Size(181, 37);
-            this.btn_Thoat.TabIndex = 28;
-            this.btn_Thoat.Text = "Cancel";
-            this.btn_Thoat.UseVisualStyleBackColor = true;
-            this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
+            btn_Thoat.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Thoat.Location = new Point(341, 223);
+            btn_Thoat.Margin = new Padding(4, 3, 4, 3);
+            btn_Thoat.Name = "btn_Thoat";
+            btn_Thoat.Size = new Size(181, 37);
+            btn_Thoat.TabIndex = 28;
+            btn_Thoat.Text = "Cancel";
+            btn_Thoat.UseVisualStyleBackColor = true;
+            btn_Thoat.Click += btn_Thoat_Click;
             // 
             // txt_xacNhanMatKhau
             // 
-            this.txt_xacNhanMatKhau.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txt_xacNhanMatKhau.Location = new System.Drawing.Point(386, 112);
-            this.txt_xacNhanMatKhau.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txt_xacNhanMatKhau.Name = "txt_xacNhanMatKhau";
-            this.txt_xacNhanMatKhau.Size = new System.Drawing.Size(305, 27);
-            this.txt_xacNhanMatKhau.TabIndex = 27;
-            this.txt_xacNhanMatKhau.UseSystemPasswordChar = true;
+            txt_xacNhanMatKhau.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            txt_xacNhanMatKhau.Location = new Point(282, 112);
+            txt_xacNhanMatKhau.Margin = new Padding(4, 3, 4, 3);
+            txt_xacNhanMatKhau.Name = "txt_xacNhanMatKhau";
+            txt_xacNhanMatKhau.Size = new Size(305, 27);
+            txt_xacNhanMatKhau.TabIndex = 27;
+            txt_xacNhanMatKhau.UseSystemPasswordChar = true;
             // 
             // txt_matKhauMoi
             // 
-            this.txt_matKhauMoi.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txt_matKhauMoi.Location = new System.Drawing.Point(386, 48);
-            this.txt_matKhauMoi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txt_matKhauMoi.Name = "txt_matKhauMoi";
-            this.txt_matKhauMoi.Size = new System.Drawing.Size(305, 27);
-            this.txt_matKhauMoi.TabIndex = 25;
-            this.txt_matKhauMoi.UseSystemPasswordChar = true;
+            txt_matKhauMoi.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            txt_matKhauMoi.Location = new Point(282, 53);
+            txt_matKhauMoi.Margin = new Padding(4, 3, 4, 3);
+            txt_matKhauMoi.Name = "txt_matKhauMoi";
+            txt_matKhauMoi.Size = new Size(305, 27);
+            txt_matKhauMoi.TabIndex = 25;
+            txt_matKhauMoi.UseSystemPasswordChar = true;
             // 
             // btn_doiMatKhau
             // 
-            this.btn_doiMatKhau.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_doiMatKhau.Location = new System.Drawing.Point(218, 223);
-            this.btn_doiMatKhau.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btn_doiMatKhau.Name = "btn_doiMatKhau";
-            this.btn_doiMatKhau.Size = new System.Drawing.Size(181, 37);
-            this.btn_doiMatKhau.TabIndex = 22;
-            this.btn_doiMatKhau.Text = "Change Password";
-            this.btn_doiMatKhau.UseVisualStyleBackColor = true;
-            this.btn_doiMatKhau.Click += new System.EventHandler(this.btn_doiMatKhau_Click);
+            btn_doiMatKhau.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_doiMatKhau.Location = new Point(121, 223);
+            btn_doiMatKhau.Margin = new Padding(4, 3, 4, 3);
+            btn_doiMatKhau.Name = "btn_doiMatKhau";
+            btn_doiMatKhau.Size = new Size(181, 37);
+            btn_doiMatKhau.TabIndex = 22;
+            btn_doiMatKhau.Text = "Change Password";
+            btn_doiMatKhau.UseVisualStyleBackColor = true;
+            btn_doiMatKhau.Click += btn_doiMatKhau_Click;
             // 
             // cb_hienMatKhau
             // 
-            this.cb_hienMatKhau.AutoSize = true;
-            this.cb_hienMatKhau.Font = new System.Drawing.Font("Times New Roman", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.cb_hienMatKhau.Location = new System.Drawing.Point(386, 162);
-            this.cb_hienMatKhau.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cb_hienMatKhau.Name = "cb_hienMatKhau";
-            this.cb_hienMatKhau.Size = new System.Drawing.Size(140, 24);
-            this.cb_hienMatKhau.TabIndex = 21;
-            this.cb_hienMatKhau.Text = "Show Password";
-            this.cb_hienMatKhau.UseVisualStyleBackColor = true;
-            this.cb_hienMatKhau.CheckedChanged += new System.EventHandler(this.cb_hienMatKhau_CheckedChanged);
+            cb_hienMatKhau.AutoSize = true;
+            cb_hienMatKhau.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            cb_hienMatKhau.Location = new Point(282, 167);
+            cb_hienMatKhau.Margin = new Padding(4, 3, 4, 3);
+            cb_hienMatKhau.Name = "cb_hienMatKhau";
+            cb_hienMatKhau.Size = new Size(140, 24);
+            cb_hienMatKhau.TabIndex = 21;
+            cb_hienMatKhau.Text = "Show Password";
+            cb_hienMatKhau.UseVisualStyleBackColor = true;
+            cb_hienMatKhau.CheckedChanged += cb_hienMatKhau_CheckedChanged;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(150, 120);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(181, 19);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Confirm New Password:";
+            label4.AutoSize = true;
+            label4.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(64, 115);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(191, 19);
+            label4.TabIndex = 20;
+            label4.Text = "Confirm New Password:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(150, 56);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 19);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "New Password: ";
+            label3.AutoSize = true;
+            label3.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(64, 56);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(128, 19);
+            label3.TabIndex = 19;
+            label3.Text = "New Password: ";
             // 
             // FormDoiMatKhau
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 428);
-            this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "FormDoiMatKhau";
-            this.Text = "FormDoiMatKhau";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(10F, 19F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(823, 403);
+            Controls.Add(panel1);
+            Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FormDoiMatKhau";
+            Text = "Change Password";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ResumeLayout(false);
 
         }
 

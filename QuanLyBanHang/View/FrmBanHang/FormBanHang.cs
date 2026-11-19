@@ -412,7 +412,6 @@ namespace QuanLyBanHang.View.FrmBanHang
                     }
                     hoaDon.tongTien = money;
                     _qlhoaDon.UpdateHoaDon(hoaDon);
-                    MessageBox.Show("Invoice created successfully!");
                 }
 
                 //// Trừ đi trong kho số lượng sp đã được mua
@@ -548,13 +547,13 @@ namespace QuanLyBanHang.View.FrmBanHang
             {
                 tongTien += item.donGia * item.Soluong;
             }
-            if (Convert.ToDecimal(tongTien) - Convert.ToDecimal(txt_giamGia.Text) * 1000 < 0)
+            if (Convert.ToDecimal(tongTien) - Convert.ToDecimal(txt_giamGia.Text) < 0)
             {
                 txt_TongTien.Text = "0";
             }
             else
             {
-                txt_TongTien.Text = (Convert.ToDecimal(tongTien) - Convert.ToDecimal(txt_giamGia.Text) * 1000).ToString();
+                txt_TongTien.Text = (Convert.ToDecimal(tongTien) - Convert.ToDecimal(txt_giamGia.Text)).ToString();
             }
             int tienThua = Convert.ToInt32(txt_khachDua.Text) - Convert.ToInt32(txt_TongTien.Text);
             if (tienThua < 0)
@@ -619,7 +618,7 @@ namespace QuanLyBanHang.View.FrmBanHang
                     {
                         tongTien += Convert.ToInt32(item.donGia) * item.Soluong;
                     }
-                    var diemCongThem = tongTien / 10000;
+                    var diemCongThem = tongTien / 10;
                     kh.diemTichluy = kh.diemTichluy - diemDaDung + diemCongThem;
                     _qlKhachHang.UpdateKhachHang(kh);
                 }
@@ -636,7 +635,6 @@ namespace QuanLyBanHang.View.FrmBanHang
                 loadHDcho();
                 ClearForm();
                 HoaDon = null;
-                MessageBox.Show($"Payment completed!");
                 LoadSanPham();
                 InHoaDon();
             }
@@ -733,7 +731,7 @@ namespace QuanLyBanHang.View.FrmBanHang
             Pen pn = new Pen(Color.Black, 1);
 
             // --- 1. PHẦN HEADER (TIÊU ĐỀ & THÔNG TIN HÓA ĐƠN) ---
-            e.Graphics.DrawString("FPOLY TSHIRT", fontTitle, Brushes.Black, new Point(margin, y));
+            e.Graphics.DrawString("MY SHIRTS SHOP", fontTitle, Brushes.DarkBlue, new Point(margin, y));
 
             // Số hóa đơn và Ngày giờ căn lề phải
             string invoiceNum = $"Invoice: #{hd.IDHoaDon}";
@@ -755,8 +753,19 @@ namespace QuanLyBanHang.View.FrmBanHang
             e.Graphics.DrawString(title, fontTitle, Brushes.Black, new Point((w - (int)sizeTitle.Width) / 2, y));
 
             y += 40;
-            e.Graphics.DrawString($"Customer Name: {kh.TenKH}", fontContent, Brushes.Black, new Point(margin, y));
-            e.Graphics.DrawString($"Phone Number: {kh.SDT_KH}", fontContent, Brushes.Black, new Point(margin, y + 25));
+            string labelName = "Customer Name: ";
+            string labelPhone = "Phone Number: ";
+
+            // Dòng 1: Customer Name
+            e.Graphics.DrawString(labelName, fontContent, Brushes.Black, new Point(margin, y));
+            SizeF sizeName = e.Graphics.MeasureString(labelName, fontContent);
+            // Trừ bớt vài pixel (ví dụ -4) để phần chữ đậm không bị hở quá xa dấu hai chấm do khoảng trắng mặc định của GDI+
+            e.Graphics.DrawString(kh.TenKH, fontBold, Brushes.Black, new Point(margin + (int)sizeName.Width - 4, y));
+
+            // Dòng 2: Phone Number
+            e.Graphics.DrawString(labelPhone, fontContent, Brushes.Black, new Point(margin, y + 25));
+            SizeF sizePhone = e.Graphics.MeasureString(labelPhone, fontContent);
+            e.Graphics.DrawString(kh.SDT_KH, fontBold, Brushes.Black, new Point(margin + (int)sizePhone.Width - 4, y + 25));
 
             y += 60;
             // Đường kẻ trước bảng sản phẩm
@@ -771,8 +780,8 @@ namespace QuanLyBanHang.View.FrmBanHang
             int colTotal = w - 90;
 
             e.Graphics.DrawString("No.", fontHeader, Brushes.Black, new Point(colStt, y));
-            e.Graphics.DrawString("Product Name", fontHeader, Brushes.Black, new Point(colName, y));
-            e.Graphics.DrawString("Qty", fontHeader, Brushes.Black, new Point(colQty, y));
+            e.Graphics.DrawString("Product", fontHeader, Brushes.Black, new Point(colName, y));
+            e.Graphics.DrawString("Quantity", fontHeader, Brushes.Black, new Point(colQty, y));
             e.Graphics.DrawString("Price", fontHeader, Brushes.Black, new Point(colPrice, y));
             e.Graphics.DrawString("Total", fontHeader, Brushes.Black, new Point(colTotal, y));
 
@@ -784,34 +793,72 @@ namespace QuanLyBanHang.View.FrmBanHang
             y += 10;
             var listChiTiet = _qlhoaDonChiTiet.GetHoaDonChiTietFromDB().Where(c => c.IDHoaDon == oID).ToList();
 
-            foreach (var x in listChiTiet)
+            // Tạo bút kẻ ngang mờ dùng chung cho các dòng sản phẩm
+            Pen rowDividerPen = new Pen(Color.FromArgb(220, 220, 220), 1);
+
+            for (int i = 0; i < listChiTiet.Count; i++)
             {
+                var x = listChiTiet[i];
                 var sp = _qlSanPhamCT.GetSanPhamCTFromDB().FirstOrDefault(p => p.IDSanPhamChiTiet == x.IDSanPham);
                 string productName = sp != null ? sp.TenSP : string.Empty;
-                var thanhtien = x.Soluong * x.donGia;
+                float thanhtien = x.Soluong * x.donGia;
 
                 e.Graphics.DrawString(stt.ToString(), fontContent, Brushes.Black, new Point(colStt, y));
 
-                if (productName.Length > 20) productName = productName.Substring(0, 17) + "...";
+                if (productName.Length > 50) productName = productName.Substring(0, 45) + "...";
                 e.Graphics.DrawString(productName, fontContent, Brushes.Black, new Point(colName, y));
-
                 e.Graphics.DrawString(x.Soluong.ToString(), fontContent, Brushes.Black, new Point(colQty, y));
                 e.Graphics.DrawString(x.donGia.ToString("N0"), fontContent, Brushes.Black, new Point(colPrice, y));
                 e.Graphics.DrawString(thanhtien.ToString("N0"), fontContent, Brushes.Black, new Point(colTotal, y));
 
-                y += 25;
+                if (i < listChiTiet.Count - 1)
+                {
+                    int lineY = y + 22;
+                    e.Graphics.DrawLine(rowDividerPen, new Point(margin, lineY), new Point(w - margin, lineY));
+                }
+
+                y += 28;
+                stt++;
             }
 
             // --- 5. TỔNG KẾT & CHÂN TRANG ---
-            y += 10;
+            float discount = Convert.ToSingle(txt_giamGia.Text);
+            float subTotal = hd.tongTien + discount;
+
             e.Graphics.DrawLine(pn, new Point(margin, y), new Point(w - margin, y));
 
             y += 20;
-            string totalText = $"Total Price: {hd.tongTien:N0} $";
-            SizeF sizeTotal = e.Graphics.MeasureString(totalText, fontBold);
-            e.Graphics.DrawString(totalText, fontBold, Brushes.Black, new Point(w - margin - (int)sizeTotal.Width, y));
+            int lineHeight = 25;
 
-            y += 50;
+            int labelX = w - margin - 200;
+            int rightEdge = w - margin;
+
+            string subtotalVal = $"{subTotal:N0} $";
+            string discountVal = $"-{discount:N0} $";
+            string totalVal = $"{hd.tongTien:N0} $";
+
+            // 1. Dòng Subtotal
+            e.Graphics.DrawString("SUBTOTAL:", fontContent, Brushes.Black, new Point(labelX, y));
+            SizeF sizeSubVal = e.Graphics.MeasureString(subtotalVal, fontContent);
+            e.Graphics.DrawString(subtotalVal, fontContent, Brushes.Black, new Point(rightEdge - (int)sizeSubVal.Width, y));
+
+            // 2. Dòng Discount
+            y += lineHeight;
+            e.Graphics.DrawString("DISCOUNT:", fontContent, Brushes.Red, new Point(labelX, y));
+            SizeF sizeDisVal = e.Graphics.MeasureString(discountVal, fontContent);
+            e.Graphics.DrawString(discountVal, fontContent, Brushes.Red, new Point(rightEdge - (int)sizeDisVal.Width, y));
+
+            // Đường phân cách trước Total
+            y += lineHeight;
+            e.Graphics.DrawLine(new Pen(Color.Gray, 1), new Point(labelX, y - 3), new Point(rightEdge, y - 3));
+
+            // 3. Dòng Total (in đậm cả nhãn lẫn giá trị)
+            y += 5;
+            e.Graphics.DrawString("TOTAL:", fontBold, Brushes.DarkBlue, new Point(labelX, y));
+            SizeF sizeTotVal = e.Graphics.MeasureString(totalVal, fontBold);
+            e.Graphics.DrawString(totalVal, fontBold, Brushes.DarkBlue, new Point(rightEdge - (int)sizeTotVal.Width, y));
+
+            y += 80;
             string thankYou = "THANK YOU FOR YOUR BUSINESS!";
             SizeF sizeThanks = e.Graphics.MeasureString(thankYou, fontHeader);
             e.Graphics.DrawString(thankYou, fontHeader, Brushes.Black, new Point((w - (int)sizeThanks.Width) / 2, y));

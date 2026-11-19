@@ -50,9 +50,9 @@
             panel1.Controls.Add(txt_taiKhoan);
             panel1.Controls.Add(txt_matKhau);
             panel1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            panel1.Location = new Point(97, 43);
+            panel1.Location = new Point(48, 41);
             panel1.Name = "panel1";
-            panel1.Size = new Size(602, 324);
+            panel1.Size = new Size(561, 324);
             panel1.TabIndex = 9;
             // 
             // label2
@@ -130,10 +130,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(674, 413);
             Controls.Add(panel1);
             Name = "FormDangNhap";
-            Text = "FormDangNhap";
+            Text = "LOGIN";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

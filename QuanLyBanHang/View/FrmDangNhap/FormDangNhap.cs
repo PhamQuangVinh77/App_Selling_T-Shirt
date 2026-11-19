@@ -38,7 +38,7 @@ namespace QuanLyBanHang.View.FrmDangNhap
                 {
                     if (txt_taiKhoan.Text == acc[i].nhanViens.email && txt_matKhau.Text == acc[i].nhanViens.matKhau && acc[i].nhanViens.IDChucVu == 1)
                     {
-                        MessageBox.Show("Login as administrator");
+                        MessageBox.Show("Login as MANAGER!");
                         Properties.Settings.Default.email = txt_taiKhoan.Text;
                         Properties.Settings.Default.Save();
                         FormMenuAdmin frmTrangChu = new FormMenuAdmin(this);
@@ -47,7 +47,7 @@ namespace QuanLyBanHang.View.FrmDangNhap
                     }
                     else if (txt_taiKhoan.Text == acc[i].nhanViens.email && txt_matKhau.Text == acc[i].nhanViens.matKhau && acc[i].nhanViens.IDChucVu == 2)
                     {
-                        MessageBox.Show("Login as staff");
+                        MessageBox.Show("Login as STAFF!");
                         Properties.Settings.Default.email = txt_taiKhoan.Text;
                         Properties.Settings.Default.Save();
                         FormMenuNhanVien frmTrangChuNhanVien = new FormMenuNhanVien(this);

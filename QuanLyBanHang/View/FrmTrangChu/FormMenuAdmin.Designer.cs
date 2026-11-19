@@ -381,7 +381,7 @@
             Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(4, 3, 4, 3);
             Name = "FormMenuAdmin";
-            Text = "FormMenuAdmin";
+            Text = "Shop Management";
             pnl_Menu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);

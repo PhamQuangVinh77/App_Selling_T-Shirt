@@ -203,7 +203,7 @@
             ClientSize = new Size(1902, 903);
             Controls.Add(panel1);
             Name = "FormMenuNhanVien";
-            Text = "FormMenuNhanVien";
+            Text = "Shop Management";
             panel1.ResumeLayout(false);
             pnl_Home.ResumeLayout(false);
             pnl_Home.PerformLayout();

@@ -31,15 +31,17 @@ namespace QuanLyBanHang.View.FrmDangNhap
                 nv.nhanViens.matKhau = txt_matKhauMoi.Text;
                 qLnhanVienServices.UpdateNhanVien(nv);
                 MessageBox.Show("Password changed successfully!");
-                this.Hide();
+                this.Close();
                 FormDangNhap frmDangNhap = new FormDangNhap();
-                frmDangNhap.ShowDialog();
+                frmDangNhap.Show();
             }
         }
 
         private void btn_Thoat_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
+            FormDangNhap frm = new FormDangNhap();
+            frm.Show();
         }
 
         private void cb_hienMatKhau_CheckedChanged(object sender, EventArgs e)

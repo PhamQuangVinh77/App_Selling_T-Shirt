@@ -15,7 +15,7 @@ namespace _1_DAL_QUANLY.Extensions
                 );
             modelBuilder.Entity<nhanVien>().HasData
                 (
-                new nhanVien() { IDNhanVien = 1, tenNV = "Admin", IDChucVu = 1, diaChi = "", SDT = "0902096529", email = "admin@gmail.com", matKhau = "1", tinhTrang = true }
+                new nhanVien() { IDNhanVien = 1, tenNV = "Manager", IDChucVu = 1, diaChi = "", SDT = "0902096529", email = "manager@gmail.com", matKhau = "1", tinhTrang = true }
                 );
             modelBuilder.Entity<khachHang>().HasData
                 (
